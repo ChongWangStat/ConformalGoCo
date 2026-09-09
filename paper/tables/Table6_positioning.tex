@@ -1,0 +1,111 @@
+% =====================================================================
+% Table 6 -- positioning of GoCo against the closest existing approaches.
+% Place at the start of the Discussion, after sections/discussion_positioning.tex.
+% Requires: booktabs, array (both already loaded by GoCo_BIB_v2.tex / the OUP class).
+% Cross-reference used: \ref{cor:order} (Corollary 1, sections/methods_theory_v2.tex).
+% Column widths sum to 0.90\linewidth; with \tabcolsep=2.5pt the table is
+% 474.7pt wide inside a table* (\linewidth = 488.5pt in this class).
+% =====================================================================
+\begin{table*}[!t]
+\centering
+\caption{Where GoCo sits among existing calibration and selection approaches. The columns are the axes on which these approaches genuinely differ: the object whose value calibration is allowed to choose, the population quantity the guarantee is about, the unit over which error is counted, whether the ontology enters that guarantee, and whether the guarantee is finite-sample or asymptotic.}
+\label{tab:positioning}
+\scriptsize
+\setlength{\tabcolsep}{2.5pt}
+\renewcommand{\arraystretch}{1.05}
+\begin{tabular}{%
+ >{\raggedright\arraybackslash}p{0.145\linewidth}%
+ >{\raggedright\arraybackslash}p{0.165\linewidth}%
+ >{\raggedright\arraybackslash}p{0.200\linewidth}%
+ >{\raggedright\arraybackslash}p{0.080\linewidth}%
+ >{\raggedright\arraybackslash}p{0.110\linewidth}%
+ >{\raggedright\arraybackslash}p{0.145\linewidth}%
+ >{\raggedright\arraybackslash}p{0.055\linewidth}}
+\toprule
+Approach & What is calibrated & Estimand the guarantee is over & Unit of error & Ontology in the guarantee? & Finite-sample or asymptotic? & Re\-fits model? \\
+\midrule
+$F_{\max}$ or AUPR score cutoff \cite{kulmanov2020deepgoplus,yao2021netgo2}
+ & One genome-wide cutoff maximising a benchmark summary
+ & None; a chosen point on a precision--recall curve
+ & Benchmark average
+ & In scoring, not in the cutoff rule
+ & None
+ & No\textsuperscript{a} \\
+Split conformal prediction \cite{angelopoulos2023gentle}
+ & A quantile of a nonconformity score on a calibration set
+ & Marginal coverage, $\Pr\{Y\in C(X)\}\ge1-\alpha$
+ & One test instance
+ & No
+ & Finite-sample
+ & No \\
+RCPS and conformal risk control \cite{bates2021,angelopoulos2024crc}
+ & One threshold in a nested family of set-valued rules
+ & A bounded loss, in expectation (CRC) or w.p.\ $1-\delta$ (RCPS)
+ & One test instance
+ & Only if the user's loss encodes it
+ & Finite-sample; CRC needs a monotone loss
+ & No \\
+Learn-Then-Test \cite{angelopoulos2025ltt}
+ & Any finite family of configurations; no monotonicity
+ & $R(\widehat\lambda)\le\alpha$ with probability $1-\delta$
+ & Set by the loss
+ & Only through the loss
+ & Finite-sample, with family-wise control
+ & No \\
+\midrule
+Boger et al., protein retrieval \cite{boger2025}
+ & One global similarity cutoff on the hit list
+ & Mean per-query risk under an EC-hierarchy-aware loss
+ & Query protein
+ & Yes: EC hierarchy in the loss
+ & Asymptotic as released (normal $p$-value)
+ & No \\
+CPEC, enzyme-commission sets \cite{ding2024cpec}
+ & An LTT threshold on predicted EC scores
+ & Average per-protein FDR of the released EC set
+ & Protein
+ & Not in the loss
+ & Finite-sample, through LTT
+ & No \\
+Conformal selection with BH \cite{jin2023selection,bates2023outliers}
+ & A Benjamini--Hochberg cutoff on conformal $p$-values
+ & FDR of the pooled set of selected items
+ & One selected item
+ & No
+ & Finite-sample
+ & No \\
+Mondrian and group-conditional conformal \cite{vovk2013conditional,gibbs2025conditional}
+ & One quantile per category, or coverage over a class of shifts
+ & Coverage given a category or covariate class
+ & One test instance
+ & No; groups are user-chosen
+ & Finite-sample
+ & No \\
+Hierarchical and structured conformal \cite{mortier2026hierarchical,zhang2025structured}
+ & Which node or subtree to emit, under a size constraint
+ & Marginal coverage of the one true label by a hierarchy-shaped set
+ & One test instance
+ & Yes: tree or DAG shapes the set
+ & Finite-sample
+ & No \\
+\midrule
+ConformalGoDag (GoDag) \cite{wang2026conformalgodag}
+ & One global score threshold from a fixed grid
+ & Mean gene-level FDP of the TruePath-closed released set
+ & Gene\textsuperscript{b}
+ & Yes: TruePath closure in the loss
+ & Finite-sample as published (Hoeffding); asymptotic here
+ & No \\
+\textbf{GoCo} (this work)
+ & The same grid, \emph{plus} which affected genes a step relaxes, and in what order
+ & The same gene-level FDP, for \emph{any} ordering built on the ranking fold (Cor.~\ref{cor:order})
+ & Gene\textsuperscript{b}
+ & Yes: TruePath closure in the loss
+ & Asymptotic in the certification fold; finite-sample via Hoeffding at a yield cost
+ & No \\
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize
+``Ontology in the guarantee'' asks whether the hierarchy enters the certified statement, not whether the predictor or the benchmark uses it; the generic methods are loss-agnostic, so a user may encode a hierarchy in the loss they supply. ``Finite-sample or asymptotic'' describes the guarantee as stated in the cited work, or as implemented where the released code uses a different statistic, and not the best available for that construction. No row refits or rescales the scoring model: all are post hoc release rules, and what separates them is which object calibration may choose. \textsuperscript{a}The cutoff is selected on the benchmark used to report performance; the predictor is not refitted. \textsuperscript{b}The whole annotation set of one gene; an abstaining gene contributes loss zero.
+\end{minipage}
+\end{table*}

@@ -1,0 +1,36 @@
+{
+  "dataset": "wainberg",
+  "repeats": 100,
+  "random_seed": 20260827,
+  "partition_proportions": [
+    0.2,
+    0.4,
+    0.4
+  ],
+  "partition_order": [
+    "nuisance",
+    "calibration",
+    "evaluation"
+  ],
+  "alphas": [
+    0.05,
+    0.1,
+    0.2
+  ],
+  "delta": 0.1,
+  "methods": [
+    "Hoeffding-LTT",
+    "CoConformalGO-BB-CS",
+    "CoConformalGO-BB-plugin",
+    "Block-HAC"
+  ],
+  "beta_binomial_validity": "known-rho finite-sample under the exchangeable beta-binomial model; reported estimated-rho procedures are model-based, not distribution-free",
+  "package_versions": {
+    "numpy": "2.3.4",
+    "pandas": "2.3.3",
+    "scipy": "1.16.3",
+    "networkx": "3.5",
+    "matplotlib": "3.10.7",
+    "openpyxl": "3.1.5"
+  }
+}

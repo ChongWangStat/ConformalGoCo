@@ -1,0 +1,38 @@
+\begin{table*}[!t]
+\centering
+\caption{Primary comparison at $\alpha=0.10$ and $\delta=0.10$ (the substantive guarantee of Proposition~\ref{prop:validity}).}
+\label{tab:primary10}
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\resizebox{\linewidth}{!}{\begin{tabular}{ll rrr rrrr r}
+\toprule
+Data set & Method & Gene FDP & $\Pr(\widehat R_{\mathcal E}>\alpha)$ & $\Pr(R>\alpha)$ & Supp.\ genes & Calls & Supp.\ terms & Supp.\ frac. & $\Delta$terms vs GoDag [95\% CI] \\
+\midrule
+Wainberg ($n_{\mathcal E}$=4,738) & Boger et al.\ (Direct loss) & 0.0923 & 0.01 & 0.00 & 185.3 & 1612 & 338.9 & 0.210 & -0.7 [-1.2, -0.2] \\
+ & GoDag & 0.0923 & 0.01 & 0.00 & 185.7 & 1614 & 339.6 & 0.210 & -- \\
+ & GoDag-dense & 0.0924 & 0.01 & 0.00 & 185.7 & 1615 & 339.6 & 0.210 & +0.0 [+0.0, +0.0] \\
+ & GoCo-random & 0.0958 & 0.21 & 0.01 & 187.7 & 1668 & 342.3 & 0.205 & +2.7 [+2.3, +3.1] \\
+ & \textbf{GoCo} (Eq.~\ref{eq:utility}) & 0.0948 & 0.13 & 0.00 & 195.2 & 1896 & 365.2 & 0.193 & +25.6 [+24.1, +27.1] \\
+\midrule
+Sanger ($n_{\mathcal E}$=4,465) & Boger et al.\ (Direct loss) & 0.0913 & 0.01 & 0.00 & 150.7 & 1751 & 315.8 & 0.181 & -3.3 [-5.0, -1.6] \\
+ & GoDag & 0.0923 & 0.12 & 0.00 & 151.7 & 1789 & 319.1 & 0.179 & -- \\
+ & GoDag-dense & 0.0939 & 0.15 & 0.00 & 153.7 & 1870 & 326.0 & 0.175 & +6.9 [+5.0, +8.7] \\
+ & GoCo-random & 0.0952 & 0.17 & 0.00 & 155.1 & 1916 & 332.5 & 0.174 & +13.4 [+12.0, +14.8] \\
+ & \textbf{GoCo} (Eq.~\ref{eq:utility}) & 0.0930 & 0.15 & 0.00 & 156.9 & 1983 & 340.0 & 0.172 & +20.9 [+18.4, +23.4] \\
+\midrule
+DRIVE ($n_{\mathcal E}$=1,885) & Boger et al.\ (Direct loss) & 0.0913 & 0.13 & 0.00 & 90.0 & 1609 & 227.9 & 0.143 & -9.3 [-11.9, -6.8] \\
+ & GoDag & 0.0929 & 0.13 & 0.00 & 92.9 & 1718 & 237.2 & 0.139 & -- \\
+ & GoDag-dense & 0.0948 & 0.27 & 0.00 & 97.0 & 1886 & 253.1 & 0.135 & +15.8 [+13.9, +17.7] \\
+ & GoCo-random & 0.0947 & 0.23 & 0.01 & 96.1 & 1840 & 248.3 & 0.136 & +11.0 [+9.3, +12.8] \\
+ & \textbf{GoCo} (Eq.~\ref{eq:utility}) & 0.0931 & 0.16 & 0.01 & 99.4 & 1987 & 263.5 & 0.134 & +26.2 [+22.7, +29.8] \\
+\midrule
+HAP1 ($n_{\mathcal E}$=4,506) & Boger et al.\ (Direct loss) & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & 0.153 & +0.0 [+0.0, +0.0] \\
+ & GoDag & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & 0.153 & -- \\
+ & GoDag-dense & 0.0720 & 0.00 & 0.00 & 77.2 & 855 & 132.1 & 0.154 & +2.7 [+2.4, +2.9] \\
+ & GoCo-random & 0.0933 & 0.10 & 0.00 & 79.9 & 1107 & 134.3 & 0.121 & +4.9 [+4.6, +5.1] \\
+ & \textbf{GoCo} (Eq.~\ref{eq:utility}) & 0.0915 & 0.06 & 0.00 & 80.7 & 1252 & 137.6 & 0.110 & +8.1 [+7.6, +8.7] \\
+\bottomrule
+\end{tabular}}
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize Means over the same 100 split streams at $\alpha=0.10$. Gene FDP: held-out gene-level TruePath FDP $\widehat R_{\mathcal E}$. $\Pr(\widehat R_{\mathcal E}>\alpha)$: fraction of splits whose held-out FDP exceeded $\alpha$. $\Pr(R>\alpha)$: fraction of splits in which the pool risk of the certified policy, the quantity bounded by Proposition~\ref{prop:validity}, exceeded $\alpha$. Supp.\ genes / terms: held-out genes with $\ge1$ TruePath-supported released term / supported released gene--GO pairs. Supp.\ frac.: supported fraction of all released calls (the number of held-out genes with a nonempty set is in the reproducibility tables). Boger et al.\ is the released implementation on the Direct loss, calibrated on 70\% of the panel; all other rows use the TruePath loss. GoDag and GoCo share the 25-unit grid; GoDag-dense uses every distinct score value as a threshold; GoCo-random uses GoCo's blocks and admission grid with a hash ordering (mean of three hash seeds). The last column is the paired mean difference in supported terms from GoDag with a descriptive 95\% interval over splits.
+\end{minipage}
+\end{table*}

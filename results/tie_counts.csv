@@ -1,0 +1,5 @@
+dataset,score_floor,rows_at_or_above_floor,distinct_scores,largest_tie_rows,largest_tie_score,rows_at_789_65
+Wainberg,600,16480,119,3361,658.041667,2470.0
+Sanger,200,29120,438,1880,263.216667,
+DRIVE,200,9258,323,723,225.614286,
+HAP1,200,122262,172,14245,219.347222,

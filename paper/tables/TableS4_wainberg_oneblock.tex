@@ -1,0 +1,34 @@
+\begin{table*}[!htbp]
+\centering
+\caption{Wainberg: the single-block construction used in the first draft (partial admission only of the tied step $800\to789.65$, path ending there) versus the uniform grid-path construction of this paper, at three targets, and GoDag calibrated on the certification fold only. The first-draft construction cannot move beyond its single block, which is why it coincides with GoDag at $\alpha=0.05$ and loses to GoDag at $\alpha=0.20$.}
+\label{tab:oneblock}
+\scriptsize
+\resizebox{\linewidth}{!}{\begin{tabular}{l l l rrr}
+\toprule
+$\alpha$ & $\delta$ & Method & Gene FDP & Supp.\ genes & Supp.\ terms \\ \midrule
+0.05 & 0.50 & GoDag (70\% calibration) & 0.0359 & 114.9 & 183.1 \\
+0.05 & 0.50 & GoDag (60\% certification fold only) & 0.0359 & 114.9 & 183.1 \\
+0.05 & 0.50 & GoCo, single block, $\widehat\Delta_i/\sqrt{c_i}$ (first draft) & 0.0359 & 114.9 & 183.1 \\
+0.05 & 0.50 & GoCo, grid path, $\widehat\Delta_i/\sqrt{c_i}$ & 0.0476 & 124.3 & 208.5 \\
+0.05 & 0.50 & GoCo, grid path, Eq.~(6) & 0.0469 & 124.7 & 209.2 \\
+\midrule
+0.10 & 0.50 & GoDag (70\% calibration) & 0.0923 & 185.7 & 339.6 \\
+0.10 & 0.50 & GoDag (60\% certification fold only) & 0.0923 & 185.7 & 339.6 \\
+0.10 & 0.50 & GoCo, single block, $\widehat\Delta_i/\sqrt{c_i}$ (first draft) & 0.0984 & 192.1 & 353.9 \\
+0.10 & 0.50 & GoCo, grid path, $\widehat\Delta_i/\sqrt{c_i}$ & 0.0985 & 192.2 & 354.1 \\
+0.10 & 0.50 & GoCo, grid path, Eq.~(6) & 0.0984 & 193.4 & 356.2 \\
+\midrule
+0.20 & 0.50 & GoDag (70\% calibration) & 0.1699 & 265.4 & 518.9 \\
+0.20 & 0.50 & GoDag (60\% certification fold only) & 0.1699 & 265.4 & 518.9 \\
+0.20 & 0.50 & GoCo, single block, $\widehat\Delta_i/\sqrt{c_i}$ (first draft) & 0.1394 & 208.2 & 381.9 \\
+0.20 & 0.50 & GoCo, grid path, $\widehat\Delta_i/\sqrt{c_i}$ & 0.1948 & 270.4 & 532.1 \\
+0.20 & 0.50 & GoCo, grid path, Eq.~(6) & 0.1979 & 271.8 & 535.0 \\
+\midrule
+0.10 & 0.10 & GoDag (70\% calibration) & 0.0923 & 185.7 & 339.6 \\
+0.10 & 0.10 & GoDag (60\% certification fold only) & 0.0923 & 185.7 & 339.6 \\
+0.10 & 0.10 & GoCo, single block, $\widehat\Delta_i/\sqrt{c_i}$ (first draft) & 0.0958 & 189.7 & 349.7 \\
+0.10 & 0.10 & GoCo, grid path, $\widehat\Delta_i/\sqrt{c_i}$ & 0.0958 & 189.7 & 349.7 \\
+0.10 & 0.10 & GoCo, grid path, Eq.~(6) & 0.0953 & 191.0 & 351.5 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

@@ -1,0 +1,27 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the paper and this archived release."
+title: "ConformalGoCo (GoCo): co-essentiality-guided conformal calibration for Gene Ontology annotation release"
+abstract: "Reference implementation, frozen inputs and split-level results for GoCo, a calibration and release layer that certifies a gene-level false discovery proportion for predicted Gene Ontology annotations without retraining the upstream predictor."
+type: software
+version: 1.0.0
+license: MIT
+repository-code: "https://github.com/ChongWangStat/ConformalGoCo"
+authors:
+  - family-names: Wang
+    given-names: Chong
+    orcid: "https://orcid.org/0000-0003-4489-4344"
+    affiliation: "Department of Statistics and Department of Veterinary Diagnostic and Production Animal Medicine, Iowa State University"
+  - family-names: Shao
+    given-names: Yongzhao
+    orcid: "https://orcid.org/0000-0003-0641-6755"
+    affiliation: "Department of Population Health, NYU Grossman School of Medicine"
+  - family-names: Liu
+    given-names: Peng
+    orcid: "https://orcid.org/0000-0002-2093-8018"
+    affiliation: "Department of Statistics, Iowa State University"
+keywords:
+  - Gene Ontology
+  - conformal risk control
+  - Learn-Then-Test
+  - co-essentiality
+  - functional annotation

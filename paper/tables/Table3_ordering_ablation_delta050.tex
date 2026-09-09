@@ -1,0 +1,24 @@
+\begin{table*}[!t]
+\centering
+\caption{Ordering ablation at $\alpha=0.10$, $\delta=0.50$: the value of the ordering beyond partial admission itself.}
+\label{tab:ablation50}
+\scriptsize
+\setlength{\tabcolsep}{3.5pt}
+\resizebox{\linewidth}{!}{\begin{tabular}{l rr rr rr rr }
+\toprule
+Ordering of affected genes & \multicolumn{2}{c}{Wainberg} & \multicolumn{2}{c}{Sanger} & \multicolumn{2}{c}{DRIVE} & \multicolumn{2}{c}{HAP1} \\
+ & Terms & vs random [P] & Terms & vs random [P] & Terms & vs random [P] & Terms & vs random [P] \\ \midrule
+GoCo-random & 346.3 & -- & 359.2 & -- & 280.4 & -- & 135.1 & -- \\
+GoCo-score (added-call score) & 341.7 & -4.5 [0.01] & 361.9 & +2.7 [0.69] & 285.0 & +4.6 [0.72] & 137.9 & +2.8 [0.94] \\
+GoCo ($\widehat\Delta_i$, $e=0$) & 349.7 & +3.4 [0.71] & 358.9 & -0.3 [0.50] & 267.7 & -12.7 [0.12] & 135.2 & +0.1 [0.48] \\
+source-smoothed $\widehat\Delta_i/\sqrt{c_i}$ & 354.1 & +7.8 [0.98] & 365.9 & +6.7 [0.72] & 288.1 & +7.7 [0.78] & 135.7 & +0.5 [0.56] \\
+GoCo ($\widehat\Delta_i/c_i$, $e=1$) & 353.0 & +6.7 [0.94] & 367.1 & +7.9 [0.69] & 290.2 & +9.8 [0.88] & 135.1 & -0.1 [0.49] \\
+source-smoothed knapsack & 356.2 & +9.9 [0.97] & 370.4 & +11.2 [0.94] & 292.8 & +12.4 [0.93] & 136.1 & +1.0 [0.66] \\
+GoCo, gradient-boosted variant & 365.1 & +18.8 [1.00] & 376.7 & +17.5 [0.89] & 291.4 & +11.0 [0.83] & 137.8 & +2.6 [0.88] \\
+\textbf{GoCo} (Eq.~\ref{eq:utility}) & 369.1 & +22.8 [1.00] & 380.7 & +21.5 [0.91] & 291.7 & +11.3 [0.81] & 137.7 & +2.5 [0.89] \\
+GoCo-oracle (realised $\Delta_i$; uses labels) & 381.6 & +35.3 [1.00] & 388.5 & +29.3 [0.98] & 298.4 & +18.0 [0.98] & 139.7 & +4.6 [1.00] \\
+\bottomrule
+\end{tabular}}
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize Same blocks, admission grid, certification fold and statistic; only the ordering of affected genes differs. Terms: mean held-out supported GO-term yield. vs random: paired mean difference from GoCo-random and, in brackets, the fraction of splits in which the ordering beat GoCo-random. $\widehat\Delta_i$ is the source-smoothed predicted loss increment; $e$ is the exponent of the added-call count in $\widehat\Delta_i/c_i^{\,e}$. GoCo estimates the increment and the number of supported added calls with a per-call model fitted to ranking-fold labels using frozen predictor features (Methods); the source-smoothed rows replace that model by shrinkage over module members alone. GoCo-oracle orders by the realised $\Delta_i$ of every gene, using the labels of all folds; it is a reference for the ordering effect, not a method. Mean held-out gene FDP was at most $\alpha$ for every row.
+\end{minipage}
+\end{table*}
