@@ -1,6 +1,5 @@
-import os
-"""Figures for the revised GoCo manuscript. Reads analysis_rerun/all_methods_harmonised_100splits.csv (from make_tables.py).
-Writes figures_v2/*.pdf and *.png in the revision folder."""
+"""Figures of the GoCo manuscript. Reads results/all_methods_harmonised_100splits.csv (written by make_tables.py) and the
+frozen Wainberg inputs; writes paper/figures/*.pdf and *.png."""
 import pandas as pd, numpy as np, os, sys
 import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt
@@ -12,13 +11,13 @@ OUT = REV + 'figures/'; os.makedirs(OUT, exist_ok=True)
 d = pd.read_csv(RESULTS + 'all_methods_harmonised_100splits.csv')
 DS = ['Wainberg', 'Sanger', 'DRIVE', 'HAP1']
 plt.rcParams.update({'font.size': 8, 'axes.spines.top': False, 'axes.spines.right': False, 'pdf.fonttype': 42})
-C = {'GoCo-dense-learned': '#e67e22', 'GoDag': '#1f5fa8', 'GoDag-dense': '#5b9bd5', 'GoCo-random': '#8c8c8c', 'GoCo-source': '#f0a0a0', 'GoCo-knap': '#c0392b', 'Boger': '#bdbdbd', 'GoCo-oracle': '#2e7d32', 'GoCo-score': '#b0b0b0', 'GoCo-exp0': '#e8b4b4', 'GoCo-exp1': '#d97b7b', 'GoCo-dense-knap': '#e67e22', 'GoCo': '#7b1fa2'}
-NAME = {'Boger': 'Boger et al. (Direct)', 'GoDag': 'GoDag', 'GoDag-dense': 'GoDag-dense', 'GoCo-random': 'GoCo-random', 'GoCo-source': r'GoCo ($\hat\Delta/\sqrt{c}$)', 'GoCo-knap': 'source-smoothed', 'GoCo-oracle': 'oracle ordering', 'GoCo-score': 'score ordering', 'GoCo-exp0': r'$\hat\Delta$ ($e$=0)', 'GoCo-exp1': r'$\hat\Delta/c$ ($e$=1)', 'GoCo-dense-knap': 'GoCo-dense (src)', 'GoCo-dense-learned': 'GoCo-dense', 'GoCo': 'GoCo'}
+C = {'Boger': '#bdbdbd', 'GoDag': '#1f5fa8', 'GoCo': '#7b1fa2'}
+NAME = {'Boger': 'Boger et al. (Direct)', 'GoDag': 'GoDag', 'GoCo': 'GoCo'}
 
 def save(fig, name):
     fig.savefig(OUT + name + '.pdf', bbox_inches='tight'); fig.savefig(OUT + name + '.png', dpi=300, bbox_inches='tight'); plt.close(fig)
 
-# ------------------------------------------------------------------ Figure 2: primary comparison
+# ------------------------------------------------------------------ Figure 3: primary comparison
 def fig_primary(delta, name):
     methods = ['Boger', 'GoDag', 'GoCo']
     fig, axes = plt.subplots(2, 4, figsize=(11, 5.4), gridspec_kw={'hspace': 0.95, 'wspace': 0.35})
@@ -43,7 +42,7 @@ def fig_primary(delta, name):
     save(fig, name)
 fig_primary(0.50, 'Figure3_primary_delta050'); fig_primary(0.10, 'FigureS1_primary_delta010')
 
-# ------------------------------------------------------------------ Figure 3: alpha sweep
+# ------------------------------------------------------------------ Figure 4: alpha sweep
 def fig_sweep(delta, name):
     methods = ['Boger', 'GoDag', 'GoCo']
     fig, axes = plt.subplots(2, 4, figsize=(11, 5.4), gridspec_kw={'hspace': 0.85, 'wspace': 0.35})
@@ -66,7 +65,7 @@ def fig_sweep(delta, name):
     save(fig, name)
 fig_sweep(0.50, 'Figure4_alpha_sweep_delta050'); fig_sweep(0.10, 'FigureS2_alpha_sweep_delta010')
 
-# ------------------------------------------------------------------ Figure 4: ties + staircase + ordering ablation
+# ------------------------------------------------------------------ Figure 2: ties and the risk staircase
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 try:
     import goco_rerun as gr
@@ -94,8 +93,8 @@ if have_w:
     keep = (thr >= 700) & (thr <= 900)
     ax.step(thr[keep], risk[keep], where='post', color='#1f5fa8', lw=1.2, label='global threshold path (all distinct scores)')
     ax.axhline(0.10, ls='--', color='k', lw=0.8)
-    # GoCo interpolation inside the 800->775 block: full-panel linear (random) and knapsack ordering illustrated by mean over splits of selected policy
-    ax.plot([800, 775], [risk[np.argmin(np.abs(thr - 800))], risk[np.argmin(np.abs(thr - 775))]], color=C['GoCo-random'], lw=1.2, ls=':', label='random partial admission (expected)')
+    # risk of partial admission inside the 800->775 block interpolates between the two ends (Lemma 1a); GoCo's certified policy marked by the mean over splits
+    ax.plot([800, 775], [risk[np.argmin(np.abs(thr - 800))], risk[np.argmin(np.abs(thr - 775))]], color='#8c8c8c', lw=1.2, ls=':', label='partial admission across the block (interpolated risk)')
     ax.scatter([800], [0.0923], color='#1f5fa8', zorder=3, s=25, label='GoDag stops at 800')
     ax.scatter([789.65], [0.0984], color=C['GoCo'], marker='*', s=90, zorder=4, label='GoCo certified policy (mean)')
     ax.set_xlim(905, 695); ax.set_xlabel('score threshold (decreasing → more liberal)'); ax.set_ylabel('full-panel TruePath risk')

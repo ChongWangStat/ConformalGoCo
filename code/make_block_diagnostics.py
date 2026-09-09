@@ -1,9 +1,10 @@
 import os
 """Supplementary diagnostics for the revised GoCo manuscript.
-(1) Table S6: per data set x grid block used at alpha=0.10: affected pool/ranking genes, mean/sd Delta, fraction of affected
-    genes with full source mass, out-of-sample Spearman correlations of Delta_hat, u (Eq. 6) and the added-call score with Delta.
+(1) Table S5 (file TableS6_block_diagnostics.tex): per data set x grid block used at alpha=0.10: affected pool/ranking genes,
+    mean/sd Delta, fraction of affected genes with full source mass, out-of-sample Spearman correlations of the GoCo statistic
+    u (Eq. 6) and of the added-call score with Delta.
 (2) tie_counts.csv: exact-score tie statistics quoted in Results 3.1.
-(3) Table S7: illustrative genes relaxed by GoCo (Eq. 6) but not by GoDag in one Wainberg split.
+(3) Table S6 (file TableS7_case_study.tex): illustrative genes relaxed by GoCo but not by GoDag in one Wainberg split.
 Run from the rerun directory (needs goco_rerun.py and the frozen inputs)."""
 import numpy as np, pandas as pd, os, sys
 from scipy.stats import spearmanr
@@ -31,22 +32,19 @@ for name in ['Wainberg', 'Sanger', 'DRIVE', 'HAP1']:
         affected = cadd > 0
         mass = np.asarray(Aadd.sum(axis=1)).ravel()
         gr.utility.extra = {'fsup': (YT[:, j + 1] - YT[:, j]).astype(float), 'lo': float(lo), 'hi': float(hi)}
-        sp_d, sp_u, sp_s, sp_l, nT, pos = [], [], [], [], [], []
+        sp_u, sp_s, nT, pos = [], [], [], []
         for seed in range(100):
             perm = np.random.default_rng(gr.SEED0 + seed).permutation(ds.n); nt = round(.1 * ds.n); nc = round(.7 * ds.n)
             train = perm[:nt]; pool = perm[nt:]
             fit = train[affected[train]]; nT.append(len(fit))
             if len(fit) < 5: continue
-            u, hh = gr.utility('knap', ds, Aadd, meanscore, delta, cadd, affected, train, ds.hh)
-            ul, _ = gr.utility('learned', ds, Aadd, meanscore, delta, cadd, affected, train, ds.hh)
-            dhat = gr.source_pred(Aadd, delta, fit, kappa=1.0)
+            u, hh = gr.utility('goco', ds, Aadd, meanscore, delta, cadd, affected, train, ds.hh)
             ap = pool[affected[pool]]
-            sp_d.append(spearmanr(dhat[ap], delta[ap]).correlation); r = spearmanr(u[ap], delta[ap]).correlation; sp_u.append(r); pos.append(r > 0)
-            sp_l.append(spearmanr(ul[ap], delta[ap]).correlation)
+            r = spearmanr(u[ap], delta[ap]).correlation; sp_u.append(r); pos.append(r > 0)
             ms = meanscore[ap]; ok = np.isfinite(ms); sp_s.append(spearmanr(-ms[ok], delta[ap][ok]).correlation)
         rows.append(dict(dataset=name, block=f'{hi:g}->{lo:g}', affected_genes=int(affected.sum()), affected_ranking_genes_mean=float(np.mean(nT)), mean_delta=float(delta[affected].mean()), sd_delta=float(delta[affected].std()),
                          frac_affected_full_source_mass=float(np.mean(np.isclose(mass[affected], 1.0, atol=1e-9))), frac_affected_zero_source_mass=float(np.mean(mass[affected] <= 1e-15)),
-                         spearman_dhat_delta=float(np.mean(sp_d)), spearman_u_delta=float(np.mean(sp_u)), spearman_ulearned_delta=float(np.mean(sp_l)), spearman_negscore_delta=float(np.mean(sp_s)), frac_splits_u_positive=float(np.mean(pos))))
+                         spearman_u_delta=float(np.mean(sp_u)), spearman_negscore_delta=float(np.mean(sp_s)), frac_splits_u_positive=float(np.mean(pos))))
         print(rows[-1], flush=True)
     if name == 'Wainberg':
         # ---- Table S7: illustrative genes from split 0 at the GoCo-selected admission fraction ----
@@ -55,7 +53,7 @@ for name in ['Wainberg', 'Sanger', 'DRIVE', 'HAP1']:
         j = int(np.where(np.isclose(ds.grid, 800))[0][0]); Aadd, meanscore = ds.Aadd(775, 800)
         delta = (L[:, j + 1] - L[:, j]).astype(float); cadd = (C[:, j + 1] - C[:, j]).astype(float); affected = cadd > 0
         gr.utility.extra = {'fsup': (YT[:, j + 1] - YT[:, j]).astype(float), 'lo': 775.0, 'hi': 800.0}
-        u, hh = gr.utility('learned', ds, Aadd, meanscore, delta, cadd, affected, train, ds.hh)
+        u, hh = gr.utility('goco', ds, Aadd, meanscore, delta, cadd, affected, train, ds.hh)
         # replay the fixed-sequence selection for GoCo on this split to get the selected q
         sel_q = None
         for q in gr.QGRID_E:
@@ -88,10 +86,10 @@ for name in ['Wainberg', 'Sanger', 'DRIVE', 'HAP1']:
         print('case study written; q =', sel_q)
 df = pd.DataFrame(rows); df.to_csv(AN + 'block_diagnostics_alpha010.csv', index=False)
 pd.DataFrame(ties).to_csv(AN + 'tie_counts.csv', index=False)
-L = ['\\begin{table*}[!htbp]', '\\centering', '\\caption{Block diagnostics at $\\alpha=0.10$ for the grid steps in which GoCo policies were certified. Affected genes: genes whose released set changes in the step; ranking genes: affected genes in the ranking fold (mean over 100 splits); $\\Delta$: realised loss increment over affected genes; full mass: fraction of affected genes with $\\sum_r a_{ir}=1$; Spearman columns: out-of-sample rank correlation over affected pool genes between the realised $\\Delta_i$ and, respectively, the source-smoothed $\\widehat\\Delta_i$, the ranking statistic $u_i$ of Equation~(6), the learned per-call statistic $u_i^{\\mathrm{L}}$ and the negative mean added-call score, averaged over splits; last column: fraction of splits with a positive correlation for $u_i$.}', '\\label{tab:blockdiag}', '\\scriptsize',
-     '\\resizebox{\\linewidth}{!}{\\begin{tabular}{l l r r r r r r r r r r}', '\\toprule', 'Data set & Step & Affected & Ranking & mean $\\Delta$ & sd $\\Delta$ & full mass & $\\rho(\\widehat\\Delta,\\Delta)$ & $\\rho(u,\\Delta)$ & $\\rho(u^{\\mathrm L},\\Delta)$ & $\\rho(-\\text{score},\\Delta)$ & $\\Pr(\\rho_u>0)$ \\\\ \\midrule']
+L = ['\\begin{table*}[!htbp]', '\\centering', '\\caption{Block diagnostics at $\\alpha=0.10$ for the grid steps in which GoCo policies were certified. Affected genes: genes whose released set changes in the step; ranking genes: affected genes in the ranking fold (mean over 100 splits); $\\Delta$: realised loss increment over affected genes; full mass: fraction of affected genes with $\\sum_r a_{ir}=1$; Spearman columns: out-of-sample rank correlation over affected pool genes between the realised $\\Delta_i$ and, respectively, the GoCo statistic $u_i$ of Equation~(6) and the negative mean added-call score, averaged over splits; last column: fraction of splits with a positive correlation for $u_i$.}', '\\label{tab:blockdiag}', '\\scriptsize',
+     '\\resizebox{\\linewidth}{!}{\\begin{tabular}{l l r r r r r r r r}', '\\toprule', 'Data set & Step & Affected & Ranking & mean $\\Delta$ & sd $\\Delta$ & full mass & $\\rho(u,\\Delta)$ & $\\rho(-\\text{score},\\Delta)$ & $\\Pr(\\rho_u>0)$ \\\\ \\midrule']
 for _, r in df.iterrows():
-    L.append(f"{r.dataset} & ${r.block.replace('->', '\\to ')}$ & {r.affected_genes} & {r.affected_ranking_genes_mean:.0f} & {r.mean_delta:.3f} & {r.sd_delta:.3f} & {r.frac_affected_full_source_mass:.2f} & {r.spearman_dhat_delta:.3f} & {r.spearman_u_delta:.3f} & {r.spearman_ulearned_delta:.3f} & {r.spearman_negscore_delta:.3f} & {r.frac_splits_u_positive:.2f} \\\\")
+    L.append(f"{r.dataset} & ${r.block.replace('->', '\\to ')}$ & {r.affected_genes} & {r.affected_ranking_genes_mean:.0f} & {r.mean_delta:.3f} & {r.sd_delta:.3f} & {r.frac_affected_full_source_mass:.2f} & {r.spearman_u_delta:.3f} & {r.spearman_negscore_delta:.3f} & {r.frac_splits_u_positive:.2f} \\\\")
 L += ['\\bottomrule', '\\end{tabular}}', '\\end{table*}']
 open(OUT + 'TableS6_block_diagnostics.tex', 'w', encoding='utf-8').write('\n'.join(L))
 print(df.round(3).to_string()); print(pd.DataFrame(ties).to_string())

@@ -1,0 +1,18 @@
+\begin{table*}[!htbp]
+\centering
+\caption{Block diagnostics at $\alpha=0.10$ for the grid steps in which GoCo policies were certified. Affected genes: genes whose released set changes in the step; ranking genes: affected genes in the ranking fold (mean over 100 splits); $\Delta$: realised loss increment over affected genes; full mass: fraction of affected genes with $\sum_r a_{ir}=1$; Spearman columns: out-of-sample rank correlation over affected pool genes between the realised $\Delta_i$ and, respectively, the GoCo statistic $u_i$ of Equation~(6) and the negative mean added-call score, averaged over splits; last column: fraction of splits with a positive correlation for $u_i$.}
+\label{tab:blockdiag}
+\scriptsize
+\resizebox{\linewidth}{!}{\begin{tabular}{l l r r r r r r r r}
+\toprule
+Data set & Step & Affected & Ranking & mean $\Delta$ & sd $\Delta$ & full mass & $\rho(u,\Delta)$ & $\rho(-\text{score},\Delta)$ & $\Pr(\rho_u>0)$ \\ \midrule
+Wainberg & $800\to 775$ & 1267 & 127 & 0.591 & 0.484 & 1.00 & 0.725 & -0.077 & 1.00 \\
+Sanger & $450\to 425$ & 454 & 45 & 0.203 & 0.408 & 1.00 & 0.560 & 0.041 & 1.00 \\
+Sanger & $425\to 400$ & 211 & 21 & 0.097 & 0.316 & 1.00 & 0.325 & 0.146 & 1.00 \\
+Sanger & $400\to 375$ & 1164 & 117 & 0.163 & 0.363 & 1.00 & 0.496 & 0.020 & 1.00 \\
+DRIVE & $275\to 250$ & 419 & 41 & 0.066 & 0.237 & 1.00 & 0.222 & 0.120 & 1.00 \\
+DRIVE & $250\to 225$ & 503 & 50 & 0.103 & 0.305 & 1.00 & 0.318 & 0.048 & 1.00 \\
+HAP1 & $475\to 450$ & 1021 & 102 & 0.762 & 0.421 & 1.00 & 0.703 & 0.433 & 1.00 \\
+\bottomrule
+\end{tabular}}
+\end{table*}

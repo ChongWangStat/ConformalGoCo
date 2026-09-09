@@ -1,0 +1,40 @@
+\begin{table*}[htbp]
+\centering
+\caption{Split-level statistics for Boger et al., GoDag and GoCo at $\alpha=0.10$ and $\delta\in\{0.50,0.10\}$: exceedance frequencies, released calls, supported genes and terms, supported fraction and paired differences from GoDag.}
+\label{tab:detail}
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\resizebox{\linewidth}{!}{\begin{tabular}{lll rrr rrrr r}
+\toprule
+$\delta$ & Data set & Method & Gene FDP & $\Pr(\widehat R_{\mathcal E}>\alpha)$ & $\Pr(R>\alpha)$ & Supp.\ genes & Calls & Supp.\ terms & Supp.\ frac. & $\Delta$terms vs GoDag [95\% CI] \\
+\midrule
+0.50 & Wainberg & Boger et al.\ (Direct loss) & 0.0923 & 0.01 & 0.00 & 185.7 & 1614 & 339.6 & 0.210 & +0.0 [+0.0, +0.0] \\
+ &  & GoDag & 0.0923 & 0.01 & 0.00 & 185.7 & 1614 & 339.6 & 0.210 & -- \\
+ &  & \textbf{GoCo} & 0.0964 & 0.20 & 0.08 & 197.1 & 1955 & 369.1 & 0.189 & +29.4 [+28.4, +30.5] \\
+ & Sanger & Boger et al.\ (Direct loss) & 0.0953 & 0.20 & 0.13 & 155.4 & 1919 & 333.0 & 0.174 & -20.8 [-23.5, -18.1] \\
+ &  & GoDag & 0.0980 & 0.36 & 0.00 & 160.9 & 2040 & 353.8 & 0.174 & -- \\
+ &  & \textbf{GoCo} & 0.0980 & 0.42 & 0.20 & 166.9 & 2380 & 380.7 & 0.161 & +26.9 [+22.5, +31.3] \\
+ & DRIVE & Boger et al.\ (Direct loss) & 0.0945 & 0.13 & 0.06 & 96.1 & 1834 & 248.1 & 0.136 & -10.5 [-14.2, -6.7] \\
+ &  & GoDag & 0.0965 & 0.28 & 0.28 & 98.7 & 1954 & 258.6 & 0.134 & -- \\
+ &  & \textbf{GoCo} & 0.0971 & 0.33 & 0.26 & 105.7 & 2296 & 291.7 & 0.128 & +33.1 [+28.8, +37.4] \\
+ & HAP1 & Boger et al.\ (Direct loss) & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & 0.153 & +0.0 [+0.0, +0.0] \\
+ &  & GoDag & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & 0.153 & -- \\
+ &  & \textbf{GoCo} & 0.0943 & 0.19 & 0.05 & 80.8 & 1285 & 137.7 & 0.107 & +8.2 [+7.7, +8.8] \\
+\midrule
+0.10 & Wainberg & Boger et al.\ (Direct loss) & 0.0923 & 0.01 & 0.00 & 185.3 & 1612 & 338.9 & 0.210 & -0.7 [-1.2, -0.2] \\
+ &  & GoDag & 0.0923 & 0.01 & 0.00 & 185.7 & 1614 & 339.6 & 0.210 & -- \\
+ &  & \textbf{GoCo} & 0.0948 & 0.13 & 0.00 & 195.2 & 1896 & 365.2 & 0.193 & +25.6 [+24.1, +27.1] \\
+ & Sanger & Boger et al.\ (Direct loss) & 0.0913 & 0.01 & 0.00 & 150.7 & 1751 & 315.8 & 0.181 & -3.3 [-5.0, -1.6] \\
+ &  & GoDag & 0.0923 & 0.12 & 0.00 & 151.7 & 1789 & 319.1 & 0.179 & -- \\
+ &  & \textbf{GoCo} & 0.0930 & 0.15 & 0.00 & 156.9 & 1983 & 340.0 & 0.172 & +20.9 [+18.4, +23.4] \\
+ & DRIVE & Boger et al.\ (Direct loss) & 0.0913 & 0.13 & 0.00 & 90.0 & 1609 & 227.9 & 0.143 & -9.3 [-11.9, -6.8] \\
+ &  & GoDag & 0.0929 & 0.13 & 0.00 & 92.9 & 1718 & 237.2 & 0.139 & -- \\
+ &  & \textbf{GoCo} & 0.0931 & 0.16 & 0.01 & 99.4 & 1987 & 263.5 & 0.134 & +26.2 [+22.7, +29.8] \\
+ & HAP1 & Boger et al.\ (Direct loss) & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & 0.153 & +0.0 [+0.0, +0.0] \\
+ &  & GoDag & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & 0.153 & -- \\
+ &  & \textbf{GoCo} & 0.0915 & 0.06 & 0.00 & 80.7 & 1252 & 137.6 & 0.110 & +8.1 [+7.6, +8.7] \\
+\bottomrule
+\end{tabular}}
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize Means over the same 100 split streams at $\alpha=0.10$. Gene FDP: held-out gene-level TruePath FDP $\widehat R_{\mathcal E}$. $\Pr(\widehat R_{\mathcal E}>\alpha)$: fraction of splits whose held-out FDP exceeded $\alpha$. $\Pr(R>\alpha)$: fraction of splits in which the pool risk of the certified policy, the quantity bounded by Proposition~1, exceeded $\alpha$. Supp.\ genes / terms: held-out genes with $\ge1$ TruePath-supported released term / supported released gene--GO pairs. Supp.\ frac.: supported fraction of all released calls. Boger et al.\ is the released implementation on the Direct loss, calibrated on 70\% of the panel; GoDag and GoCo use the TruePath loss and share the 25-unit grid. The last column is the paired mean difference in supported terms from GoDag with a descriptive 95\% interval over splits.
+\end{minipage}
+\end{table*}

@@ -1,30 +1,31 @@
 \begin{table*}[!t]
 \centering
-\caption{Primary comparison at $\alpha=0.10$ and $\delta=0.10$ (the substantive guarantee of Proposition~\ref{prop:validity}).}
+\caption{Gene-level TruePath performance at $\alpha=0.10$ and $\delta=0.10$ (the substantive guarantee of Proposition~\ref{prop:validity}); columns as in Table~\ref{tab:primary50}.}
 \label{tab:primary10}
 \scriptsize
-\setlength{\tabcolsep}{3.2pt}
-\resizebox{\linewidth}{!}{\begin{tabular}{ll rrr rrrr r}
+\setlength{\tabcolsep}{4pt}
+\resizebox{\linewidth}{!}{\begin{tabular}{l rr rr rr rr}
 \toprule
-Data set & Method & Gene FDP & $\Pr(\widehat R_{\mathcal E}>\alpha)$ & $\Pr(R>\alpha)$ & Supp.\ genes & Calls & Supp.\ terms & Supp.\ frac. & $\Delta$terms vs GoDag [95\% CI] \\
-\midrule
-Wainberg ($n_{\mathcal E}$=4,738) & Boger et al.\ (Direct loss) & 0.0923 & 0.01 & 0.00 & 185.3 & 1612 & 338.9 & 0.210 & -0.7 [-1.2, -0.2] \\
- & GoDag & 0.0923 & 0.01 & 0.00 & 185.7 & 1614 & 339.6 & 0.210 & -- \\
- & \textbf{GoCo} & 0.0948 & 0.13 & 0.00 & 195.2 & 1896 & 365.2 & 0.193 & +25.6 [+24.1, +27.1] \\
-\midrule
-Sanger ($n_{\mathcal E}$=4,465) & Boger et al.\ (Direct loss) & 0.0913 & 0.01 & 0.00 & 150.7 & 1751 & 315.8 & 0.181 & -3.3 [-5.0, -1.6] \\
- & GoDag & 0.0923 & 0.12 & 0.00 & 151.7 & 1789 & 319.1 & 0.179 & -- \\
- & \textbf{GoCo} & 0.0930 & 0.15 & 0.00 & 156.9 & 1983 & 340.0 & 0.172 & +20.9 [+18.4, +23.4] \\
-\midrule
-DRIVE ($n_{\mathcal E}$=1,885) & Boger et al.\ (Direct loss) & 0.0913 & 0.13 & 0.00 & 90.0 & 1609 & 227.9 & 0.143 & -9.3 [-11.9, -6.8] \\
- & GoDag & 0.0929 & 0.13 & 0.00 & 92.9 & 1718 & 237.2 & 0.139 & -- \\
- & \textbf{GoCo} & 0.0931 & 0.16 & 0.01 & 99.4 & 1987 & 263.5 & 0.134 & +26.2 [+22.7, +29.8] \\
-\midrule
-HAP1 ($n_{\mathcal E}$=4,506) & Boger et al.\ (Direct loss) & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & 0.153 & +0.0 [+0.0, +0.0] \\
- & GoDag & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & 0.153 & -- \\
- & \textbf{GoCo} & 0.0915 & 0.06 & 0.00 & 80.7 & 1252 & 137.6 & 0.110 & +8.1 [+7.6, +8.7] \\
+Method & \multicolumn{2}{c}{Wainberg ($n_{\mathcal E}$=4,738)} & \multicolumn{2}{c}{Sanger ($n_{\mathcal E}$=4,465)} & \multicolumn{2}{c}{DRIVE ($n_{\mathcal E}$=1,885)} & \multicolumn{2}{c}{HAP1 ($n_{\mathcal E}$=4,506)} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(lr){6-7}\cmidrule(lr){8-9}
+ & Unit FDP & Supp.\ genes & Unit FDP & Supp.\ genes & Unit FDP & Supp.\ genes & Unit FDP & Supp.\ genes \\ \midrule
+\multicolumn{9}{l}{\emph{Direct loss, one global threshold (ontology-blind)}} \\
+Boger et al. & 0.0923 & 185.3 & 0.0913 & 150.7 & 0.0913 & 90.0 & 0.0719 & 77.0 \\
+Hoeffding/LTT & 0.0771 & 161.5 & 0.0769 & 141.7 & 0.0796 & 79.3 & 0.0719 & 77.0 \\
+Hoeffding--Bentkus & 0.0917 & 183.1 & 0.0888 & 148.9 & 0.0874 & 85.1 & 0.0719 & 77.0 \\
+IID-normal & 0.0923 & 185.3 & 0.0913 & 150.7 & 0.0913 & 90.0 & 0.0719 & 77.0 \\
+Empirical Bernstein & 0.0868 & 175.0 & 0.0803 & 143.8 & 0.0828 & 81.5 & 0.0719 & 77.0 \\
+McDiarmid (binary incidence) & 0.0763 & 160.5 & 0.0769 & 141.7 & 0.0682 & 67.5 & 0.0719 & 77.0 \\
+Janson dependency graph & 0.0763 & 160.5 & 0.0727 & 132.2 & 0.0629 & 61.9 & 0.0719 & 77.0 \\
+Network-HAC ($b=1$) & 0.0903 & 180.6 & 0.0857 & 147.0 & 0.0831 & 81.6 & 0.0719 & 77.0 \\
+Platt calibration & 0.0908 & 182.3 & 0.0949 & 155.6 & 0.0914 & 91.7 & 0.0719 & 77.0 \\
+Isotonic calibration & 0.0919 & 184.8 & 0.0956 & 156.5 & 0.0917 & 92.0 & 0.0719 & 77.0 \\
+\addlinespace[2pt]\multicolumn{9}{l}{\emph{TruePath loss, one global threshold (GO hierarchy)}} \\
+GoDag & 0.0923 & 185.7 & 0.0923 & 151.7 & 0.0929 & 92.9 & 0.0719 & 77.0 \\
+\addlinespace[2pt]\multicolumn{9}{l}{\emph{TruePath loss, relational partial admission (GO hierarchy and co-essentiality)}} \\
+\textbf{GoCo} & 0.0948 & 195.2 & 0.0930 & 156.9 & 0.0931 & 99.4 & 0.0915 & 80.7 \\
 \bottomrule
 \end{tabular}}
-\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize Means over the same 100 split streams at $\alpha=0.10$. Gene FDP: held-out gene-level TruePath FDP $\widehat R_{\mathcal E}$. $\Pr(\widehat R_{\mathcal E}>\alpha)$: fraction of splits whose held-out FDP exceeded $\alpha$. $\Pr(R>\alpha)$: fraction of splits in which the pool risk of the certified policy, the quantity bounded by Proposition~\ref{prop:validity}, exceeded $\alpha$. Supp.\ genes / terms: held-out genes with $\ge1$ TruePath-supported released term / supported released gene--GO pairs. Supp.\ frac.: supported fraction of all released calls (the number of held-out genes with a nonempty set is in the reproducibility tables). Boger et al.\ is the released implementation on the Direct loss, calibrated on 70\% of the panel; all other rows use the TruePath loss. GoDag and GoCo share the 25-unit grid; GoDag-dense uses every distinct score value as a threshold; GoCo-random uses GoCo's blocks and admission grid with a hash ordering (mean of three hash seeds). The last column is the paired mean difference in supported terms from GoDag with a descriptive 95\% interval over splits.
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize Generic baselines calibrate on Direct labels only and have no GO-DAG/TruePath input; GoDag calibrates with TruePath; GoCo calibrates with TruePath plus predictor-native co-essentiality source information. All rows are evaluated on the same held-out TruePath reference. Every global-threshold method calibrates on the first 70\% of each permutation over the shared 25-unit grid; GoCo certifies on the 60\% certification fold after fitting its ordering on the 10\% ranking fold. Platt and isotonic are $\delta$-free practical calibrators without a risk guarantee; at $\delta=0.50$ every normal-type rule coincides with Boger et al.\ (Remark~\ref{rem:delta}). Exceedance frequencies, released calls, supported GO-term yields and paired differences from GoDag for Boger et al., GoDag and GoCo are in Supplementary Table~S1.
 \end{minipage}
 \end{table*}

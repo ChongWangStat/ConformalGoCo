@@ -25,7 +25,6 @@ for **any** ordering computed from the ranking fold, so the biology buys yield, 
 ## Results
 
 `results/goco_results_100splits.csv` holds every reported number: 3 methods x 4 data sets x 3 targets x 2 delta x 100 splits (7,200 rows).
- reproduced by this repository
 
 At alpha = 0.10, over 100 common splits, reference-supported GO-term yield relative to a global
 threshold (GoDag): **+8.7% (Wainberg), +7.6% (Sanger), +12.8% (DRIVE), +6.3% (HAP1)**, with mean
@@ -51,9 +50,10 @@ independent dependency resources to which the frozen construction was applied un
 To recompute the results themselves from the frozen inputs (hours, not minutes):
 
     cd code
-    python goco_rerun.py --tag full
-    python goco_rerun.py --tag learn2 --datasets Wainberg --alphas 0.10 --methods GoCoGrid:learned
-    python goco_rerun.py --tag learn2 --datasets Sanger,DRIVE,HAP1 --alphas 0.10 --methods GoCo:learned
+    python goco_rerun.py --tag run
+
+This writes `results/run_*_100splits.csv` for Boger et al., GoDag and GoCo at alpha in {0.05, 0.10, 0.20} and
+delta in {0.10, 0.50}; `results/goco_results_100splits.csv` is the frozen copy of that output.
 
 ## The no-leakage check
 
@@ -63,17 +63,19 @@ test ships with the code:
     cd code && python test_measurability.py Wainberg 0
 
 It scrambles the labels of **every** non-ranking-fold gene and verifies that the ordering of pool genes
-is bit-identical; the deliberately label-using `oracle` control must change, and does.
+is bit-identical:
 
-             identical under scrambling: True (max |diff| = 0.00e+00)
-    block 16 oracle  changes under scrambling (expected): True     PASS
+    block 16 goco       identical under scrambling: True (max |diff| = 0.00e+00)
+    PASS
 
 ## What maps to what
 
 | Paper item | Built by | From |
 |---|---|---|
-| Tables 2-5, S1-S5, S8 | `code/make_tables.py`, `code/make_supp_tables.py` | Figures 2-4, S1-S2 | `code/make_figures.py` | Table S6 (block diagnostics) | `code/make_block_diagnostics.py` | frozen inputs |
-| Table S7 (case study) | `code/make_case_study.py` | frozen inputs |
+| Tables 2-4, S1-S2 | `code/make_tables.py` | `results/goco_results_100splits.csv`, `results/first_draft_primary_method_summary_long.csv` |
+| Table S4 (risk decomposition) | `code/make_supp_tables.py` | `results/all_methods_harmonised_100splits.csv` |
+| Figures 1-4, S1-S2 | `code/make_figures.py` | `results/all_methods_harmonised_100splits.csv`, frozen inputs |
+| Table S5 (block diagnostics), Table S6 (case study) | `code/make_block_diagnostics.py`, `code/make_case_study.py` | frozen inputs |
 
 `CODE_FREEZE.md` lists SHA-256 hashes for every code and result file.
 

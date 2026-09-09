@@ -1,0 +1,26 @@
+\begin{table*}[!htbp]
+\centering
+\caption{What GoCo releases that GoDag does not, in Wainberg split~0 at $\alpha=0.10$, $\delta=0.50$ (admission fraction $q=0.4$). Of the 351 additional evaluation-fold gene--GO calls, over 158 genes, 37 (11\%) are supported by the frozen TruePath reference. The table lists every co-essential module contributing at least four of them, its members, the genes admitted from it, and the terms transferred ($\ast$ = supported). Modules whose members share a coherent function transfer supported terms; heterogeneous modules transfer their members' own annotations to genes that do not have them.}
+\label{tab:casestudy}
+\scriptsize
+\resizebox{\linewidth}{!}{\begin{tabular}{r p{0.26\textwidth} p{0.16\textwidth} r r p{0.34\textwidth}}
+\toprule
+Module & Members & Genes admitted & Calls & Supp. & Terms transferred \\ \midrule
+5071 & \texttt{CHEK2, MDM2, PPM1D, TP53, USP7} & \texttt{MDM2, TP53, USP7} & 18 & 2 & GO:0001046 core promoter sequence-specific DNA binding; GO:0001221 transcription cofactor binding; GO:0002309 T cell proliferation involved in immune response; GO:0010216 maintenance of DNA methylation; GO:0070245 positive regulation of thymocyte apoptotic process; GO:0071494 cellular response to UV-C $\ast$; GO:1901525 negative regulation of mitophagy; \dots \\
+\addlinespace
+792 & \texttt{CDS2, CHMP3, CHMP4B, INPP5A, VRK1} & \texttt{CDS2, CHMP3, INPP5A} & 11 & 1 & GO:0000815 ESCRT III complex; GO:0090148 membrane fission; GO:0090611 ubiquitin-independent protein catabolic process via the multivesicular body sorting pathway; GO:1902188 positive regulation of viral release from host cell; GO:0050792 regulation of viral process $\ast$ \\
+\addlinespace
+4493 & \texttt{CDC42, CTNNA1, MLLT4, PARD6B, RAPGEF2, TP53BP2} & \texttt{CTNNA1, TP53BP2} & 11 & 0 & GO:0003161 cardiac conduction system development; GO:0017034 Rap guanyl-nucleotide exchange factor activity; GO:0021884 forebrain neuron development; GO:0060501 positive regulation of epithelial cell proliferation involved in lung morphogenesis; GO:2000481 positive regulation of cAMP-dependent protein kinase activity; GO:0071681 cellular response to indole-3-methanol \\
+\addlinespace
+3178 & \texttt{DDX21, DNAJC2, HSPA14, NCL, PINX1} & \texttt{DDX21, DNAJC2, NCL} & 11 & 0 & GO:0006450 regulation of translational fidelity; GO:0044547 DNA topoisomerase binding; GO:1902570 protein localization to nucleolus; GO:1904751 positive regulation of protein localization to nucleolus \\
+\addlinespace
+4091 & \texttt{BIRC2, CYLD, N4BP1, TRAF2, TRAF3} & \texttt{BIRC2, N4BP1, TRAF2} & 9 & 4 & GO:0031996 thioesterase binding; GO:0035631 CD40 receptor complex $\ast$; GO:0060544 regulation of necroptotic process $\ast$; GO:0097300 programmed necrotic cell death $\ast$; GO:0034121 regulation of toll-like receptor signaling pathway; GO:1902527 positive regulation of protein monoubiquitination \\
+\addlinespace
+3710 & \texttt{IL6ST, JAK1, LIFR, SLC39A1, STAT3} & \texttt{IL6ST, JAK1} & 8 & 4 & GO:0034112 positive regulation of homotypic cell-cell adhesion; GO:0060019 radial glial cell differentiation; GO:0070106 interleukin-27-mediated signaling pathway $\ast$; GO:0070757 interleukin-35-mediated signaling pathway $\ast$; GO:0150105 protein localization to cell-cell junction \\
+\addlinespace
+5036 & \texttt{CDKN1A, TP53, TP53BP1, UBE2K, USP28} & \texttt{CDKN1A, TP53} & 8 & 0 & GO:0001046 core promoter sequence-specific DNA binding; GO:0001221 transcription cofactor binding; GO:0002309 T cell proliferation involved in immune response; GO:0010994 free ubiquitin chain polymerization; GO:0070245 positive regulation of thymocyte apoptotic process; GO:1901525 negative regulation of mitophagy; GO:1902749 regulation of cell cycle G2/M phase transition \\
+\addlinespace
+4150 & \texttt{DDX21, HSPA14, NCL, NOLC1, PINX1} & \texttt{DDX21, NCL} & 8 & 0 & GO:0001042 RNA polymerase I core binding; GO:0007000 nucleolus organization; GO:0031428 box C/D snoRNP complex; GO:0042306 regulation of protein import into nucleus \\
+\bottomrule
+\end{tabular}}
+\end{table*}

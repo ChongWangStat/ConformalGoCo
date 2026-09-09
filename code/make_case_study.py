@@ -20,7 +20,7 @@ gr.utility.extra = {'fsup': (YT[:, j + 1] - YT[:, j]).astype(float), 'lo': lo, '
 perm = np.random.default_rng(gr.SEED0 + SEED).permutation(ds.n)
 nt, nc = round(.1 * ds.n), round(.7 * ds.n)
 train, cert, ev = perm[:nt], perm[nt:nc], perm[nc:]
-u, hh = gr.utility('learned', ds, Aadd, meanscore, delta, cadd, affected, train, ds.hh)
+u, hh = gr.utility('goco', ds, Aadd, meanscore, delta, cadd, affected, train, ds.hh)
 sel_q, sel_final = None, None
 for q in gr.QGRID_E:
     sel = gr.selmask(u, hh, affected, train, float(q))
@@ -81,5 +81,5 @@ for r in rows:
     Lx.append(f"{r['module']} & \\texttt{{{r['members'].replace(';', ',')}}} & \\texttt{{{r['admitted_genes'].replace(';', ',')}}} & {r['calls']} & {r['supported']} & {'; '.join(keep)} \\\\")
     Lx.append('\\addlinespace')
 Lx = Lx[:-1] + ['\\bottomrule', '\\end{tabular}}', '\\end{table*}']
-open(REV + 'tables_v2/TableS7_case_study.tex', 'w', encoding='utf-8').write('\n'.join(Lx))
+open(REV + 'tables/TableS7_case_study.tex', 'w', encoding='utf-8').write('\n'.join(Lx))
 print('\nTable S7 written')
