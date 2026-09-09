@@ -3,9 +3,7 @@ GoCo re-analysis: reproduction gate + missing controls.
 
 Reproduces the BIB-package GoDag / GoCo / Boger rows (alpha=.10, delta in {.10,.50}) from raw inputs and adds:
   GoDag-dense            global path over every distinct score value
-  GoCo-random{k}         same blocks / q-grid, ordering by salted hash only (k salts)
   GoCo-score             ordering by mean score of the added calls (ties -> hash)
-  GoCo-oracle            ordering by the TRUE incremental loss (uses labels; upper bound only)
   GoCo-exp0 / GoCo-exp1  utility exponent sensitivity (u = d_hat / c^e, e in {0, 1}; paper uses e = 1/2)
   GoCo-dense             GoCo along the dense (tie-level) path with the external block rules
 for alpha in {.05,.10,.20} x delta in {.10,.50}, all four datasets, 100 common splits, with cost metrics.
@@ -134,36 +132,15 @@ def selmask(u, hh, affected, train, q):
 
 
 def utility(order, ds, Aadd, meanscore, delta_true, cadd, affected, train, hh_default):
-    """Return (u, hh) defining the admission order for a block. Lower u admitted first; hh breaks ties."""
-    kap = 1.0
-    if order.startswith('knapk'):
-        kap = float(order[5:]); order = 'knap'
-    hh = hh_default
-    if order in ('knapEB', 'learned', 'learnedgb', 'ens'):
-        from goco_learned import learned_utility
-        return learned_utility(order, ds, Aadd, meanscore, delta_true, cadd, affected, train, hh_default, utility.extra)
-    if order.startswith('random'):
-        return np.zeros(ds.n), hashu(ds.units, salt=order)
-    if order == 'score':
-        return -np.nan_to_num(meanscore, nan=-1e9), hh
-    fit = train[affected[train]]
-    if order == 'oracle':
-        # label-using reference ordering by the realised increment of every gene (not T-measurable; Lemma 1b optimum for risk)
-        return delta_true.copy(), hh
-    pred = source_pred(Aadd, delta_true, fit, kappa=kap) if len(fit) else np.full(ds.n, float(delta_true[affected].mean()) if affected.any() else 0.0)
-    if order == 'source': return pred / np.sqrt(np.maximum(cadd, 1.0)), hh
-    if order == 'exp0': return pred, hh
-    if order == 'exp1': return pred / np.maximum(cadd, 1.0), hh
-    if order == 'knap':
-        # knapsack-style: predicted loss increment per predicted supported added call.
-        # f_i = unsupported fraction of the added calls (nuisance fold), source-smoothed like Delta.
-        fsup = utility.extra['fsup']  # supported count among added calls, all genes
-        f_unsup = np.where(cadd > 0, 1.0 - fsup / np.maximum(cadd, 1.0), 0.0)
-        fhat = source_pred(Aadd, f_unsup, fit, kappa=kap) if len(fit) else np.full(ds.n, float(f_unsup[affected].mean()) if affected.any() else 0.0)
-        exp_supported = np.maximum(cadd, 1.0) * np.clip(1.0 - fhat, 0.0, 1.0)
-        return pred / np.maximum(exp_supported, 1e-3), hh
-    raise ValueError(order)
+    """Return (u, hh) for the GoCo ordering of a block. Lower u is admitted first; hh breaks ties.
 
+    u_i = Delta_hat_i / max(expected supported added calls, 1e-3), with both quantities produced by the
+    per-call model of goco_learned.py, which is fitted on the ranking fold only (Eq. (6) of the paper).
+    """
+    if order != 'goco':
+        raise ValueError(f"unknown ordering {order!r}; this release implements the single GoCo ordering")
+    from goco_learned import learned_utility
+    return learned_utility('learned', ds, Aadd, meanscore, delta_true, cadd, affected, train, hh_default, utility.extra)
 
 def run_path(ds, m, cert, ev, train, alpha, delta, loss, adaptive_order, qgrid, band_rule, block_fn, adapt_cache, adapt_blocks=None):
     """Fixed-sequence LTT along thresholds m['thr'] with optional adaptive insertions.
@@ -258,14 +235,14 @@ def run_dataset(ds, alphas, deltas, seeds, methods, tag):
                             order = o.split(':')[1]
                             # original Wainberg construction: adaptive block only after the last grid threshold (800); q grid includes 1
                             last = run_path(ds, mw, cert, ev, train, alpha, delta, 'TruePath', order, QGRID_W, False, bf, cache, adapt_blocks={len(thr_w) - 2})
-                            add(f'GoCo-{order} (paper path)', last, mw)
+                            add(f'GoCo', last, mw)
                     else:
                         cache = cache_g
                         bf = lambda j: ds.Aadd(mg['thr'][j + 1], mg['thr'][j])
                         for o in orders:
                             order = o.split(':')[1]
                             last = run_path(ds, mg, cert, ev, train, alpha, delta, 'TruePath', order, QGRID_E, True, bf, cache)
-                            add(f'GoCo-{order} (paper path)', last, mg)
+                            add(f'GoCo', last, mg)
                 gorders = [o for o in methods if o.startswith('GoCoGrid:')]
                 if gorders:
                     # uniform definition: the same 25-unit grid as GoDag, partial admission inserted in every block that
@@ -275,7 +252,7 @@ def run_dataset(ds, alphas, deltas, seeds, methods, tag):
                     for o in gorders:
                         order = o.split(':')[1]
                         last = run_path(ds, mg, cert, ev, train, alpha, delta, 'TruePath', order, QGRID_E, True, bf, cache)
-                        add(f'GoCoGrid-{order} (grid path, all blocks)', last, mg)
+                        add(f'GoCo', last, mg)
                 dorders = [o for o in methods if o.startswith('GoCoDense:')]
                 if dorders:
                     cache = cache_d
@@ -283,7 +260,7 @@ def run_dataset(ds, alphas, deltas, seeds, methods, tag):
                     for o in dorders:
                         order = o.split(':')[1]
                         last = run_path(ds, md, cert, ev, train, alpha, delta, 'TruePath', order, QGRID_E, True, bf, cache)
-                        add(f'GoCo-dense-{order} (tie-level path)', last, md)
+                        add(f'GoCo-dense', last, md)
         if (seed + 1) % 10 == 0: print(f'[{ds.name}] seed {seed + 1}/{len(seeds)} elapsed {time.time() - t0:.0f}s', flush=True)
     df = pd.DataFrame(rows)
     df.to_csv(OUT + f'{ds.name}_{tag}_100splits.csv', index=False)
@@ -296,7 +273,7 @@ if __name__ == '__main__':
     ap.add_argument('--alphas', default='0.05,0.10,0.20')
     ap.add_argument('--deltas', default='0.10,0.50')
     ap.add_argument('--seeds', type=int, default=100)
-    ap.add_argument('--methods', default='Boger,GoDag,GoDag-dense,GoDag-cert60,GoCo:source,GoCo:random1,GoCo:random2,GoCo:random3,GoCo:score,GoCo:oracle,GoCo:exp0,GoCo:exp1,GoCoDense:source,GoCoDense:random1')
+    ap.add_argument('--methods', default='Boger,GoDag,GoCoGrid:goco')
     ap.add_argument('--tag', default='full')
     a = ap.parse_args()
     dset, tset = load_truth()

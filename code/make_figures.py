@@ -6,21 +6,21 @@ import matplotlib; matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 HERE = os.path.dirname(os.path.abspath(__file__))
-REV = os.environ.get('GOCO_PAPER_DIR', os.path.join(HERE, '..', 'paper')) + os.sep  # output location only
+REV = os.environ.get('GOCO_PAPER_DIR', os.path.join(HERE, '..', 'paper')) + os.sep
 RESULTS = os.environ.get('GOCO_SPLITS', os.path.join(HERE, '..', 'results')) + os.sep
 OUT = REV + 'figures/'; os.makedirs(OUT, exist_ok=True)
 d = pd.read_csv(RESULTS + 'all_methods_harmonised_100splits.csv')
 DS = ['Wainberg', 'Sanger', 'DRIVE', 'HAP1']
 plt.rcParams.update({'font.size': 8, 'axes.spines.top': False, 'axes.spines.right': False, 'pdf.fonttype': 42})
-C = {'GoCo-dense-learned': '#e67e22', 'GoDag': '#1f5fa8', 'GoDag-dense': '#5b9bd5', 'GoCo-random': '#8c8c8c', 'GoCo-source': '#f0a0a0', 'GoCo-knap': '#c0392b', 'Boger': '#bdbdbd', 'GoCo-oracle': '#2e7d32', 'GoCo-score': '#b0b0b0', 'GoCo-exp0': '#e8b4b4', 'GoCo-exp1': '#d97b7b', 'GoCo-dense-knap': '#e67e22', 'GoCo-learned': '#7b1fa2'}
-NAME = {'Boger': 'Boger et al. (Direct)', 'GoDag': 'GoDag', 'GoDag-dense': 'GoDag-dense', 'GoCo-random': 'GoCo-random', 'GoCo-source': r'GoCo ($\hat\Delta/\sqrt{c}$)', 'GoCo-knap': 'source-smoothed', 'GoCo-oracle': 'oracle ordering', 'GoCo-score': 'score ordering', 'GoCo-exp0': r'$\hat\Delta$ ($e$=0)', 'GoCo-exp1': r'$\hat\Delta/c$ ($e$=1)', 'GoCo-dense-knap': 'GoCo-dense (src)', 'GoCo-dense-learned': 'GoCo-dense', 'GoCo-learned': 'GoCo'}
+C = {'GoCo-dense-learned': '#e67e22', 'GoDag': '#1f5fa8', 'GoDag-dense': '#5b9bd5', 'GoCo-random': '#8c8c8c', 'GoCo-source': '#f0a0a0', 'GoCo-knap': '#c0392b', 'Boger': '#bdbdbd', 'GoCo-oracle': '#2e7d32', 'GoCo-score': '#b0b0b0', 'GoCo-exp0': '#e8b4b4', 'GoCo-exp1': '#d97b7b', 'GoCo-dense-knap': '#e67e22', 'GoCo': '#7b1fa2'}
+NAME = {'Boger': 'Boger et al. (Direct)', 'GoDag': 'GoDag', 'GoDag-dense': 'GoDag-dense', 'GoCo-random': 'GoCo-random', 'GoCo-source': r'GoCo ($\hat\Delta/\sqrt{c}$)', 'GoCo-knap': 'source-smoothed', 'GoCo-oracle': 'oracle ordering', 'GoCo-score': 'score ordering', 'GoCo-exp0': r'$\hat\Delta$ ($e$=0)', 'GoCo-exp1': r'$\hat\Delta/c$ ($e$=1)', 'GoCo-dense-knap': 'GoCo-dense (src)', 'GoCo-dense-learned': 'GoCo-dense', 'GoCo': 'GoCo'}
 
 def save(fig, name):
     fig.savefig(OUT + name + '.pdf', bbox_inches='tight'); fig.savefig(OUT + name + '.png', dpi=300, bbox_inches='tight'); plt.close(fig)
 
 # ------------------------------------------------------------------ Figure 2: primary comparison
 def fig_primary(delta, name):
-    methods = ['Boger', 'GoDag', 'GoDag-dense', 'GoCo-random', 'GoCo-learned']
+    methods = ['Boger', 'GoDag', 'GoCo']
     fig, axes = plt.subplots(2, 4, figsize=(11, 5.4), gridspec_kw={'hspace': 0.95, 'wspace': 0.35})
     for j, ds in enumerate(DS):
         sub = d[(d.dataset == ds) & (d.alpha == 0.1) & (d.delta == delta)]
@@ -32,7 +32,7 @@ def fig_primary(delta, name):
                 if len(s) == 0: continue
                 q1, q3 = s.quantile([.25, .75])
                 ax.plot([q1, q3], [k, k], color=C[m], lw=1.2, alpha=0.8)
-                ax.plot(s.mean(), k, marker='*' if m == 'GoCo-learned' else ('D' if m.startswith('GoDag') else 'o'), ms=8 if m == 'GoCo-learned' else 5, color=C[m], mec='k', mew=0.4, zorder=3)
+                ax.plot(s.mean(), k, marker='*' if m == 'GoCo' else ('D' if m.startswith('GoDag') else 'o'), ms=8 if m == 'GoCo' else 5, color=C[m], mec='k', mew=0.4, zorder=3)
             if row == 0:
                 ax.axvline(0.10, ls='--', color='k', lw=0.8); ax.set_title(ds, fontsize=9, fontweight='bold')
             ax.set_yticks(range(len(methods))); ax.set_yticklabels([NAME[m] for m in methods] if j == 0 else []); ax.invert_yaxis()
@@ -45,7 +45,7 @@ fig_primary(0.50, 'Figure3_primary_delta050'); fig_primary(0.10, 'FigureS1_prima
 
 # ------------------------------------------------------------------ Figure 3: alpha sweep
 def fig_sweep(delta, name):
-    methods = ['GoDag', 'GoDag-dense', 'GoCo-random', 'GoCo-learned']
+    methods = ['Boger', 'GoDag', 'GoCo']
     fig, axes = plt.subplots(2, 4, figsize=(11, 5.4), gridspec_kw={'hspace': 0.85, 'wspace': 0.35})
     for j, ds in enumerate(DS):
         sub = d[(d.dataset == ds) & (d.delta == delta)]
@@ -77,13 +77,13 @@ try:
     have_w = True
 except Exception as e:
     print('Wainberg objects unavailable for Fig 4A/B:', e); have_w = False
-fig, axes = plt.subplots(1, 3, figsize=(11, 3.4), gridspec_kw={'wspace': 0.35, 'width_ratios': [1, 1, 1.4]})
+fig, axes = plt.subplots(1, 2, figsize=(8.2, 3.4), gridspec_kw={'wspace': 0.35, 'width_ratios': [1, 1]})
 if have_w:
     ax = axes[0]
     vals, cnts = np.unique(sc[(sc >= 600) & (sc <= 1000)], return_counts=True)
     ax.vlines(vals, 0, cnts, color='#555', lw=0.8)
     tie = 789.65; ntie = int(cnts[np.argmin(np.abs(vals - tie))])
-    ax.vlines([tie], 0, ntie, color=C['GoCo-learned'], lw=2.2)
+    ax.vlines([tie], 0, ntie, color=C['GoCo'], lw=2.2)
     ax.annotate(f'{ntie:,} gene–GO pairs\nshare the score {tie:g}', xy=(tie, ntie), xytext=(830, 500), fontsize=7, arrowprops=dict(arrowstyle='->', lw=0.6)); ax.text(602, 3200, f'largest tie: {cnts.max():,} pairs at {vals[np.argmax(cnts)]:g}', fontsize=6.5, color='#333')
     for t in ds.grid[(ds.grid >= 600) & (ds.grid <= 1000)]:
         ax.axvline(t, color='#1f5fa8', lw=0.4, alpha=0.5)
@@ -97,22 +97,10 @@ if have_w:
     # GoCo interpolation inside the 800->775 block: full-panel linear (random) and knapsack ordering illustrated by mean over splits of selected policy
     ax.plot([800, 775], [risk[np.argmin(np.abs(thr - 800))], risk[np.argmin(np.abs(thr - 775))]], color=C['GoCo-random'], lw=1.2, ls=':', label='random partial admission (expected)')
     ax.scatter([800], [0.0923], color='#1f5fa8', zorder=3, s=25, label='GoDag stops at 800')
-    ax.scatter([789.65], [0.0984], color=C['GoCo-learned'], marker='*', s=90, zorder=4, label='GoCo certified policy (mean)')
+    ax.scatter([789.65], [0.0984], color=C['GoCo'], marker='*', s=90, zorder=4, label='GoCo certified policy (mean)')
     ax.set_xlim(905, 695); ax.set_xlabel('score threshold (decreasing → more liberal)'); ax.set_ylabel('full-panel TruePath risk')
     ax.set_title('B  The 800→775 step overshoots α', fontsize=9, fontweight='bold', loc='left'); ax.legend(fontsize=6.3, frameon=False, loc='upper center', bbox_to_anchor=(0.5, -0.22), ncol=2)
-ax = axes[2]
-methods = ['GoCo-random', 'GoCo-score', 'GoCo-exp0', 'GoCo-source', 'GoCo-exp1', 'GoCo-knap', 'GoCo-learned', 'GoCo-oracle']
-x = np.arange(len(DS)); w = 0.10
-for k, m in enumerate(methods):
-    vals = []
-    for dsn in DS:
-        sub = d[(d.dataset == dsn) & (d.alpha == 0.1) & (d.delta == 0.5)]
-        a = sub[sub.method == m].set_index('seed').go_yield; b = sub[sub.method == 'GoCo-random'].set_index('seed').go_yield
-        ix = a.index.intersection(b.index); vals.append((a.loc[ix] - b.loc[ix]).mean() if len(ix) else np.nan)
-    ax.bar(x + (k - 3.5) * w, vals, w, color=C[m], label=NAME[m], edgecolor='k', lw=0.3)
-ax.axhline(0, color='k', lw=0.8); ax.set_xticks(x); ax.set_xticklabels(DS); ax.set_ylabel('supported terms gained over random ordering')
-ax.set_title('C  Value of the ordering (α=0.10, δ=0.50)', fontsize=9, fontweight='bold', loc='left', x=0.05); ax.legend(fontsize=6.5, frameon=False, ncol=2)
-save(fig, 'Figure2_ties_and_ordering')
+save(fig, 'Figure2_ties')
 
 # ------------------------------------------------------------------ Figure 1: workflow schematic
 fig, ax = plt.subplots(figsize=(11, 4.2)); ax.set_xlim(0, 100); ax.set_ylim(0, 44); ax.axis('off')
@@ -135,7 +123,7 @@ save(fig, 'Figure1_workflow')
 # ------------------------------------------------------------------ Graphical abstract
 fig, ax = plt.subplots(figsize=(10, 2.9)); ax.set_xlim(0, 100); ax.set_ylim(0, 28); ax.axis('off')
 s = d[(d.alpha == 0.1) & (d.delta == 0.5)].groupby(['dataset', 'method']).go_yield.mean()
-gains = [f'{dsn}: {100 * (s[(dsn, "GoCo-knap")] / s[(dsn, "GoDag")] - 1):+.1f}%' for dsn in DS]
+gains = [f'{dsn}: {100 * (s[(dsn, "GoCo")] / s[(dsn, "GoDag")] - 1):+.1f}%' for dsn in DS]
 box(1, 3, 26, 20, '1  Predict (frozen)', ['gene–GO scores from a', 'co-essentiality / co-regulation', 'predictor, plus the sources', 'that produced each call'])
 box(32, 3, 34, 20, '2  Calibrate with GoCo', ['same global grid as GoDag', '+ partial admission inside each step,', 'ordered by predicted loss per', 'supported term (sources, ranking fold)', 'certified by fixed-sequence LTT'], fc='#fbeaea', ec='#c0392b', tc='#c0392b')
 box(71, 3, 28, 20, '3  Release more at equal risk', ['gene-level FDP ≤ 0.10 (Prop. 1)', 'supported GO-term yield vs GoDag:'] + gains, fc='#eaf5ee', ec='#2e7d32', tc='#2e7d32')

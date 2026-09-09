@@ -1,35 +1,27 @@
 \begin{table*}[!t]
 \centering
-\caption{Error-target sweep at $\delta=0.50$: mean held-out unit FDP and supported GO-term yield at $\alpha\in\{0.05,0.10,0.20\}$. GoCo-dense inserts partial admission between every pair of adjacent distinct score values.}
+\caption{Error-target sweep at $\delta=0.50$: mean held-out unit FDP and supported GO-term yield at $\alpha\in\{0.05,0.10,0.20\}$. }
 \label{tab:sweep50}
 \scriptsize
 \resizebox{\linewidth}{!}{\begin{tabular}{ll rr rr rr}
 \toprule
 Data set & Method & \multicolumn{2}{c}{$\alpha=0.05$} & \multicolumn{2}{c}{$\alpha=0.10$} & \multicolumn{2}{c}{$\alpha=0.20$} \\
  & & FDP & Terms & FDP & Terms & FDP & Terms \\ \midrule
-Wainberg & GoDag & 0.0359 & 183.1 & 0.0923 & 339.6 & 0.1699 & 518.9 \\
- & GoDag-dense & 0.0365 & 185.7 & 0.0924 & 339.6 & 0.1710 & 521.9 \\
- & GoCo-random & 0.0484 & 200.1 & 0.0995 & 346.3 & 0.1967 & 528.6 \\
- & \textbf{GoCo} (Eq.~\ref{eq:utility}) & 0.0466 & 214.8 & 0.0964 & 369.1 & 0.1939 & 539.6 \\
- & GoCo-dense (every distinct score) & 0.0468 & 215.4 & 0.0966 & 367.7 & 0.1940 & 539.8 \\
+Wainberg & Boger et al.\ (Direct loss) & 0.0359 & 183.1 & 0.0923 & 339.6 & 0.1699 & 518.9 \\
+ & GoDag & 0.0359 & 183.1 & 0.0923 & 339.6 & 0.1699 & 518.9 \\
+ & \textbf{GoCo} & 0.0466 & 214.8 & 0.0964 & 369.1 & 0.1939 & 539.6 \\
 \midrule
-Sanger & GoDag & 0.0484 & 218.2 & 0.0980 & 353.8 & 0.1895 & 1163.2 \\
- & GoDag-dense & 0.0491 & 225.7 & 0.0986 & 358.4 & 0.1967 & 1290.0 \\
- & GoCo-random & 0.0494 & 219.9 & 0.0992 & 359.2 & 0.1981 & 1302.2 \\
- & \textbf{GoCo} (Eq.~\ref{eq:utility}) & 0.0491 & 234.5 & 0.0980 & 380.7 & 0.1913 & 1360.9 \\
- & GoCo-dense (every distinct score) & 0.0495 & 232.7 & 0.0986 & 367.1 & 0.1979 & 1308.6 \\
+Sanger & Boger et al.\ (Direct loss) & 0.0474 & 212.1 & 0.0953 & 333.0 & 0.1895 & 1163.2 \\
+ & GoDag & 0.0484 & 218.2 & 0.0980 & 353.8 & 0.1895 & 1163.2 \\
+ & \textbf{GoCo} & 0.0491 & 234.5 & 0.0980 & 380.7 & 0.1913 & 1360.9 \\
 \midrule
-DRIVE & GoDag & 0.0466 & 94.4 & 0.0965 & 258.6 & 0.1844 & 702.4 \\
- & GoDag-dense & 0.0490 & 96.2 & 0.0991 & 282.2 & 0.1844 & 702.4 \\
- & GoCo-random & 0.0493 & 97.6 & 0.0998 & 280.4 & 0.1844 & 702.4 \\
- & \textbf{GoCo} (Eq.~\ref{eq:utility}) & 0.0482 & 99.4 & 0.0971 & 291.7 & 0.1844 & 702.4 \\
- & GoCo-dense (every distinct score) & 0.0495 & 99.5 & 0.0992 & 287.8 & 0.1844 & 702.4 \\
+DRIVE & Boger et al.\ (Direct loss) & 0.0444 & 92.3 & 0.0945 & 248.1 & 0.1844 & 702.4 \\
+ & GoDag & 0.0466 & 94.4 & 0.0965 & 258.6 & 0.1844 & 702.4 \\
+ & \textbf{GoCo} & 0.0482 & 99.4 & 0.0971 & 291.7 & 0.1844 & 702.4 \\
 \midrule
-HAP1 & GoDag & 0.0436 & 96.1 & 0.0719 & 129.4 & 0.1353 & 160.2 \\
- & GoDag-dense & 0.0436 & 100.0 & 0.0720 & 132.1 & 0.1353 & 160.2 \\
- & GoCo-random & 0.0496 & 98.0 & 0.0972 & 135.1 & 0.1941 & 179.3 \\
- & \textbf{GoCo} (Eq.~\ref{eq:utility}) & 0.0459 & 102.7 & 0.0943 & 137.7 & 0.1872 & 188.3 \\
- & GoCo-dense (every distinct score) & 0.0464 & 103.0 & 0.0949 & 137.7 & 0.1961 & 175.6 \\
+HAP1 & Boger et al.\ (Direct loss) & 0.0436 & 96.1 & 0.0719 & 129.4 & 0.1353 & 160.2 \\
+ & GoDag & 0.0436 & 96.1 & 0.0719 & 129.4 & 0.1353 & 160.2 \\
+ & \textbf{GoCo} & 0.0459 & 102.7 & 0.0943 & 137.7 & 0.1872 & 188.3 \\
 \bottomrule
 \end{tabular}}
 \end{table*}

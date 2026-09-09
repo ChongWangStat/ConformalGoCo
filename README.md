@@ -22,7 +22,10 @@ per supported term. The ordering is fitted on a *ranking fold* whose labels neve
 A fixed-sequence Learn-Then-Test certificate on an independent *certification fold* controls the risk
 for **any** ordering computed from the ranking fold, so the biology buys yield, never validity.
 
-## Results reproduced by this repository
+## Results
+
+`results/goco_results_100splits.csv` holds every reported number: 3 methods x 4 data sets x 3 targets x 2 delta x 100 splits (7,200 rows).
+ reproduced by this repository
 
 At alpha = 0.10, over 100 common splits, reference-supported GO-term yield relative to a global
 threshold (GoDag): **+8.7% (Wainberg), +7.6% (Sanger), +12.8% (DRIVE), +6.3% (HAP1)**, with mean
@@ -62,7 +65,6 @@ test ships with the code:
 It scrambles the labels of **every** non-ranking-fold gene and verifies that the ordering of pool genes
 is bit-identical; the deliberately label-using `oracle` control must change, and does.
 
-    block 16 knap/source/exp0/exp1/score/random1/learned/learnedgb
              identical under scrambling: True (max |diff| = 0.00e+00)
     block 16 oracle  changes under scrambling (expected): True     PASS
 
@@ -70,9 +72,7 @@ is bit-identical; the deliberately label-using `oracle` control must change, and
 
 | Paper item | Built by | From |
 |---|---|---|
-| Tables 2-5, S1-S5, S8 | `code/make_tables.py`, `code/make_supp_tables.py` | `results/*_100splits.csv` |
-| Figures 2-4, S1-S2 | `code/make_figures.py` | `results/all_methods_harmonised_100splits.csv` |
-| Table S6 (block diagnostics) | `code/make_block_diagnostics.py` | frozen inputs |
+| Tables 2-5, S1-S5, S8 | `code/make_tables.py`, `code/make_supp_tables.py` | Figures 2-4, S1-S2 | `code/make_figures.py` | Table S6 (block diagnostics) | `code/make_block_diagnostics.py` | frozen inputs |
 | Table S7 (case study) | `code/make_case_study.py` | frozen inputs |
 
 `CODE_FREEZE.md` lists SHA-256 hashes for every code and result file.

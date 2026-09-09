@@ -42,7 +42,7 @@ L = ['\\begin{table*}[!t]', '\\centering',
 NE = {'Wainberg': 4738, 'Sanger': 4465, 'DRIVE': 1885, 'HAP1': 4506}
 for delta in [0.5, 0.1]:
     for ds in DS:
-        for m, lab2 in [('GoDag', 'GoDag'), ('GoDag-dense', 'GoDag-dense'), ('GoCo-random', 'GoCo-random'), ('GoCo-learned', 'GoCo')]:
+        for m, lab2 in [('GoDag', 'GoDag'), ('GoCo-learned', 'GoCo')]:
             s = d[(d.dataset == ds) & (d.alpha == 0.1) & (d.delta == delta) & (d.method == m)]
             rplus = (s.unit_fdp * NE[ds] / s.genes_with_calls).mean()
             L.append(f'{delta:.2f} & {ds} & {lab2} & {s.cal_mean.mean():.4f} & {s.pool_risk.mean():.4f} & {s.unit_fdp.mean():.4f} & {s.pool_exceed.mean():.2f} & {s.exceed.mean():.2f} & {s.genes_with_calls.mean():.0f} & {rplus:.2f} \\\\')

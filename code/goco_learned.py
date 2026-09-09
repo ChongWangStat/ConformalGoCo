@@ -1,4 +1,4 @@
-"""Learned, T-measurable ordering for GoCo partial admission (GoCo-L).
+"""The GoCo ordering: a ranking-fold-measurable, per-call model of the loss increment.
 
 Every quantity used to rank a pool gene is a function of (i) frozen, label-free predictor output and (ii) labels of
 the ranking fold T only. Labels of certification or evaluation genes never enter, so Proposition 1 / Corollary 1 apply.
@@ -17,8 +17,7 @@ NOT used: background_K_ex_target (equals the term's Direct count minus the targe
 n_support_sources (duplicate of f2), calls above the block's upper threshold and calls added by the block (constant on
 training rows, hence uninformative).
 
-Model: logistic regression (C = 0.5, standardized features) or histogram gradient boosting (max_iter 150, depth 3,
-learning rate 0.06, min_samples_leaf 20, l2 = 1.0) for the indicator 'call unsupported' (TruePath). The classifier and
+Model: logistic regression (C = 0.5, standardized features) for the indicator 'call unsupported' (TruePath). The classifier and
 the rate features are cross-fitted between two hash-defined halves of the ranking fold: a ranking-fold call is scored by
 the model fitted on the other half; pool calls are scored by the model fitted on the whole ranking fold.
 Delta_hat_i = L_hat(S_i^L) - L_hat(S_i^H) with L_hat(S) = mean of p_hat over S (0 for empty S); expected supported added
@@ -28,7 +27,6 @@ Hyperparameters and the model class were fixed on 10 Wainberg development splits
 import numpy as np, pandas as pd, hashlib
 from collections import Counter
 from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import HistGradientBoostingClassifier
 from sklearn.preprocessing import StandardScaler
 import goco_rerun as gr
 
@@ -87,11 +85,8 @@ class _Fold:
 
     def fit(self, base):
         X = self.features(self.rows_fit, base); yy = self.y[self.rows_fit]
-        if self.kind == 'learnedgb':
-            self.clf = HistGradientBoostingClassifier(max_iter=150, max_depth=3, learning_rate=0.06, min_samples_leaf=20, l2_regularization=1.0, random_state=0).fit(X, yy)
-        else:
-            self.scaler = StandardScaler().fit(X)
-            self.clf = LogisticRegression(C=0.5, max_iter=1000).fit(self.scaler.transform(X), yy)
+        self.scaler = StandardScaler().fit(X)
+        self.clf = LogisticRegression(C=0.5, max_iter=1000).fit(self.scaler.transform(X), yy)
         return self
 
     def predict(self, idx, base):
@@ -146,7 +141,7 @@ def _fit_model(ds, train, kind):
 
 def learned_utility(order, ds, Aadd, meanscore, delta_true, cadd, affected, train, hh, extra):
     lo, hi = extra['lo'], extra['hi']
-    kind = 'learnedgb' if order == 'learnedgb' else 'learned'
+    kind = 'learned'
     predict, s, i_all = _fit_model(ds, train, kind)
     aff_rows = np.where(affected[i_all] & (s >= lo))[0]          # calls of affected genes in S^L
     i = i_all[aff_rows]
@@ -158,5 +153,5 @@ def learned_utility(order, ds, Aadd, meanscore, delta_true, cadd, affected, trai
     dhat = LhatL - LhatH
     exp_sup = np.bincount(i[~in_H], weights=1.0 - p_unsup[~in_H], minlength=ds.n)
     u = np.where(affected, dhat / np.maximum(exp_sup, 1e-3), 0.0)
-    if order in ('learned', 'learnedgb'): return u, hh
+    return u, hh
     raise ValueError(order)
