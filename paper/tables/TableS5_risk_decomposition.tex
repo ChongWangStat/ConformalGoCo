@@ -1,28 +1,28 @@
 \begin{table*}[htbp]
 \centering
-\caption{Calibration mean ($\widehat R_{\mathcal C}$ over the 60\% certification fold for GoCo; $\widehat R_{\mathcal T\cup\mathcal C}$ over the 70\% calibration sample for GoDag), pool risk $R(\widehat\pi)$ and held-out mean $\widehat R_{\mathcal E}(\widehat\pi)$ of the certified policy, averaged over 100 splits at $\alpha=0.10$, with the fractions of splits in which $R(\widehat\pi)>\alpha$ (the event bounded by Proposition 1) and $\widehat R_{\mathcal E}(\widehat\pi)>\alpha$; the number of held-out genes with a nonempty released set (of $n_{\mathcal E}$ = 4,738 / 4,465 / 1,885 / 4,506) and the mean FDP among those genes, $R^{+}=\widehat R_{\mathcal E}\,n_{\mathcal E}/(\text{genes with calls})$.}
+\caption{Calibration mean ($\widehat R_{\mathcal C}$ over the 60\% certification fold for GoCo; $\widehat R_{\mathcal T\cup\mathcal C}$ over the 70\% calibration sample for GoDag), pool risk $R(\widehat\pi)$ and held-out mean $\widehat R_{\mathcal E}(\widehat\pi)$ of the certified policy, averaged over 100 splits at $\alpha=0.10$, with the fractions of splits in which $R(\widehat\pi)>\alpha$ (the event bounded by Proposition 1) and $\widehat R_{\mathcal E}(\widehat\pi)>\alpha$; and the yield of the certified policy on the evaluation fold: the number of genes with a nonempty released set (of $n_{\mathcal E}$ = 4,738 / 4,465 / 1,885 / 4,506), the number of released calls, the number of reference-supported gene--GO calls and the supported terms per gene carrying at least one. The pooled precision of the released call list is not the certified quantity and is not reported as an error rate (Note S3.7).}
 \label{tab:riskdecomp}
 \scriptsize
-\resizebox{\linewidth}{!}{\begin{tabular}{l l l rrr rr rr}
+\resizebox{\linewidth}{!}{\begin{tabular}{l l l rrr rr rrrr}
 \toprule
-$\delta$ & Data set & Method & Calib.\ mean & $R$ & $\widehat R_{\mathcal E}$ & $\Pr(R>\alpha)$ & $\Pr(\widehat R_{\mathcal E}>\alpha)$ & Genes w/ calls & $R^{+}$ \\ \midrule
-0.50 & Wainberg & GoDag & 0.0924 & 0.0924 & 0.0923 & 0.00 & 0.01 & 561 & 0.78 \\
-0.50 & Wainberg & GoCo & 0.0964 & 0.0964 & 0.0964 & 0.08 & 0.20 & 575 & 0.79 \\
-0.50 & Sanger & GoDag & 0.0984 & 0.0983 & 0.0980 & 0.00 & 0.36 & 530 & 0.82 \\
-0.50 & Sanger & GoCo & 0.0986 & 0.0984 & 0.0980 & 0.20 & 0.42 & 529 & 0.83 \\
-0.50 & DRIVE & GoDag & 0.0955 & 0.0958 & 0.0965 & 0.28 & 0.28 & 215 & 0.85 \\
-0.50 & DRIVE & GoCo & 0.0962 & 0.0965 & 0.0971 & 0.26 & 0.33 & 215 & 0.85 \\
-0.50 & HAP1 & GoDag & 0.0720 & 0.0720 & 0.0719 & 0.00 & 0.00 & 377 & 0.86 \\
-0.50 & HAP1 & GoCo & 0.0939 & 0.0941 & 0.0943 & 0.05 & 0.19 & 475 & 0.89 \\
+$\delta$ & Data set & Method & Calib.\ mean & $R$ & $\widehat R_{\mathcal E}$ & $\Pr(R>\alpha)$ & $\Pr(\widehat R_{\mathcal E}>\alpha)$ & Genes w/ calls & Calls & Supp.\ terms & Terms per supp.\ gene \\ \midrule
+0.50 & Wainberg & GoDag & 0.0924 & 0.0924 & 0.0923 & 0.00 & 0.01 & 561 & 1614 & 339.6 & 1.83 \\
+0.50 & Wainberg & GoCo & 0.0964 & 0.0964 & 0.0964 & 0.08 & 0.20 & 575 & 1955 & 369.1 & 1.87 \\
+0.50 & Sanger & GoDag & 0.0984 & 0.0983 & 0.0980 & 0.00 & 0.36 & 530 & 2040 & 353.8 & 2.20 \\
+0.50 & Sanger & GoCo & 0.0986 & 0.0984 & 0.0980 & 0.20 & 0.42 & 529 & 2380 & 380.7 & 2.28 \\
+0.50 & DRIVE & GoDag & 0.0955 & 0.0958 & 0.0965 & 0.28 & 0.28 & 215 & 1954 & 258.6 & 2.62 \\
+0.50 & DRIVE & GoCo & 0.0962 & 0.0965 & 0.0971 & 0.26 & 0.33 & 215 & 2296 & 291.7 & 2.76 \\
+0.50 & HAP1 & GoDag & 0.0720 & 0.0720 & 0.0719 & 0.00 & 0.00 & 377 & 847 & 129.4 & 1.68 \\
+0.50 & HAP1 & GoCo & 0.0939 & 0.0941 & 0.0943 & 0.05 & 0.19 & 475 & 1285 & 137.7 & 1.70 \\
 \midrule
-0.10 & Wainberg & GoDag & 0.0924 & 0.0924 & 0.0923 & 0.00 & 0.01 & 561 & 0.78 \\
-0.10 & Wainberg & GoCo & 0.0946 & 0.0947 & 0.0948 & 0.00 & 0.13 & 568 & 0.79 \\
-0.10 & Sanger & GoDag & 0.0925 & 0.0924 & 0.0923 & 0.00 & 0.12 & 502 & 0.82 \\
-0.10 & Sanger & GoCo & 0.0933 & 0.0932 & 0.0930 & 0.00 & 0.15 & 505 & 0.82 \\
-0.10 & DRIVE & GoDag & 0.0918 & 0.0921 & 0.0929 & 0.00 & 0.13 & 208 & 0.84 \\
-0.10 & DRIVE & GoCo & 0.0921 & 0.0925 & 0.0931 & 0.01 & 0.16 & 208 & 0.84 \\
-0.10 & HAP1 & GoDag & 0.0720 & 0.0720 & 0.0719 & 0.00 & 0.00 & 377 & 0.86 \\
-0.10 & HAP1 & GoCo & 0.0912 & 0.0913 & 0.0915 & 0.00 & 0.06 & 462 & 0.89 \\
+0.10 & Wainberg & GoDag & 0.0924 & 0.0924 & 0.0923 & 0.00 & 0.01 & 561 & 1614 & 339.6 & 1.83 \\
+0.10 & Wainberg & GoCo & 0.0946 & 0.0947 & 0.0948 & 0.00 & 0.13 & 568 & 1896 & 365.2 & 1.87 \\
+0.10 & Sanger & GoDag & 0.0925 & 0.0924 & 0.0923 & 0.00 & 0.12 & 502 & 1789 & 319.1 & 2.10 \\
+0.10 & Sanger & GoCo & 0.0933 & 0.0932 & 0.0930 & 0.00 & 0.15 & 505 & 1983 & 340.0 & 2.17 \\
+0.10 & DRIVE & GoDag & 0.0918 & 0.0921 & 0.0929 & 0.00 & 0.13 & 208 & 1718 & 237.2 & 2.55 \\
+0.10 & DRIVE & GoCo & 0.0921 & 0.0925 & 0.0931 & 0.01 & 0.16 & 208 & 1987 & 263.5 & 2.64 \\
+0.10 & HAP1 & GoDag & 0.0720 & 0.0720 & 0.0719 & 0.00 & 0.00 & 377 & 847 & 129.4 & 1.68 \\
+0.10 & HAP1 & GoCo & 0.0912 & 0.0913 & 0.0915 & 0.00 & 0.06 & 462 & 1252 & 137.6 & 1.70 \\
 \bottomrule
 \end{tabular}}
 \end{table*}

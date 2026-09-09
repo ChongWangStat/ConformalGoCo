@@ -19,7 +19,7 @@ are unchanged since the first freeze (v1.0.0); later commits touched only table,
 | `code/make_block_diagnostics.py` | 9,150 | `e9997dd5bbe46700f437e26e1b5493743dc0720bf626eda738150dd552cc50b7` |
 | `code/make_case_study.py` | 5,834 | `cb5da0df38b117444ee45fd9d3da13ed38dc715cdc231eca354218de6ab48dc3` |
 | `code/make_figures.py` | 11,506 | `a7d8b3663779d2931e6599f270a17fed5218b4ae681e3880823407142bca1a25` |
-| `code/make_supp_tables.py` | 2,537 | `c19f7ba7421a1a184de81b4341fedc5f9be75645729bc083eaa248e9ad276300` |
+| `code/make_supp_tables.py` | 2,814 | `d8b7719ef9829a546364740c1afff5a38911c6e4947880c05e1bf26410d75bbb` |
 | `code/make_table_s9.py` | 2,784 | `324dd27e08fc30a8bad13564aeccaf63dfb104024b0a47b128e0775186d9d2a5` |
 | `code/make_tables.py` | 14,087 | `af09d4fd224b17c251019c9545066257eeb8e8753b1a575ef30b3f95312c510c` |
 | `code/requirements.txt` | 255 | `48e619ccd9c37e53ca901365a416c71d87b7be3a7375dc6a5f6d7ea8cf4e86cd` |
