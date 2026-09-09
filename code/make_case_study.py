@@ -46,7 +46,7 @@ print('\nmodules contributing >= 4 admitted calls:')
 print(g[g.calls >= 4].to_string())
 mm = pd.read_csv(gr.W + 'module_memberships.csv.gz')
 rows = []
-for m in g[g.calls >= 4].index[:8]:
+for mi, m in enumerate(g[g.calls >= 4].index):
     mem = mm[mm.module_id == m].gene.astype(str).tolist()
     sub = adm[adm.winning_module == m]
     rows.append(dict(module=int(m), members='; '.join(sorted(mem)), admitted_genes='; '.join(sorted(set(sub.gene))),
@@ -61,8 +61,8 @@ pd.DataFrame(rows).to_csv(RESULTS + 'case_study_split0.csv', index=False)
 # ---------------- LaTeX Table S7 ----------------
 cap = (f"What GoCo releases that GoDag does not, in Wainberg split~{SEED} at $\\alpha=0.10$, $\\delta=0.50$ "
        f"(admission fraction $q={sel_q:g}$). Of the {len(adm)} additional evaluation-fold gene--GO calls, over {adm.gene.nunique()} genes, "
-       f"{int(adm['T'].sum())} ({100 * adm['T'].mean():.0f}\\%) are supported by the frozen TruePath reference. "
-       "The table lists every co-essential module contributing at least four of them, its members, the genes admitted from it, "
+       f"{int(adm['T'].sum())} ({100 * adm['T'].mean():.1f}\\%) are supported by the frozen TruePath reference. "
+       f"The table lists the eight co-essential modules contributing the most of them; {int((g.calls >= 4).sum())} modules contributed at least four and all appear in case\_study\_split0.csv. Calls: additional gene--GO calls attributed to the module; Supp.: how many the reference supports. Its members, the genes admitted from it, "
        "and the terms transferred ($\\ast$ = supported). Modules whose members share a coherent function transfer supported terms; "
        "heterogeneous modules transfer their members' own annotations to genes that do not have them.")
 Lx = ['\\begin{table*}[!htbp]', '\\centering', f'\\caption{{{cap}}}', '\\label{tab:casestudy}', '\\scriptsize',
@@ -72,7 +72,7 @@ def tex_escape(t):
     for ch in ['%', '&', '#', '_']:
         t = t.replace(ch, '\\' + ch)
     return t
-for r in rows:
+for r in rows[:8]:                        # table shows the eight largest; the CSV keeps all
     terms = [tex_escape(t.strip()).replace('\\*', '$\\ast$').replace('*', '$\\ast$') for t in r['terms'].split(';')]
     keep, n = [], 0
     for t in terms:                       # truncate on whole terms, never inside math

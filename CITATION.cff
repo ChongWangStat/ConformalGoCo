@@ -3,7 +3,7 @@ message: "If you use this software, please cite the paper and this archived rele
 title: "ConformalGoCo (GoCo): co-essentiality-guided conformal calibration for Gene Ontology annotation release"
 abstract: "Reference implementation, frozen inputs and split-level results for GoCo, a calibration and release layer that certifies a gene-level false discovery proportion for predicted Gene Ontology annotations without retraining the upstream predictor."
 type: software
-version: 2.2.0
+version: 2.3.0
 license: MIT
 repository-code: "https://github.com/ChongWangStat/ConformalGoCo"
 authors:

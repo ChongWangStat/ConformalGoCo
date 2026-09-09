@@ -17,11 +17,11 @@ are unchanged since the first freeze (v1.0.0); later commits touched only table,
 | `code/goco_learned.py` | 8,804 | `b55cfd7b021732723e9ec1d3cdc9528f0a0860f3e7b3685117cf2d701cc3be57` |
 | `code/goco_rerun.py` | 17,728 | `4fa69e253b29f712b9d752c0802c1dda61b1a042d32387c16fd157e559acde88` |
 | `code/make_block_diagnostics.py` | 9,150 | `e9997dd5bbe46700f437e26e1b5493743dc0720bf626eda738150dd552cc50b7` |
-| `code/make_case_study.py` | 5,834 | `cb5da0df38b117444ee45fd9d3da13ed38dc715cdc231eca354218de6ab48dc3` |
-| `code/make_figures.py` | 11,506 | `a7d8b3663779d2931e6599f270a17fed5218b4ae681e3880823407142bca1a25` |
+| `code/make_case_study.py` | 6,128 | `b08742ccc4edfd726ce7e70447e680526acdfc8cc3322cb681268302a5b5bc63` |
+| `code/make_figures.py` | 11,509 | `2f8ff0ed1978e881f08122e31ca519e9b14dfad9c0c5a2e613334f8c4e075e70` |
 | `code/make_supp_tables.py` | 2,814 | `d8b7719ef9829a546364740c1afff5a38911c6e4947880c05e1bf26410d75bbb` |
-| `code/make_table_s9.py` | 2,784 | `324dd27e08fc30a8bad13564aeccaf63dfb104024b0a47b128e0775186d9d2a5` |
-| `code/make_tables.py` | 14,087 | `af09d4fd224b17c251019c9545066257eeb8e8753b1a575ef30b3f95312c510c` |
+| `code/make_table_s9.py` | 2,957 | `042f70a094c13a8f1e89f4a392dc3ed5ed7a41fb9932a156ecd22b5a38476ea9` |
+| `code/make_tables.py` | 14,211 | `826ab92da744ad644ae0cf8ed60330f4c9e4676f8f6301ecca02f93600f3e097` |
 | `code/requirements.txt` | 255 | `48e619ccd9c37e53ca901365a416c71d87b7be3a7375dc6a5f6d7ea8cf4e86cd` |
 | `code/test_measurability.py` | 2,567 | `753f9a0f8c217bed4173e41e8671ec0659c62e8aa95db024425e0beb1642318b` |
 | `code/wordcount.py` | 2,115 | `b1a7a2bfb99177751e2a94c8b3ea9af7af465e75d0277c9d3b2a079b7d81df92` |
@@ -30,9 +30,9 @@ are unchanged since the first freeze (v1.0.0); later commits touched only table,
 
 | file | bytes | sha256 |
 |---|---:|---|
-| `results/all_methods_harmonised_100splits.csv` | 1,962,377 | `a26624e24a7a17b1ac99a49880f3c07e00bfbe386e3403af4d255f821866f938` |
+| `results/all_methods_harmonised_100splits.csv` | 1,962,374 | `9f7033f4abe51b9e875a477c3e3d568ef35748f96a1dd9f26694fe701fe213b5` |
 | `results/block_diagnostics_alpha010.csv` | 1,027 | `7f37c2a9268884b4b2dc616c10adc130be3e408640da3b21206087d2c36d57a1` |
-| `results/case_study_split0.csv` | 2,948 | `228270b69917c9fbb3e731a6419362f0c8641b5ce14ff733a02999a3face4bc6` |
+| `results/case_study_split0.csv` | 8,059 | `0e967053e841a1b862b174c1e0ef824a2bc94b5605f724fe1e13f465773ae5f4` |
 | `results/conformal_selection_alpha0.1.csv` | 24,968 | `c7fa296fedd55df3ecbc126bcbcdb0ebcd91ec220481fee050aacda99fb4fcd4` |
 | `results/first_draft_primary_method_summary_long.csv` | 8,768 | `a3fee7c60ef2ea6e35cbfc9f9ec2d35e0cac4cc54c05b872f5814c179abb6394` |
 | `results/goco_results_100splits.csv` | 1,872,781 | `be8297da81eac1946f1c28928c49e3dd04240183cd309a495926906e2aee7abd` |

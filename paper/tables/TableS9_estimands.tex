@@ -1,6 +1,6 @@
 \begin{table*}[!htbp]
 \centering
-\caption{Two estimands on the same data, same 100 splits, same frozen scores, $\alpha=0.10$. Conformal selection computes a conformal $p$-value for each gene--GO pair against the unsupported calibration pairs of the split and applies Benjamini--Hochberg, targeting the \emph{pooled} false discovery rate over released calls; GoCo targets the average over genes of the per-gene FDP. Conformal selection does what it promises---its realised pooled FDR is at or below the target in every data set---but reaching that target against an incomplete reference requires releasing almost nothing. Counts are means per evaluation fold.}
+\caption{Two estimands on the same data, same 100 splits, same frozen scores, $\alpha=0.10$ and $\delta=0.50$. Conformal selection computes a conformal $p$-value for each gene--GO pair against the unsupported calibration pairs of the split and applies Benjamini--Hochberg, targeting the \emph{pooled} false discovery rate over released calls; GoCo targets the average over genes of the per-gene FDP. Conformal selection does what it promises---its realised pooled FDR is at or below the target in every data set---but reaching that target against an incomplete reference requires releasing almost nothing. Counts are means per evaluation fold; the realised pooled FDR is the mean over the 100 splits of each split's pooled false discovery proportion, not the ratio of the two count columns.}
 \label{tab:estimands}
 \scriptsize
 \begin{tabular}{l l rrrr}

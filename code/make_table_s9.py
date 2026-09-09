@@ -13,12 +13,12 @@ g = pd.read_csv(RESULTS + 'all_methods_harmonised_100splits.csv')
 GOCO = 'GoCo' if 'GoCo' in set(g.method) else 'GoCo-learned'
 DS = ['Wainberg', 'Sanger', 'DRIVE', 'HAP1']
 
-cap = ("Two estimands on the same data, same 100 splits, same frozen scores, $" + B + "alpha=0.10$. Conformal selection "
+cap = ("Two estimands on the same data, same 100 splits, same frozen scores, $" + B + "alpha=0.10$ and $" + B + "delta=0.50$. Conformal selection "
        "computes a conformal $p$-value for each gene--GO pair against the unsupported calibration pairs of the split and "
        "applies Benjamini--Hochberg, targeting the " + B + "emph{pooled} false discovery rate over released calls; GoCo targets "
        "the average over genes of the per-gene FDP. Conformal selection does what it promises---its realised pooled FDR is "
        "at or below the target in every data set---but reaching that target against an incomplete reference requires "
-       "releasing almost nothing. Counts are means per evaluation fold.")
+       "releasing almost nothing. Counts are means per evaluation fold; the realised pooled FDR is the mean over the 100 splits of each split's pooled false discovery proportion, not the ratio of the two count columns.")
 
 L = [B + 'begin{table*}[!htbp]', B + 'centering', B + 'caption{' + cap + '}', B + 'label{tab:estimands}', B + 'scriptsize',
      B + 'begin{tabular}{l l rrrr}', B + 'toprule',

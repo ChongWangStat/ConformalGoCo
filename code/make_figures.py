@@ -110,7 +110,7 @@ def box(x, y, w, h, title, lines, fc='#f7f7f7', ec='#555', tc='k'):
 def arrow(x0, y0, x1, y1, color='#555'):
     ax.add_patch(FancyArrowPatch((x0, y0), (x1, y1), arrowstyle='-|>', mutation_scale=12, color=color, lw=1.2))
 box(1, 22, 22, 20, 'Frozen predictor', ['gene–GO score matrix $s_{ig}$', 'per-call source sets $\\mathcal{R}_{ig}$', '(annotated module members)', '', 'never retrained'])
-box(1, 1, 22, 18, 'Random split of the panel', ['ranking fold $\\mathcal{T}$ (10%)', 'certification fold $\\mathcal{C}$ (60%)', 'evaluation fold $\\mathcal{E}$ (30%)', 'exchangeable by construction'])
+box(1, 1, 22, 18, 'Random split', ['ranking fold $\\mathcal{T}$ (10%)', 'certification fold $\\mathcal{C}$ (60%)', 'evaluation fold $\\mathcal{E}$ (30%)', 'exchangeable by construction'])
 box(27, 24, 22, 18, 'GoDag path', ['global thresholds', '$\\lambda_1>\\lambda_2>\\dots>\\lambda_J$', 'one cutoff for every gene', 'tied scores move together'], fc='#e8f0fa', ec='#1f5fa8', tc='#1f5fa8')
 box(27, 1, 22, 21, 'GoCo path (this paper)', ['same grid, plus within each block', 'partial admission $\\pi_{j,q}$ of the', 'affected genes ordered by $u_i$', '(Eq. 6; fitted on $\\mathcal{T}$ only)', 'nested, $\\mathcal{T}$-measurable'], fc='#fbeaea', ec='#c0392b', tc='#c0392b')
 box(53, 12, 22, 22, 'Certification on $\\mathcal{C}$', ['$\\widehat R_k$, $\\widehat\\sigma_k$ over certification genes', '$p_k=\\Phi\\{(\\widehat R_k-\\alpha)/(\\widehat\\sigma_k/\\sqrt{m})\\}$', 'fixed sequence: stop at first $p_k>\\delta$', '', 'Prop. 1: $\\Pr\\{R(\\hat\\pi)>\\alpha\\}\\leq\\delta$', 'for any $\\mathcal{T}$-measurable ordering'])
@@ -125,7 +125,7 @@ s = d[(d.alpha == 0.1) & (d.delta == 0.5)].groupby(['dataset', 'method']).go_yie
 gains = [f'{dsn}: {100 * (s[(dsn, "GoCo")] / s[(dsn, "GoDag")] - 1):+.1f}%' for dsn in DS]
 box(1, 3, 26, 20, '1  Predict (frozen)', ['gene–GO scores from a', 'co-essentiality / co-regulation', 'predictor, plus the sources', 'that produced each call'])
 box(32, 3, 34, 20, '2  Calibrate with GoCo', ['same global grid as GoDag', '+ partial admission inside each step,', 'ordered by predicted loss per', 'supported term (sources, ranking fold)', 'certified by fixed-sequence LTT'], fc='#fbeaea', ec='#c0392b', tc='#c0392b')
-box(71, 3, 28, 20, '3  Release more at equal risk', ['gene-level FDP ≤ 0.10 (Prop. 1)', 'supported GO-term yield vs GoDag:'] + gains, fc='#eaf5ee', ec='#2e7d32', tc='#2e7d32')
+box(71, 3, 28, 20, '3  Release more at equal risk', ['gene-level FDP ≤ 0.10 w.p. ≥ 1−δ (Prop. 1)', 'supported GO-term yield vs GoDag:'] + gains, fc='#eaf5ee', ec='#2e7d32', tc='#2e7d32')
 arrow(27.5, 13, 31.5, 13); arrow(66.5, 13, 70.5, 13)
 ax.text(50, 26, 'GoCo: biological relation is used twice — to score functions, and to decide where a calibrated annotation budget is spent', ha='center', fontsize=9, fontweight='bold')
 save(fig, 'graphical_abstract_v2')
