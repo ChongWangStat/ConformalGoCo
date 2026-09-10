@@ -96,7 +96,8 @@ STRING's raw download (162 MB) and its derived score table (62 MB) are not redis
 `build_string_validation.py` regenerates both in about six minutes.
 
 `funmap/funmap_gene_go_scores.csv.gz` (48,490,602 bytes, sha256 `b215cf4ca8362efcd94de1e287759882d5d27c4bac932e184eaaf9c239943f6c`)
-is distributed with the Zenodo archive rather than committed to git; the hash above pins it.
+is distributed with the Zenodo archive (https://doi.org/10.5281/zenodo.22677009) rather than committed
+to git; the hash above pins it.
 
 ### Split-level results
 

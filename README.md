@@ -145,8 +145,8 @@ built from GO is circular.
 ### The one file not committed here
 
 `funmap/funmap_gene_go_scores.csv.gz` (48,490,602 bytes, sha256 `b215cf4ca8362efcd94de1e287759882d5d27c4bac932e184eaaf9c239943f6c`) is the FunMap
-gene-GO enrichment score table. It is distributed with the Zenodo archive rather than committed to
-git, which keeps this repository to code and small artefacts. Everything else the second family
+gene-GO enrichment score table. It is distributed with the Zenodo archive (https://doi.org/10.5281/zenodo.22677009) rather than
+committed to git, which keeps this repository to code and small artefacts. Everything else the second family
 needs -- per-call source sets, network edges and the frozen GO truth -- is in `funmap/`.
 
 Place it in `funmap/` before running the FunMap arm; `code/verify_second_family.py` skips that arm
