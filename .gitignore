@@ -2,3 +2,9 @@ __pycache__/
 *.pyc
 code/out/
 .DS_Store
+funmap/funmap_gene_go_scores.csv.gz
+string/links.txt.gz
+string/info.txt.gz
+string/string_gene_go_scores.csv.gz
+string/funmap_view/
+results/second_family/_verify/

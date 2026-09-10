@@ -37,7 +37,8 @@ independent dependency resources to which the frozen construction was applied un
     w/         frozen Wainberg inputs (scores, source attribution, GO truth, modules)
     ext/       frozen Sanger / DRIVE / HAP1 score and loss matrices
     results/   split-level output for every method x data set x alpha x delta (100 splits each)
-    funmap/    frozen FunMap objects: scores, per-call sources, GO truth, edges
+    funmap/    frozen FunMap objects: per-call sources, GO truth, edges
+               (the score table ships with the Zenodo archive, see below)
     string/    derived STRING validation objects (rebuild the rest with build_string_validation.py)
     paper/     tables and figures regenerated from results/
 
@@ -140,6 +141,22 @@ GO enters STRING only through the `database` and `textmining` columns, which the
 Networks whose edge weights are *fitted* to GO co-annotation -- HumanNet, HumanBase/GIANT, GeneMANIA --
 were rejected as validation sets for exactly this reason: evaluating GO predictions against a network
 built from GO is circular.
+
+### The one file not committed here
+
+`funmap/funmap_gene_go_scores.csv.gz` (48,490,602 bytes, sha256 `b215cf4ca8362efcd94de1e287759882d5d27c4bac932e184eaaf9c239943f6c`) is the FunMap
+gene-GO enrichment score table. It is distributed with the Zenodo archive rather than committed to
+git, which keeps this repository to code and small artefacts. Everything else the second family
+needs -- per-call source sets, network edges and the frozen GO truth -- is in `funmap/`.
+
+Place it in `funmap/` before running the FunMap arm; `code/verify_second_family.py` skips that arm
+cleanly if it is absent. To confirm you have the right file:
+
+    python -c "import hashlib;print(hashlib.sha256(open('funmap/funmap_gene_go_scores.csv.gz','rb').read()).hexdigest())"
+
+STRING needs nothing extra: `code/build_string_validation.py` downloads and rebuilds its inputs,
+and that rebuild was checked to reproduce the shipped results exactly (identical integer columns,
+p/q to 4e-13, identical certified policies on every re-run split).
 
 ### Reproducibility gate
 
