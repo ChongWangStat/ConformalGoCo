@@ -1,0 +1,25 @@
+{
+  "application": "FunMap",
+  "upstream_predictor": "author-released unweighted FunMap network and top-50 RWR neighborhoods",
+  "upstream_retrained": false,
+  "target_exclusion": "focal gene excluded from neighborhood and enrichment background",
+  "go_release": "2024-09-08 (before paper acceptance on 2024-10-25)",
+  "score": "-log10(BH-adjusted hypergeometric over-representation p-value)",
+  "go_term_size_range": [
+    10,
+    2000
+  ],
+  "network_genes": 10525,
+  "network_edges": 196800,
+  "go_annotated_network_genes": 10316,
+  "target_genes": 10189,
+  "direct_truth_rows": 183446,
+  "true_path_truth_rows": 1058132,
+  "score_rows": 3303702,
+  "input_sha256": {
+    "edge_list": "7d6d6a0aef765ad7ff2b7629e9be8dac44e4bfe98ff4eaadc4b47951228f5b4e",
+    "neighborhoods": "31674bbcbd74970b9d32c45c82877cc8093fc9f748c9f425ff2b70db32bf99a1",
+    "gaf": "69f9b9aa0d392c66f1c38ebf1e741f28896284bddfa3e699162ec54547deb4f0",
+    "obo": "993f457648aed163ee2b31bde9dbe5626080db737302ece3059ac843b96af7f8"
+  }
+}
