@@ -46,3 +46,61 @@ are unchanged since the first freeze (v1.0.0); later commits touched only table,
 - `python code/test_measurability.py <dataset> <seed>` checks that scrambling every non-ranking-fold label leaves the GoCo ordering unchanged.
 - `python code/conformal_selection.py 0.10 100` recomputes the alternative-estimand comparator.
 - `python code/make_tables.py`, `code/make_supp_tables.py`, `code/make_figures.py`, `code/make_block_diagnostics.py`, `code/make_case_study.py` and `code/make_table_s9.py` rebuild the paper tables and figures into `paper/`.
+
+## Second predictor family (added 2026-09-10)
+
+GoCo-M and GoCo-N on FunMap, with STRING v12.0 (experiments channel) as independent
+validation and Wainberg as a negative control. The original algorithm files
+`goco_rerun.py` and `goco_learned.py` are UNCHANGED; the second family adds new files and
+reuses the frozen per-call model through `goco_learned._fit_model`.
+
+Verified 2026-09-10, all from clean:
+
+- `code/verify_second_family.py` re-runs every arm and requires bit-identical agreement with
+  the shipped split-level results on every metric of every split (`atol = 0`). 108 rows x 5
+  metrics identical across FunMap, STRING and the Wainberg control.
+- `code/build_string_validation.py` rebuilt the STRING validation set from the raw STRING
+  download: integer columns identical, `p`/`q`/score agreeing to 4e-13 (floating-point noise
+  in `hypergeom.sf`), and the certified policy, FDP, supported, total and annotated-gene
+  counts identical on every re-run split -- so the float noise changes no decision.
+- `code/test_measurability_second_family.py` passes for both applications: scrambling the
+  TruePath labels of every non-ranking-fold gene leaves the per-call ordering bit-identical
+  over 241,154 pool calls (FunMap) and 470,735 (STRING), max difference 0.
+
+### Code
+
+| file | bytes | sha256 |
+|---|---:|---|
+| `code/goco_second_family.py` | 8,271 | `493e796a366c04d24d8b47fff767253c963bd308a525f556bd51715947cc1f2c` |
+| `code/run_goco_second_family.py` | 8,143 | `830e314c1e1d84014f9d2f46d78761847a5eb847a0b08a5a17134d7afbaca55a` |
+| `code/build_string_validation.py` | 10,910 | `91127352927f4ad90d917b4b99ff299c39d7c45f2f46fa81fb21d449084f4832` |
+| `code/test_measurability_second_family.py` | 2,598 | `e1032e46459219c0ce69dfb5ffb76c9945683091b613238bdd64bbabafbc1d23` |
+| `code/wainberg_goco_n_control.py` | 4,583 | `bd3857f14401b07567484e941534122de4a9ac7cf85156466bbc0b6563617723` |
+| `code/verify_second_family.py` | 3,563 | `27ca183de67c04aace22de102710de0d058661abfdae35707d389332b2aabcef` |
+
+### Frozen inputs
+
+| file | bytes | sha256 |
+|---|---:|---|
+| `funmap/author_top50_neighborhoods_lopo.csv.gz` | 5,802,410 | `31674bbcbd74970b9d32c45c82877cc8093fc9f748c9f425ff2b70db32bf99a1` |
+| `funmap/funmap_edges.csv.gz` | 704,556 | `4a2bfa527210bfda28e327bbe87a964c4372d8ecc184b6455418e9d1bc57a16d` |
+| `funmap/funmap_gene_go_scores.csv.gz` | 48,490,602 | `b215cf4ca8362efcd94de1e287759882d5d27c4bac932e184eaaf9c239943f6c` |
+| `funmap/go_truth_direct.csv.gz` | 685,982 | `593841d888b1d764a46d1ebaa010c835466d53be13c935c851861a5853913cf3` |
+| `funmap/go_truth_true_path.csv.gz` | 3,396,068 | `b569c4b4a7cb70b3e8071dd03d0f19510e720a95ee5892c62fa51a3e7a479f2c` |
+| `funmap/score_construction_metadata.json` | 1,030 | `7e46cec2f2521250ded8fa544c05343631bf0db23ec97ef7c539682f9836d67a` |
+| `string/score_construction_metadata.json` | 1,023 | `b6a56969c04c2331b72bc458c3451011c7cf44729ad2d8fa29b42137b4948c92` |
+| `string/string_edges.csv.gz` | 239,248 | `2e923c5ed1836587d9482ba34d0e0b19b817d0136bf5827b4a29a7b869dec1bc` |
+| `string/string_top50_neighborhoods.csv.gz` | 1,943,305 | `210dcf10ab432c1b175bf7847aa25d4b2bd8edbbd73e55ddf58739c696f38e5d` |
+
+STRING's raw download (162 MB) and its derived score table (62 MB) are not redistributed;
+`build_string_validation.py` regenerates both in about six minutes.
+
+### Split-level results
+
+| file | bytes | sha256 |
+|---|---:|---|
+| `results/second_family/goco_funmap_50splits.csv` | 54,551 | `06916e7ffb78e3aa37d52872b965fbfb87eb2ec5af1e1b2329eabf3cf36f6b47` |
+| `results/second_family/goco_string_50splits.csv` | 53,817 | `873e01e9059293bd9a671a028a00a85ce6e8701a64c0f3f256b43df3f1c1d8f8` |
+| `results/second_family/summary_funmap_string.csv` | 4,348 | `70437be9fae23dd5992187f4eae39dfb7f51a020bbb1d66fbb6509d162dc7cc5` |
+| `results/second_family/summary_wainberg_control.csv` | 535 | `587dd4be3fcf501e7caa3759155cd91c25f6f8b6c810a6974845b4ba5dd813c9` |
+| `results/second_family/wainberg_goco_n_control_50splits.csv` | 18,977 | `217c11169d9a52af4e0b0c9ff52724774f860ef98fddb9c2812d7089cefa3318` |

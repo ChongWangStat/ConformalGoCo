@@ -1,0 +1,32 @@
+{
+  "application": "STRING v12.0 experiments-only",
+  "upstream_retrained": false,
+  "channel": "experiments (column 10)",
+  "threshold": 400,
+  "min_combined_score_in_file": 150,
+  "licence": "CC BY 4.0",
+  "string_version": "v12.0 (frozen 2023-07)",
+  "rwr": {
+    "restart": 0.5,
+    "iterations": 50,
+    "topk": 50,
+    "note": "reconstructed; STRING publishes no neighbourhoods"
+  },
+  "target_exclusion": "focal gene removed from neighbourhood and from enrichment background",
+  "go_release": "2024-09-08 (identical frozen tables as FunMap, restricted to overlap)",
+  "go_term_size_range": [
+    10,
+    2000
+  ],
+  "analysis_genes": 8496,
+  "edges": 61093,
+  "score_rows": 3974886,
+  "direct_truth_rows": 162500,
+  "true_path_truth_rows": 930536,
+  "bh_terms_per_aspect": {
+    "P": 1689,
+    "F": 471,
+    "C": 455
+  },
+  "bh_note": "BH within (gene, aspect), denominator = number of terms tested in that aspect; convention validated against FunMap published q (97.6% within 1e-9)"
+}
