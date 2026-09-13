@@ -1,8 +1,8 @@
 # ConformalGoCo (GoCo)
 
-Reference implementation, frozen inputs and complete split-level results for
+Reference implementation, analysis inputs and complete split-level outputs for
 
-> **GoCo: co-essentiality-guided conformal calibration for Gene Ontology annotation release.**
+> **GoCo: structure-guided conformal calibration for error-controlled Gene Ontology annotation release.**
 > Chong Wang, Yongzhao Shao, Peng Liu.
 
 GoCo is a **calibration and release layer** for a frozen Gene Ontology (GO) predictor. It retrains

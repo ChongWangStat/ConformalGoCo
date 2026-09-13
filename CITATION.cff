@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the paper and this archived release."
-title: "ConformalGoCo (GoCo): co-essentiality-guided conformal calibration for Gene Ontology annotation release"
-abstract: "Reference implementation, frozen inputs and split-level results for GoCo, a calibration and release layer that certifies a gene-level false discovery proportion for predicted Gene Ontology annotations without retraining the upstream predictor."
+title: "GoCo: structure-guided conformal calibration for error-controlled Gene Ontology annotation release — reference implementation, analysis inputs and split-level outputs"
+abstract: "Reference implementation, analysis inputs and split-level outputs for GoCo, a calibration and release layer that certifies a gene-level false discovery proportion for predicted Gene Ontology annotations without retraining the upstream predictor."
 type: software
 version: 3.0.0
 license: MIT
