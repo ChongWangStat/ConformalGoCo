@@ -1,0 +1,12 @@
+{
+  "full_artifact_rebuild_run": 36245041235,
+  "full_artifact_rebuild_commit": "e09e7279e4c0ffdb8b9197f675338dc35fa4ea13",
+  "full_rebuild_checks": [
+    "all 13 generated table checks",
+    "six panels with 100 explicit fold assignments",
+    "all five manuscript figures",
+    "Wainberg split-zero ranking-fold measurability"
+  ],
+  "final_change": "Figure 1 text wrap only; numerical analyses unchanged",
+  "raw_neighbourhood_rerun": "Not rerun in this synchronization; matching large FunMap/STRING inputs remain in the separate archive"
+}

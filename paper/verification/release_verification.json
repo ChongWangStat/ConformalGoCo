@@ -1,0 +1,7 @@
+{
+  "table_check": "All 13 calculated tables match displayed manuscript numbers",
+  "split_check": "All six explicit tables match the decompressed v4-bundle checksums",
+  "neighbourhood_outputs": "100 unique repeats per arm/target/delta",
+  "figures": "Five current figures regenerated from Python; Figure 4 baseline is Multilabel",
+  "raw_neighbourhood_rerun": "Not performed in this synchronization; large FunMap/STRING inputs are not in Git"
+}

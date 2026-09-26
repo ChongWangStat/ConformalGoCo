@@ -52,7 +52,7 @@ def build(outdir: Path):
     text(37.5,43.3,'Nested paths using\npredictor-native\nstructure',8.0,'bold',navy,panel=1)
     box((27.6,26,19.8,12.7),'#FDEEEF','#F06B75')
     text(37.5,35.8,'GoCo-M',11,'bold','#D23B4B',panel=1)
-    text(37.5,30,'shared module evidence\npartial admission\nof genes within grid steps',8.3,panel=1)
+    text(37.5,30,'shared module evidence\npartial admission of\ngenes within grid steps',8.3,panel=1)
     box((27.6,10.8,19.8,13),'#FFF3E6','#F28A1D')
     text(37.5,20.9,'GoCo-N',11,'bold','#D96A00',panel=1)
     text(37.5,15.3,'gene-specific evidence\nfrom neighbourhoods\nindividual-call ordering',8.0,panel=1)

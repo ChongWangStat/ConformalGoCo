@@ -1,0 +1,54 @@
+{
+  "Table3_panel_module.tex": {
+    "displayed_numeric_rows": 12,
+    "matches_manuscript": true
+  },
+  "Table4_alpha_sweep_delta050.tex": {
+    "displayed_numeric_rows": 20,
+    "matches_manuscript": true
+  },
+  "Table5_panel_neighbourhood.tex": {
+    "displayed_numeric_rows": 10,
+    "matches_manuscript": true
+  },
+  "TableS1_detail.tex": {
+    "displayed_numeric_rows": 40,
+    "matches_manuscript": true
+  },
+  "TableS2_alpha_sweep_delta010.tex": {
+    "displayed_numeric_rows": 20,
+    "matches_manuscript": true
+  },
+  "TableS3_risk_decomposition.tex": {
+    "displayed_numeric_rows": 16,
+    "matches_manuscript": true
+  },
+  "TableS4_block_diagnostics.tex": {
+    "displayed_numeric_rows": 7,
+    "matches_manuscript": true
+  },
+  "TableS5_case_study.tex": {
+    "displayed_numeric_rows": 8,
+    "matches_manuscript": true
+  },
+  "TableS6_estimands.tex": {
+    "displayed_numeric_rows": 8,
+    "matches_manuscript": true
+  },
+  "TableS7_structures.tex": {
+    "displayed_numeric_rows": 0,
+    "matches_manuscript": true
+  },
+  "TableS8_oracle_frontier.tex": {
+    "displayed_numeric_rows": 12,
+    "matches_manuscript": true
+  },
+  "TableS9_selection_rule.tex": {
+    "displayed_numeric_rows": 18,
+    "matches_manuscript": true
+  },
+  "TableS10_current_practice.tex": {
+    "displayed_numeric_rows": 24,
+    "matches_manuscript": true
+  }
+}

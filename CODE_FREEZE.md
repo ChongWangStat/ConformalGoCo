@@ -6,7 +6,7 @@ The complete FunMap score file and large STRING view are distributed separately 
 
 | File | Bytes | SHA-256 |
 |---|---:|---|
-| `.github/workflows/rebuild.yml` | 4657 | `d943989ee2c9ea3d807f42802a1bb99b25b4ea3ccba6acda64680e3ca7c69c6a` |
+| `.github/workflows/rebuild.yml` | 1594 | `e0155d3910a94bf8cca40797947b21db02fcbfd3ec9bab60e20077ef49374d81` |
 | `.gitignore` | 240 | `2b1dc39c1572412d90b4ef1896602ca9c3c71aae42ffa1157112798771d21fe1` |
 | `.zenodo.json` | 1029 | `37e9afa641f98ba1f3d7e3c9dbe7049ac6a84b564a85bb59d672fea4f0c8fd8e` |
 | `CITATION.cff` | 1360 | `c709d27e9ebeec600c567e07bfb6a44772025de05a79cfa0b2d4b3fc1c99af14` |
@@ -31,7 +31,7 @@ The complete FunMap score file and large STRING view are distributed separately 
 | `code/make_supp_tables.py` | 2789 | `f76f0460efac8428d743fcafd758e1b21ca812a7433a8673c22a2686b2472aba` |
 | `code/make_table_s9.py` | 2916 | `21385b934e02ea9170a1dd3da7c3544a11b34ff2f6147f4f562100d3ddb82a2c` |
 | `code/make_tables.py` | 15174 | `7a5f102ae15da76b18d52090b06d1a6999cffa422f240f4ec24eeb81cfe97e81` |
-| `code/make_workflow_figure.py` | 5010 | `a229ad91228fee09d9d0f35a654accc1084d9a8e2c229c343aa9acb9dc7ed414` |
+| `code/make_workflow_figure.py` | 5010 | `9f93cba9e386f24977c8bb2f5abc155f2df936a9ce926c5e3bf9d800a1bf0f17` |
 | `code/rebuild_missing_splits.py` | 1854 | `9db2f0279a00435c7d17c139790cb828ebb306594b2b738f97a588005e40f124` |
 | `code/rehearsal_kfold.py` | 4650 | `fdf7703707084332158ffd8dc34829f02a534ff4e9bc26724843d1b37489722b` |
 | `code/rehearsal_kfold_sf.py` | 5712 | `dc439787b702f6743451d3016d40443587837a69c24180b1db1193a9a346825d` |
@@ -63,8 +63,8 @@ The complete FunMap score file and large STRING view are distributed separately 
 | `paper/figures/Figure4_alpha_sweep_delta050.png` | 297393 | `fe70e20ee4cddcc107a3fbed1b14ade42e50f43430064335580a541941908bfb` |
 | `paper/figures/FigureS1_primary_delta010.pdf` | 29354 | `6797e2ebae5121a3004a583b0a5dbbea48c44768c0050523983ee7151b844422` |
 | `paper/figures/FigureS1_primary_delta010.png` | 143126 | `6ab20695d0b7eddf1867368ec79a695d3b64021612d724ed03819b536a6f86e6` |
-| `paper/figures/GoCo_Workflow.pdf` | 37432 | `92b54616cb9f5a98c9af491580958d08281dec6bfe61f6a141851ec1d9c0a6fc` |
-| `paper/figures/GoCo_Workflow.png` | 362505 | `36da5c2057eb100c89e31c3e856214c4f2c5cd3fec7e4f39b98d64d4495a5189` |
+| `paper/figures/GoCo_Workflow.pdf` | 37432 | `9353d70510c734e1b166202ae5b32cab991519bdae358c076f1f86d0f9e4313c` |
+| `paper/figures/GoCo_Workflow.png` | 362357 | `5606a016765c0928600d9b7d8f62c0e46aa94baf332e3b1b3be6ad9d76142ee9` |
 | `paper/table_specs.json` | 27033 | `202507c1d6be8d871ee19ce2d817e6259d9080682a275d52850330339126e7fc` |
 | `paper/tables/Table1_constants.tex` | 2993 | `400676f806d25b99d89c4aba7140d29d1f10062c1ddba11e4795a9ca54bd6345` |
 | `paper/tables/Table2_methods_compared.tex` | 1793 | `7420a2b27cd083cd74492fc4f8bff23ca65f4fd2d68e0bb327de9a94c9153fe5` |
@@ -82,6 +82,9 @@ The complete FunMap score file and large STRING view are distributed separately 
 | `paper/tables/TableS8_oracle_frontier.tex` | 1213 | `9dd91154ad6d7cd368ae317fa308b1010f9165d9996921f1d512fb8c83775757` |
 | `paper/tables/TableS9_selection_rule.tex` | 2229 | `c193a9febb3916e30d5fc31357d85c6a6045233df605fb7bd70bf418c0d32bd7` |
 | `paper/tables/key_numbers.json` | 71399 | `7d9c162cd6a95599aee11137dfba81b7f53f5811d57494306d34488e280473a1` |
+| `paper/verification/release_verification.json` | 447 | `b3dddfdba26e68a81cf0da22b474d6ecd9e5c10ae0aa2d00c39302b136d036e8` |
+| `paper/verification/table_verification.json` | 1353 | `2383456468568b7180eaa6e1fa3a4407970c70393be871726478ea4237635659` |
+| `paper/verification/validation_summary.json` | 544 | `da14a4491adb1c5a16f6bab48521de50598b576483444fbea839c7231ba33081` |
 | `results/all_methods_harmonised_100splits.csv` | 3171816 | `814c8a0bdc37a8a7e4707e96b97e7b359c0067055328564a73ab8657e432ff0f` |
 | `results/block_diagnostics_alpha010.csv` | 1019 | `d93961dff58bb72662b2b966ab83761afa65b28e0f78f281c6dedf9486872ea1` |
 | `results/case_study_split0.csv` | 8030 | `1d71f060fb2e6c0214ad63394cd5d913ac482296b4f24ac9821388ab42cf8e87` |
