@@ -6,5 +6,7 @@ funmap/funmap_gene_go_scores.csv.gz
 string/links.txt.gz
 string/info.txt.gz
 string/string_gene_go_scores.csv.gz
-string/funmap_view/
-results/second_family/_verify/
+string/funmap_view/*.csv.gz
+string/funmap_view/*.npz
+results/_verify/
+results/sf/_verify/

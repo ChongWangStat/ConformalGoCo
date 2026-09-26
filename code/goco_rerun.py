@@ -10,6 +10,14 @@ for alpha in {.05,.10,.20} x delta in {.10,.50}, all four datasets, 100 common s
 
 Split rule (all methods): perm = default_rng(20260905+seed).permutation(n); T = perm[:round(.1n)];
 C = perm[round(.1n):round(.7n)]; E = perm[round(.7n):]; global methods calibrate on perm[:round(.7n)].
+
+Revision of 2026-09-25 (pre-submission review):
+  * selmask admits a prefix of the exact total order (u, frozen hash, unit index); the former 1e-14 tolerance is gone.
+  * metrics() records the realised pool risk of the certified policy on both losses directly over the certificate's
+    own pool (calibration fold ∪ evaluation fold), plus the fold sizes, so no table combines a Direct calibration
+    mean with a TruePath evaluation mean.
+  * topm_path(): the GoCo-N candidate family with one-based ranks (top-m releases exactly m calls), shared by every
+    script that builds that path.
 """
 import numpy as np, pandas as pd, scipy.sparse as sp, hashlib, math, time, sys, os, argparse
 from scipy.stats import norm
@@ -75,6 +83,7 @@ class Dataset:
         self.dense = np.array(sorted(set(np.round(self.rows.score.to_numpy(float), 6)), reverse=True))
         self.dense = self.dense[self.dense >= self.dense_floor]
         self.hh = hashu(self.units)
+        assert len(np.unique(self.hh)) == self.n, 'unit hash collision: the gene-identifier tie-break would be reached'
         print(f'[{name}] n={self.n} rows={len(self.rows)} dense levels={len(self.dense)} grid={len(self.grid)}', flush=True)
 
     # ---- matrices on an arbitrary descending threshold vector ----
@@ -110,6 +119,25 @@ class Dataset:
         return A, meanscore
 
 
+MFRAC_N = np.unique(np.round(np.geomspace(0.0005, 1.0, 60), 6))   # GoCo-N candidate sizes as fractions of the call pool
+
+
+def topm_path(phat, hcall, call_i, call_T, n, mfrac=MFRAC_N):
+    """GoCo-N candidate family: nested top-m sets of calls in the total order (p-hat, frozen call hash, call index).
+
+    Column j holds exactly m_j = edges[j] calls: ranks are one-based and a call of rank r belongs to the top-m set
+    iff r <= m, so the label 'top{m}' names the number of released calls.  Returns the per-unit released count C,
+    supported count Y, unit loss L (0 when the unit releases nothing) and the size vector edges."""
+    ncall = len(phat)
+    key = np.lexsort((np.arange(ncall), hcall, phat)); rank = np.empty(ncall, np.int64); rank[key] = np.arange(1, ncall + 1)
+    edges = np.unique(np.maximum(1, np.floor(np.asarray(mfrac) * ncall).astype(np.int64)))
+    b = np.searchsorted(edges, rank, side='left'); ok = b < len(edges); shape = (n, len(edges))
+    cum = lambda v: np.cumsum(sp.coo_matrix((v, (call_i[ok], b[ok])), shape=shape).tocsr().toarray(), axis=1)
+    C = cum(np.ones(int(ok.sum()), np.int32)).astype(np.int32); Y = cum(np.asarray(call_T, np.int32)[ok]).astype(np.int32)
+    L = np.divide(C - Y, C, out=np.zeros(shape), where=C > 0)
+    return C, Y, L, edges
+
+
 def clt_p(y, alpha):
     y = np.asarray(y, float); m = len(y); r = float(y.mean()); sd = max(float(y.std(ddof=0)), 1e-6)
     return float(norm.cdf((r - alpha) / (sd / math.sqrt(m)))), r, sd
@@ -124,11 +152,17 @@ def source_pred(Aadd, delta, fit, kappa=1.0):
 
 
 def selmask(u, hh, affected, train, q):
+    """Admitted set Q_{j,q} of a block: the affected units whose key is at or below the key of the k-th ranking-fold
+    unit, k = max(1, floor(q * |B_j ∩ T|), in the total order (u, frozen hash, unit index).  The order is exact
+    (no tolerance), so Q_{j,q} is a prefix of one total order and the family is nested in q.  Endpoints: q = 0 is
+    never a candidate (the block's conservative end is the preceding global candidate, Q_{j,0} = ∅) and q = 1
+    admits the whole block, Q_{j,1} = B_j."""
     a = train[affected[train]]
     if len(a) == 0: return np.zeros(len(u), bool)
     if q >= 1: return affected.copy()
-    oo = np.lexsort((hh[a], u[a])); k = max(1, int(np.floor(q * len(a)))); i = a[oo[k - 1]]; r = u[i]; h = hh[i]
-    return affected & ((u < r) | ((np.abs(u - r) <= 1e-14) & (hh <= h)))
+    idx = np.arange(len(u))
+    oo = np.lexsort((idx[a], hh[a], u[a])); k = max(1, int(np.floor(q * len(a)))); i = a[oo[k - 1]]; r = u[i]; h = hh[i]
+    return affected & ((u < r) | ((u == r) & (hh < h)) | ((u == r) & (hh == h) & (idx <= i)))
 
 
 def utility(order, ds, Aadd, meanscore, delta_true, cadd, affected, train, hh_default):
@@ -178,8 +212,18 @@ def run_path(ds, m, cert, ev, train, alpha, delta, loss, adaptive_order, qgrid, 
     return last
 
 
-def metrics(ds, m, last, ev):
-    if last is None: return dict(policy='none', p_selected=float('nan'), cal_mean=0.0, cal_sd=0.0, unit_fdp=0.0, unit_yield=0, go_yield=0.0, total_calls=0.0, genes_with_calls=0, term_fdp=0.0, unit_fdp_direct=0.0, go_yield_direct=0.0, n_relaxed_eval=0)
+def metrics(ds, m, last, ev, cal):
+    """Held-out and pool-level statistics of the certified policy.
+
+    cal is the fold the certificate used (70% for the global methods, the 60% certification fold for GoCo), so the
+    pool of the certificate is cal ∪ ev and its realised risk is the plain mean of the loss over that pool.  Both
+    losses are recorded on both folds (cal_mean_tp / cal_mean_direct, unit_fdp / unit_fdp_direct, pool_risk /
+    pool_risk_direct); cal_mean is the mean of whichever loss the certificate itself used, as before.  Nothing
+    downstream needs to combine a calibration mean on one loss with an evaluation mean on the other.
+    Abstention (no certified candidate) releases nothing, so every loss is 0 by the empty-set convention."""
+    m_cal = int(len(cal))
+    if last is None: return dict(policy='none', p_selected=float('nan'), cal_mean=0.0, cal_sd=0.0, unit_fdp=0.0, unit_yield=0, go_yield=0.0, total_calls=0.0, genes_with_calls=0, term_fdp=0.0, unit_fdp_direct=0.0, go_yield_direct=0.0, n_relaxed_eval=0,
+                                 cal_mean_tp=0.0, cal_mean_direct=0.0, pool_risk=0.0, pool_risk_direct=0.0, m_cal=m_cal, n_eval=int(len(ev)))
     kind, j = last[0], last[1]
     if kind == 'global':
         cols = {k: m[k][:, j].astype(np.float64) for k in ['LT', 'LD', 'YT', 'YD', 'C']}; pol = f'global_{m["thr"][j]:g}'
@@ -188,11 +232,14 @@ def metrics(ds, m, last, ev):
         cols = {k: np.where(sel, m[k][:, j + 1], m[k][:, j]).astype(np.float64) for k in ['LT', 'LD', 'YT', 'YD', 'C']}
         pol = f'adapt_{m["thr"][j]:g}_to_{m["thr"][j + 1]:g}_q{last[6]:g}'
     calls = float(cols['C'][ev].sum()); yt = float(cols['YT'][ev].sum()); yd = float(cols['YD'][ev].sum())
+    pool = np.concatenate([cal, ev])
     return dict(policy=pol, p_selected=last[3], cal_mean=last[4], cal_sd=last[5],
                 unit_fdp=float(cols['LT'][ev].mean()), unit_yield=int((cols['YT'][ev] > 0).sum()), go_yield=yt,
                 total_calls=calls, genes_with_calls=int((cols['C'][ev] > 0).sum()), term_fdp=float((calls - yt) / max(calls, 1)),
                 unit_fdp_direct=float(cols['LD'][ev].mean()), go_yield_direct=yd,
-                n_relaxed_eval=int(sel[ev].sum()) if kind == 'adapt' else 0)
+                n_relaxed_eval=int(sel[ev].sum()) if kind == 'adapt' else 0,
+                cal_mean_tp=float(cols['LT'][cal].mean()), cal_mean_direct=float(cols['LD'][cal].mean()),
+                pool_risk=float(cols['LT'][pool].mean()), pool_risk_direct=float(cols['LD'][pool].mean()), m_cal=m_cal, n_eval=int(len(ev)))
 
 
 def run_dataset(ds, alphas, deltas, seeds, methods, tag):
@@ -216,16 +263,16 @@ def run_dataset(ds, alphas, deltas, seeds, methods, tag):
         train, cert, ev, cal70 = perm[:nt], perm[nt:nc], perm[nc:], perm[:nc]
         for alpha in alphas:
             for delta in deltas:
-                def add(method, last, m):
-                    r = dict(dataset=ds.name, seed=seed, alpha=alpha, delta=delta, method=method); r.update(metrics(ds, m, last, ev)); rows.append(r)
+                def add(method, last, m, cal):
+                    r = dict(dataset=ds.name, seed=seed, alpha=alpha, delta=delta, method=method); r.update(metrics(ds, m, last, ev, cal)); rows.append(r)
                 if 'Boger' in methods:
-                    add('Boger (Direct, global grid)', run_path(ds, mg, cal70, ev, train, alpha, delta, 'Direct', None, None, False, None, {}), mg)
+                    add('Boger (Direct, global grid)', run_path(ds, mg, cal70, ev, train, alpha, delta, 'Direct', None, None, False, None, {}), mg, cal70)
                 if 'GoDag' in methods:
-                    add('GoDag (global grid)', run_path(ds, mg, cal70, ev, train, alpha, delta, 'TruePath', None, None, False, None, {}), mg)
+                    add('GoDag (global grid)', run_path(ds, mg, cal70, ev, train, alpha, delta, 'TruePath', None, None, False, None, {}), mg, cal70)
                 if 'GoDag-dense' in methods:
-                    add('GoDag-dense (global, all distinct scores)', run_path(ds, md, cal70, ev, train, alpha, delta, 'TruePath', None, None, False, None, {}), md)
+                    add('GoDag-dense (global, all distinct scores)', run_path(ds, md, cal70, ev, train, alpha, delta, 'TruePath', None, None, False, None, {}), md, cal70)
                 if 'GoDag-cert60' in methods:
-                    add('GoDag (global grid, certification fold only)', run_path(ds, mg, cert, ev, train, alpha, delta, 'TruePath', None, None, False, None, {}), mg)
+                    add('GoDag (global grid, certification fold only)', run_path(ds, mg, cert, ev, train, alpha, delta, 'TruePath', None, None, False, None, {}), mg, cert)
                 orders = [o for o in methods if o.startswith('GoCo:')]
                 if orders:
                     if ds.name == 'Wainberg':
@@ -235,14 +282,14 @@ def run_dataset(ds, alphas, deltas, seeds, methods, tag):
                             order = o.split(':')[1]
                             # original Wainberg construction: adaptive block only after the last grid threshold (800); q grid includes 1
                             last = run_path(ds, mw, cert, ev, train, alpha, delta, 'TruePath', order, QGRID_W, False, bf, cache, adapt_blocks={len(thr_w) - 2})
-                            add(f'GoCo', last, mw)
+                            add(f'GoCo', last, mw, cert)
                     else:
                         cache = cache_g
                         bf = lambda j: ds.Aadd(mg['thr'][j + 1], mg['thr'][j])
                         for o in orders:
                             order = o.split(':')[1]
                             last = run_path(ds, mg, cert, ev, train, alpha, delta, 'TruePath', order, QGRID_E, True, bf, cache)
-                            add(f'GoCo', last, mg)
+                            add(f'GoCo', last, mg, cert)
                 gorders = [o for o in methods if o.startswith('GoCoGrid:')]
                 if gorders:
                     # uniform definition: the same 25-unit grid as GoDag, partial admission inserted in every block that
@@ -252,7 +299,7 @@ def run_dataset(ds, alphas, deltas, seeds, methods, tag):
                     for o in gorders:
                         order = o.split(':')[1]
                         last = run_path(ds, mg, cert, ev, train, alpha, delta, 'TruePath', order, QGRID_E, True, bf, cache)
-                        add(f'GoCo', last, mg)
+                        add(f'GoCo', last, mg, cert)
                 dorders = [o for o in methods if o.startswith('GoCoDense:')]
                 if dorders:
                     cache = cache_d
@@ -260,7 +307,7 @@ def run_dataset(ds, alphas, deltas, seeds, methods, tag):
                     for o in dorders:
                         order = o.split(':')[1]
                         last = run_path(ds, md, cert, ev, train, alpha, delta, 'TruePath', order, QGRID_E, True, bf, cache)
-                        add(f'GoCo-dense', last, md)
+                        add(f'GoCo-dense', last, md, cert)
         if (seed + 1) % 10 == 0: print(f'[{ds.name}] seed {seed + 1}/{len(seeds)} elapsed {time.time() - t0:.0f}s', flush=True)
     df = pd.DataFrame(rows)
     df.to_csv(OUT + f'{ds.name}_{tag}_100splits.csv', index=False)

@@ -1,13 +1,32 @@
 {
-  "title": "ConformalGoCo (GoCo): co-essentiality-guided conformal calibration for Gene Ontology annotation release",
-  "description": "<p>Reference implementation, frozen analysis-ready inputs and complete split-level results for GoCo, a calibration and release layer that certifies a gene-level false discovery proportion for predicted Gene Ontology annotations without retraining the upstream predictor. Includes the Wainberg co-essentiality development analysis and independent validation on Sanger Project Score, Project DRIVE and a HAP1 genetic-interaction network, together with the scripts that regenerate every table and figure of the paper and the ranking-fold measurability test.</p>",
+  "title": "GoCo: structure-guided conformal calibration for error-controlled Gene Ontology annotation release",
+  "description": "Reference implementation, analysis-ready inputs and split-level results for GoCo, including the module-shared and neighbourhood-structure instantiations, reproducibility checks, and scripts used to generate manuscript tables and figures.",
   "license": "MIT",
   "upload_type": "software",
-  "version": "1.0.0",
+  "version": "4.0.0",
   "creators": [
-    {"name": "Wang, Chong", "affiliation": "Iowa State University", "orcid": "0000-0003-4489-4344"},
-    {"name": "Shao, Yongzhao", "affiliation": "NYU Grossman School of Medicine", "orcid": "0000-0003-0641-6755"},
-    {"name": "Liu, Peng", "affiliation": "Iowa State University", "orcid": "0000-0002-2093-8018"}
+    {
+      "name": "Wang, Chong",
+      "affiliation": "Iowa State University",
+      "orcid": "0000-0003-4489-4344"
+    },
+    {
+      "name": "Shao, Yongzhao",
+      "affiliation": "NYU Grossman School of Medicine",
+      "orcid": "0000-0003-0641-6755"
+    },
+    {
+      "name": "Liu, Peng",
+      "affiliation": "Iowa State University",
+      "orcid": "0000-0002-2093-8018"
+    }
   ],
-  "keywords": ["Gene Ontology", "conformal risk control", "Learn-Then-Test", "co-essentiality", "functional annotation", "false discovery rate"]
+  "keywords": [
+    "Gene Ontology",
+    "conformal risk control",
+    "Learn-Then-Test",
+    "co-essentiality",
+    "functional networks",
+    "false discovery proportion"
+  ]
 }

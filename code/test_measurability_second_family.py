@@ -1,61 +1,54 @@
-"""Operational ranking-fold-measurability test for the FunMap ordering.
+"""Operational ranking-fold-measurability test for the neighbourhood-family ordering (FunMap / STRING view).
 
-Validity of the fixed-sequence certificate requires the candidate path to be a function of the
-ranking fold and frozen predictor output alone.  That is testable: scramble the TruePath labels of
-every gene outside the ranking fold and confirm the per-call ordering statistic is bit-identical.
+Validity of the fixed-sequence certificate requires the candidate path to be a function of the ranking fold and
+frozen predictor output alone.  That is testable: scramble the TruePath labels of every gene outside the ranking
+fold and confirm that (i) the cross-fitted per-call statistic p-hat of every pool call, hence the GoCo-N order, and
+(ii) the GoCo-M ordering statistic u_i of every affected pool gene in every block are bit-identical.
 
-Note on what is legitimately used.  A call's source set is the annotated neighbours carrying the
-term.  Those neighbour annotations are frozen predictor INPUT -- FunMap's own enrichment computes
-the score from them -- and the author pipeline is leave-one-protein-out, so a gene's own
-annotations never enter its own sources.  This is the property whose absence the ProteomeHD audit
-documented, so it is worth testing rather than asserting.
+Note on what is legitimately used.  A call's source set is the annotated neighbours carrying the term.  Those
+neighbour annotations are frozen predictor INPUT -- FunMap's own enrichment computes the score from them -- and the
+author pipeline is leave-one-protein-out, so a gene's own annotations never enter its own sources.
+
+Usage: GOCO_DATA=<funmap or string view dir> python test_measurability_second_family.py [split=0]
 """
-import sys
+import os, sys
 import numpy as np
-sys.path.insert(0, r"C:/g1")
-from goco_second_family import FunMap, SEED0
-from sklearn.linear_model import LogisticRegression
-from sklearn.preprocessing import StandardScaler
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from goco_second_family import FunMap, SEED0, COARSE, TRIGGER_FRAC, MIN_RANK_UNITS
 
-
-def fit_phat(ds, train):
-    """Identical to the runner's: cross-fitted per-call model, ranking-fold calls only."""
-    X, intr, unsup = ds.call_features(train)
-    y = unsup.astype(int)
-    p = np.full(ds.ncall, np.nan)
-    for half in (0, 1):
-        m = intr & ((ds.hcall < 0.5) if half == 0 else (ds.hcall >= 0.5))
-        if m.sum() < 50 or len(np.unique(y[m])) < 2:
-            continue
-        s = StandardScaler().fit(X[m])
-        clf = LogisticRegression(C=0.5, max_iter=1000).fit(s.transform(X[m]), y[m])
-        tgt = (ds.hcall >= 0.5) if half == 0 else (ds.hcall < 0.5)
-        p[tgt] = clf.predict_proba(s.transform(X[tgt]))[:, 1]
-    return np.where(np.isnan(p), np.nanmean(p), p)
-
+rep = int(sys.argv[1]) if len(sys.argv) > 1 else 0
 ds = FunMap()
-rep = 0
 perm = np.random.default_rng(SEED0 + rep).permutation(ds.n)
-nt = round(0.10 * ds.n)
-train, pool = perm[:nt], perm[nt:]
+nt = round(0.10 * ds.n); train, pool = perm[:nt], perm[nt:]
+i = ds.rows.i.to_numpy(); pool_calls = np.isin(i, pool)
+Mc = ds.mats(COARSE); L, C = Mc["L"], Mc["C"]
 
-p_before = fit_phat(ds, train)
 
-# scramble the labels of every non-ranking-fold gene's calls
+def statistics():
+    phat, _ = ds.fit_phat(train)
+    Pw = ds.weighted_mats(COARSE, phat)
+    us = {}
+    for j in range(len(COARSE) - 1, 0, -1):
+        if float(L[train, j - 1].mean()) <= TRIGGER_FRAC * 0.10: continue
+        affected = C[:, j - 1] > C[:, j]
+        if int(affected[train].sum()) < MIN_RANK_UNITS: continue
+        nL, nH = C[:, j - 1].astype(float), C[:, j].astype(float)
+        LhatL = np.divide(Pw[:, j - 1], nL, out=np.zeros(ds.n), where=nL > 0); LhatH = np.divide(Pw[:, j], nH, out=np.zeros(ds.n), where=nH > 0)
+        tau = (nL - nH) - (Pw[:, j - 1] - Pw[:, j])
+        u = np.where(affected, (LhatL - LhatH) / np.maximum(tau, 1e-3), np.inf)
+        us[j] = u[pool[affected[pool]]].copy()
+    return phat[pool_calls].copy(), us
+
+
+p_before, u_before = statistics()
 rng = np.random.default_rng(12345)
-i = ds.rows.i.to_numpy()
-outside = ~np.isin(i, train)
-T = ds.rows["T"].to_numpy().copy()
-T[outside] = rng.permutation(T[outside])
-ds.rows["T"] = T
+T = ds.rows["T"].to_numpy().copy(); T[pool_calls] = rng.permutation(T[pool_calls]); ds.set_truth(T)
+p_after, u_after = statistics()
 
-p_after = fit_phat(ds, train)
-
-pool_calls = np.isin(i, pool)
-same = np.array_equal(p_before[pool_calls], p_after[pool_calls])
-mx = float(np.max(np.abs(p_before[pool_calls] - p_after[pool_calls])))
-print("pool calls compared      :", int(pool_calls.sum()))
-print("ordering identical       :", same)
-print("max |difference|         : %.3e" % mx)
-print("PASS" if same else "FAIL")
-sys.exit(0 if same else 1)
+same_p = np.array_equal(p_before, p_after)
+same_u = all(np.array_equal(u_before[j], u_after[j]) for j in u_before)
+print("pool calls compared              :", int(pool_calls.sum()))
+print("p-hat of pool calls identical    :", same_p, "(max |diff| = %.3e)" % float(np.max(np.abs(p_before - p_after))))
+print("GoCo-M u_i of pool genes identical:", same_u, "over %d blocks" % len(u_before))
+print("PASS" if (same_p and same_u) else "FAIL")
+sys.exit(0 if (same_p and same_u) else 1)

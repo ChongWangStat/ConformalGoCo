@@ -1,13 +1,11 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite the paper and this archived release."
 title: "GoCo: structure-guided conformal calibration for error-controlled Gene Ontology annotation release — reference implementation, analysis inputs and split-level outputs"
-abstract: "Reference implementation, analysis inputs and split-level outputs for GoCo, a calibration and release layer that certifies a gene-level false discovery proportion for predicted Gene Ontology annotations without retraining the upstream predictor."
+abstract: "Reference implementation, analysis inputs and split-level outputs for GoCo, a post-prediction calibration and release framework for Gene Ontology annotation."
 type: software
-version: 3.0.0
+version: 4.0.0
 license: MIT
 repository-code: "https://github.com/ChongWangStat/ConformalGoCo"
-# Concept DOI: one identifier for the software, resolving to the current release.
-# Do not substitute a version-specific DOI.
 doi: "10.5281/zenodo.22677009"
 authors:
   - family-names: Wang
@@ -27,4 +25,5 @@ keywords:
   - conformal risk control
   - Learn-Then-Test
   - co-essentiality
-  - functional annotation
+  - functional networks
+  - false discovery proportion

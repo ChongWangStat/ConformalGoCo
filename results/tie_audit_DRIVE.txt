@@ -1,0 +1,4 @@
+DRIVE: selmask evaluations 28805, admitted sets differing between the exact and the 1e-14 rule 0, exact u-ties among affected ranking-fold units 0
+  Boger: rows 600, identical policy 1.0000, max |dFDP| 9.71e-17, max |dYield| 0
+  GoDag: rows 600, identical policy 1.0000, max |dFDP| 9.71e-17, max |dYield| 0
+  GoCo: rows 600, identical policy 1.0000, max |dFDP| 9.71e-17, max |dYield| 0

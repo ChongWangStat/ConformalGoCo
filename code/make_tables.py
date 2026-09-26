@@ -13,7 +13,7 @@ NE = {k: N[k] - NC70[k] for k in N}; M60 = {k: NC70[k] - NT[k] for k in N}
 frames = []
 SPLITDIR = os.environ.get('GOCO_SPLITS', os.path.join(HERE, '..', 'results'))  # frozen split-level outputs shipped with the repo
 for f in glob.glob(os.path.join(SPLITDIR, '*_100splits.csv')):
-    if 'repro' in f: continue
+    if 'repro' in f or 'prereview' in f or 'harmonised' in f: continue   # never re-read this script's own output
     x = pd.read_csv(f); x['src'] = os.path.basename(f); frames.append(x)
 d = pd.concat(frames, ignore_index=True)
 for k, v in {' (paper path)': '', ' (tie-level path)': '', ' (global, all distinct scores)': '', ' (global grid)': '', ' (Direct, global grid)': '',
@@ -22,16 +22,16 @@ for k, v in {' (paper path)': '', ' (tie-level path)': '', ' (global, all distin
 d = d.drop_duplicates(['dataset', 'seed', 'alpha', 'delta', 'method'])
 d['exceed'] = (d.unit_fdp > d.alpha).astype(float)
 d['supp_frac'] = 1 - d.term_fdp
-# pool-level risk of the selected policy (the certified estimand): weighted mean of certification-fold mean and held-out mean
-def pool(row):
-    ds = row.dataset
-    if row.method.startswith('GoCo'):
-        mC = M60[ds]
-    else:
-        mC = NC70[ds]
-    return (mC * row.cal_mean + NE[ds] * row.unit_fdp) / (mC + NE[ds])
-d['pool_risk'] = d.apply(pool, axis=1)
-d['pool_exceed'] = (d.pool_risk > d.alpha).astype(float)
+# Pool-level risk of the certified policy.  goco_rerun.metrics() records it directly as the mean loss over the
+# certificate's own pool (its calibration fold, 70% for the global methods and 60% for GoCo, plus the evaluation fold)
+# on BOTH losses: pool_risk (TruePath, the loss every table reports) and pool_risk_direct (Direct, the loss the
+# Boger et al. certificate itself bounds).  The pre-review script reconstructed a Direct calibration mean with a
+# TruePath evaluation mean for Boger et al.; that hybrid is gone.
+for c in ['pool_risk', 'pool_risk_direct', 'm_cal']:
+    assert c in d.columns, f'{c} missing: regenerate the split-level files with the revised goco_rerun.py'
+d['pool_exceed'] = (d.pool_risk > d.alpha).astype(float)               # TruePath pool risk above alpha
+d['pool_exceed_direct'] = (d.pool_risk_direct > d.alpha).astype(float) # Direct pool risk above alpha
+d['pool_exceed_certified'] = np.where(d.method.str.startswith('Boger'), d.pool_exceed_direct, d.pool_exceed)  # the loss each certificate bounds
 d.to_csv(RESULTS + 'all_methods_harmonised_100splits.csv', index=False)
 
 LABEL = {'Boger': 'Boger et al.\\ (Direct loss)', 'GoDag': 'GoDag', 'GoCo': '\\textbf{GoCo}', 'GoCo-learned': '\\textbf{GoCo}'}
@@ -115,11 +115,11 @@ def detail_table(fname, caption, label):
                 dl = f'{delta:.2f}' if (first and ds == DS[0]) else ''
                 L.append(f'{dl} & {ds if first else ""} & {LABEL[m]} & {s.unit_fdp.mean():.4f} & {s.exceed.mean():.2f} & {s.pool_exceed.mean():.2f} & {s.unit_yield.mean():.1f} & {s.total_calls.mean():.0f} & {s.go_yield.mean():.1f} & {s.supp_frac.mean():.3f} & {dstr} \\\\')
                 first = False
-                rows.append(dict(dataset=ds, delta=delta, method=m, unit_fdp=s.unit_fdp.mean(), heldout_exceed=s.exceed.mean(), pool_exceed=s.pool_exceed.mean(), genes_with_calls=s.genes_with_calls.mean(), supported_genes=s.unit_yield.mean(), calls=s.total_calls.mean(), supported_terms=s.go_yield.mean(), supported_fraction=s.supp_frac.mean(), dterms_vs_godag=md, ci95=ci, p_gt=p))
+                rows.append(dict(dataset=ds, delta=delta, method=m, unit_fdp=s.unit_fdp.mean(), heldout_exceed=s.exceed.mean(), pool_exceed=s.pool_exceed.mean(), pool_exceed_direct=s.pool_exceed_direct.mean(), pool_exceed_certified=s.pool_exceed_certified.mean(), genes_with_calls=s.genes_with_calls.mean(), supported_genes=s.unit_yield.mean(), calls=s.total_calls.mean(), supported_terms=s.go_yield.mean(), supported_fraction=s.supp_frac.mean(), dterms_vs_godag=md, ci95=ci, p_gt=p))
         L.append('\\midrule')
     L[-1] = '\\bottomrule'
     L += ['\\end{tabular}', '\\begin{tablenotes}[flushleft]\\footnotesize',
-          '\\item Means over the same 100 split streams at $\\alpha=0.10$. Gene FDP: held-out gene-level TruePath FDP $\\widehat R_{\\mathcal E}$. $\\Pr(\\widehat R_{\\mathcal E}>\\alpha)$: fraction of splits whose held-out FDP exceeded $\\alpha$. $\\Pr(R>\\alpha)$: fraction of splits in which the pool risk of the certified policy, the quantity bounded by Proposition~\\ref{prop:validity}, exceeded $\\alpha$. Supp.\\ genes / terms: held-out genes with $\\ge1$ TruePath-supported released term / supported released gene--GO pairs. Supp.\\ frac.: supported fraction of all released calls. Boger et al.\\ is the released implementation on the Direct loss, calibrated on 70\\% of the panel; GoDag and GoCo use the TruePath loss and share the 25-unit grid. The last column is the paired mean difference in supported terms from GoDag with a descriptive 95\\% interval over splits.',
+          '\\item Means over the same 100 split streams at $\\alpha=0.10$. Gene FDP: held-out gene-level TruePath FDP $\\widehat R_{\\mathcal E}$. $\\Pr(\\widehat R_{\\mathcal E}>\\alpha)$: fraction of splits whose held-out FDP exceeded $\\alpha$. $\\Pr(R>\\alpha)$: fraction of splits in which the TruePath risk of the certified policy over the pool of its own certificate (calibration fold plus evaluation fold) exceeded $\\alpha$; for Boger et al., whose certificate bounds the Direct loss, the corresponding Direct-loss frequency is in the summary CSV (pool\\_exceed\\_direct). Supp.\\ genes / terms: held-out genes with $\\ge1$ TruePath-supported released term / supported released gene--GO pairs. Supp.\\ frac.: supported fraction of all released calls. Boger et al.\\ is the released implementation on the Direct loss, calibrated on 70\\% of the panel; GoDag and GoCo use the TruePath loss and share the 25-unit grid. The last column is the paired mean difference in supported terms from GoDag with a descriptive 95\\% interval over splits.',
           '\\end{tablenotes}', '\\end{threeparttable}', '\\end{table*}']
     write_tex(L, OUTDIR + fname + '.tex'); pd.DataFrame(rows).to_csv(OUTDIR + fname + '.csv', index=False)
 
@@ -150,7 +150,7 @@ sweep_table(0.50, 'Table4_alpha_sweep_delta050', 'Error-target sweep at $\\delta
 sweep_table(0.10, 'TableS3_alpha_sweep_delta010', 'Error-target sweep at $\\delta=0.10$.', 'tab:sweep10')
 
 # ---------------- summary CSV of everything ----------------
-s = d.groupby(['dataset', 'alpha', 'delta', 'method']).agg(unit_fdp=('unit_fdp', 'mean'), heldout_exceed=('exceed', 'mean'), pool_exceed=('pool_exceed', 'mean'), mean_pool_risk=('pool_risk', 'mean'),
+s = d.groupby(['dataset', 'alpha', 'delta', 'method']).agg(unit_fdp=('unit_fdp', 'mean'), heldout_exceed=('exceed', 'mean'), pool_exceed=('pool_exceed', 'mean'), mean_pool_risk=('pool_risk', 'mean'), pool_exceed_direct=('pool_exceed_direct', 'mean'), mean_pool_risk_direct=('pool_risk_direct', 'mean'), pool_exceed_certified=('pool_exceed_certified', 'mean'), m_cal=('m_cal', 'first'),
                                                           genes_with_calls=('genes_with_calls', 'mean'), supported_genes=('unit_yield', 'mean'), calls=('total_calls', 'mean'), supported_terms=('go_yield', 'mean'), supported_fraction=('supp_frac', 'mean'), sd_terms=('go_yield', 'std')).round(4)
 s.to_csv(RESULTS + 'summary_by_method_harmonised.csv')
 print(s.loc[(slice(None), 0.1, 0.5), :][['unit_fdp', 'heldout_exceed', 'pool_exceed', 'supported_terms', 'calls']].to_string())
