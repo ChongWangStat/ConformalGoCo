@@ -1,0 +1,111 @@
+name: Finalize verified publication files
+on:
+  push:
+    branches: ['goco-publication-finalize']
+permissions:
+  contents: write
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13.9'
+      - name: Install frozen dependencies
+        run: python -m pip install -r code/requirements.txt
+      - name: Finish Figure 1 line wrapping
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('code/make_workflow_figure.py')
+          s=p.read_text()
+          old=r'shared module evidence\npartial admission\nof genes within grid steps'
+          new=r'shared module evidence\npartial admission of\ngenes within grid steps'
+          assert s.count(old)==1
+          p.write_text(s.replace(old,new))
+          PY
+          python code/make_workflow_figure.py
+      - name: Verify current table numbers and explicit folds
+        shell: bash
+        run: |
+          python code/rebuild_missing_splits.py
+          python - <<'PY'
+          from pathlib import Path
+          import json,sys
+          sys.path.insert(0,'code')
+          from make_paper_tables import displayed_rows
+          spec=json.loads(Path('paper/table_specs.json').read_text())
+          report={}
+          for item in spec.values():
+              p=Path('paper/tables')/item['output']
+              actual=displayed_rows(p.read_text())
+              assert actual==item['expected_rows'],p
+              report[item['output']]={'displayed_numeric_rows':len(actual),'matches_manuscript':True}
+          out=Path('code/out');out.mkdir(exist_ok=True)
+          (out/'table_verification.json').write_text(json.dumps(report,indent=2)+'\n')
+          PY
+          python code/verify_release.py
+      - name: Save verification records and finish cleanup
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import shutil,json
+          out=Path('paper/verification');out.mkdir(exist_ok=True)
+          for name in ['table_verification.json','release_verification.json']:
+              shutil.copyfile(Path('code/out')/name,out/name)
+          report={'full_artifact_rebuild_run':36245041235,
+                  'full_artifact_rebuild_commit':'e09e7279e4c0ffdb8b9197f675338dc35fa4ea13',
+                  'full_rebuild_checks':['all 13 generated table checks','six panels with 100 explicit fold assignments','all five manuscript figures','Wainberg split-zero ranking-fold measurability'],
+                  'final_change':'Figure 1 text wrap only; numerical analyses unchanged',
+                  'raw_neighbourhood_rerun':'Not rerun in this synchronization; matching large FunMap/STRING inputs remain in the separate archive'}
+          (out/'validation_summary.json').write_text(json.dumps(report,indent=2)+'\n')
+          Path('.github/workflows/finalize.yml').unlink()
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          python code/make_code_freeze.py
+          git add CODE_FREEZE.md
+          git commit -m 'Finalize readable Figure 1, verification records and single-current-tree cleanup'
+          git push origin HEAD:goco-publication-finalize
+          git rev-parse HEAD > code/out/validated_commit.txt
+      - name: Publish and remove superseded working branches
+        shell: bash
+        run: |
+          BASE=e09e7279e4c0ffdb8b9197f675338dc35fa4ea13
+          CURRENT=$(git ls-remote origin refs/heads/main | cut -f1)
+          test "$CURRENT" = "$BASE"
+          git push origin HEAD:main
+          OLD=$(git ls-remote origin refs/heads/presubmission-fixes-2026-09-25 | cut -f1)
+          if [ "$OLD" = "925a93d65e340c657129e1ed7cb1bbd9bc053c20" ]; then
+            git push origin --delete presubmission-fixes-2026-09-25
+          fi
+          git push origin --delete goco-publication-finalize
+      - name: Upload final matching files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: GoCo-current-artifacts
+          if-no-files-found: warn
+          retention-days: 30
+          path: |
+            code/out/*.json
+            code/out/validated_commit.txt
+            paper/
+            code/*.py
+            code/requirements.txt
+            splits/manifest.json
+            README.md
+            CODE_FREEZE.md
+            CITATION.cff

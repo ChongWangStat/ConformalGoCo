@@ -1,12 +1,10 @@
 name: Rebuild and verify manuscript artifacts
 on:
-  push:
-    branches: ['goco-sync-20260926']
   workflow_dispatch:
 permissions:
-  contents: write
+  contents: read
 jobs:
-  rebuild:
+  verify:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     env:
@@ -16,80 +14,24 @@ jobs:
       MKL_NUM_THREADS: '1'
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.13.9'
-      - name: Restore verified synchronization payload when present
-        shell: bash
-        run: |
-          python - <<'PY'
-          from pathlib import Path
-          import base64, hashlib, json, lzma
-          parts=sorted(Path('.').glob('_sync_payload.part*'))
-          if parts:
-              raw=base64.b64decode(''.join(p.read_text() for p in parts),validate=True)
-              assert hashlib.sha256(raw).hexdigest()=='0a3757b88d718eb89d6f514b951890ffe44142541164694fa77aa3ff699b45b7'
-              core=Path('code/make_paper_tables.py').read_text()
-              marker='# ================================================================== Table S14: Near-d loss sensitivity'
-              if marker in core:
-                  core=core.split(marker)[0]+"\njson.dump(K, open(f'{OUT}/key_numbers.json', 'w'), indent=1, default=float)\n"
-              core=core.replace('first_draft_primary_method_summary_long.csv','generic_module_summary.csv')
-              Path('code/_table_builder.py').write_text(core)
-              for name,item in json.loads(lzma.decompress(raw)).items():
-                  p=Path(name)
-                  assert not p.is_absolute() and '..' not in p.parts
-                  data=item['text'].encode()
-                  assert hashlib.sha256(data).hexdigest()==item['sha256'],name
-                  p.parent.mkdir(parents=True,exist_ok=True)
-                  p.write_bytes(data)
-              p=Path('code/make_tables.py')
-              p.write_text(p.read_text().replace('first_draft_primary_method_summary_long.csv','generic_module_summary.csv'))
-              Path('code/wordcount.py').unlink(missing_ok=True)
-              for p in parts:p.unlink()
-              print('Verified and restored all synchronization files.')
-          PY
       - name: Install frozen analysis dependencies
         run: python -m pip install -r code/requirements.txt
       - name: Verify Python syntax
         run: python -m compileall -q code
-      - name: Reconstruct and verify explicit fold assignments
+      - name: Verify explicit fold assignments
         run: python code/rebuild_missing_splits.py
       - name: Rebuild and check manuscript tables
         run: python code/make_paper_tables.py
-      - name: Rebuild all manuscript figures
+      - name: Rebuild manuscript figures
         run: python code/make_figures.py
       - name: Check ranking-fold measurability on Wainberg split zero
         run: python code/test_measurability.py Wainberg 0
-      - name: Verify release scope and results
+      - name: Verify release scope and archived result completeness
         run: python code/verify_release.py
-      - name: Refresh checksums and commit validated outputs
-        if: github.ref_name == 'goco-sync-20260926'
-        shell: bash
-        run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -A
-          python code/make_code_freeze.py
-          git add CODE_FREEZE.md
-          git diff --cached --stat
-          git commit -m 'Rebuild manuscript artifacts and verify cleaned reproducibility package'
-          git push origin HEAD:goco-sync-20260926
-          git rev-parse HEAD > code/out/validated_commit.txt
-      - name: Publish verified fast-forward to main when unchanged
-        if: github.ref_name == 'goco-sync-20260926'
-        shell: bash
-        run: |
-          BASE=91b70925e06518f52ef1e127360e66fe8eb39d7d
-          CURRENT=$(git ls-remote origin refs/heads/main | cut -f1)
-          if [ "$CURRENT" != "$BASE" ]; then
-            echo 'main has moved; validated staging commit retained for reconciliation.'
-            exit 1
-          fi
-          git push origin HEAD:main
-          git push origin --delete goco-sync-20260926
-      - name: Upload verification reports and current artifacts
+      - name: Upload verification reports and regenerated artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
@@ -98,7 +40,6 @@ jobs:
           retention-days: 30
           path: |
             code/out/*.json
-            code/out/validated_commit.txt
             paper/
             code/*.py
             code/requirements.txt
