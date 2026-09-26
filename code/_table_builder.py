@@ -346,10 +346,15 @@ for data in ["FunMap", "STRING"]:
             cells = []
             for arm in ["goco-M", "goco-N"]:
                 a = scell(data, alpha, delta, arm)
-                fr = a.frontier_all if "frontier_all" in a.columns else a.frontier      # exhaustive distinct-score oracle (frontier_exhaustive_sf.py)
+                if "frontier_all" not in a.columns:
+                    raise RuntimeError(
+                        f"{data}: missing frontier_all; run code/frontier_exhaustive_sf.py "
+                        "on the complete neighbourhood result file before building the exhaustive-frontier table."
+                    )
+                fr = a.frontier_all
                 d = a.correct - fr; dg = a.correct - a.frontier
                 cells += [fmt_d(d, 0), f"{(d > 0).mean():.2f}"]
-                K[f"frontier_{data}_{alpha}_{delta}_{arm}"] = dict(d=d.mean(), p=(d > 0).mean(), d_grid=dg.mean(), p_grid=(dg > 0).mean(), exhaustive="frontier_all" in a.columns)
+                K[f"frontier_{data}_{alpha}_{delta}_{arm}"] = dict(d=d.mean(), p=(d > 0).mean(), d_grid=dg.mean(), p_grid=(dg > 0).mean(), exhaustive=True)
             L.append(f"{data if (alpha == 0.05 and delta == 0.10) else ''} & {alpha:.2f} & {delta:.2f} & " + " & ".join(cells) + r" \\")
     if data == "FunMap": L.append(r"\midrule")
 L += [r"\bottomrule", r"\end{tabular}", r"\end{table*}"]

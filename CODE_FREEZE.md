@@ -11,8 +11,8 @@ The complete FunMap score file and large STRING view are distributed separately 
 | `.zenodo.json` | 1029 | `37e9afa641f98ba1f3d7e3c9dbe7049ac6a84b564a85bb59d672fea4f0c8fd8e` |
 | `CITATION.cff` | 1360 | `c709d27e9ebeec600c567e07bfb6a44772025de05a79cfa0b2d4b3fc1c99af14` |
 | `LICENSE` | 1092 | `2e1b6124893bb6e158c426869d3c559d4cb92368138342c411341d800a8f3057` |
-| `README.md` | 4749 | `2dabe1b022ac5ea7b502f035d75f873b44cdd948e7ecfe8b970a9f94d548e7c0` |
-| `code/_table_builder.py` | 51529 | `90e103b2b360696de8c2c4152f7662dfebfd51951c716a3269d563a384fef6cc` |
+| `README.md` | 5767 | `6ae1e8c05b1a3aa0a77b6e85197a59e862658b612d28eb69a81c782106cac1ff` |
+| `code/_table_builder.py` | 51713 | `d9a19e7536d60ab32c475f40070af82b74af2ec6a0397373729c161f0ccd9a4a` |
 | `code/build_string_from_shipped_nb.py` | 9519 | `b1cbcd9159dd795c4872f1667c9f3ab9519f02a7ca43552f96acabc602059d39` |
 | `code/build_string_validation.py` | 10707 | `b994b7c55fc729846d462f2d991dc38e5076353854e245011222e729fff1074a` |
 | `code/conformal_selection.py` | 3581 | `4e50c2d72dfb53e2326540dab95068ae5df4e00a5e1ac861ad918bead1b2dc47` |

@@ -9,7 +9,7 @@ GoCo calibrates annotation release from an existing, frozen predictor; it does n
 
 **GoCo-M** inserts partial-admission policies within score-grid steps, using shared module evidence. **GoCo-N** orders individual calls using gene-specific neighbourhood evidence. The ordering is learned on the ranking fold, then frozen before fixed-sequence certification.
 
-At the primary operating point (`alpha=0.10`, `delta=0.50`), GoCo-M released 6.4--17.6% more reference-supported calls than Multilabel across Wainberg, Sanger, DRIVE and HAP1. GoCo-N's gains over Multilabel on the same refined grid were 33.8% on FunMap and 36.5% on STRING. These are fixed-panel benchmark comparisons, not universal performance guarantees.
+At the primary operating point (`alpha=0.10`, `delta=0.50`), GoCo-M released 6.3--17.6% more reference-supported calls than Multilabel across Wainberg, Sanger, DRIVE and HAP1. GoCo-N's gains over Multilabel on the same refined grid were 33.8% on FunMap and 36.4% on STRING. These are fixed-panel benchmark comparisons, not universal performance guarantees.
 
 ## Current file layout
 
@@ -45,11 +45,19 @@ The table builder recalculates the numeric cells from the stored analysis output
 
 ```bash
 python code/goco_rerun.py --tag run
+
 GOCO_DATA=funmap python code/run_goco_second_family.py --repeats 100 --out results/sf/funmap_v4_100.csv
+GOCO_DATA=funmap python code/frontier_exhaustive_sf.py --run results/sf/funmap_v4_100.csv --out results/sf/funmap_v4_100.csv
+
 GOCO_DATA=string/funmap_view python code/run_goco_second_family.py --repeats 100 --out results/sf/string_v4_100.csv
+GOCO_DATA=string/funmap_view python code/frontier_exhaustive_sf.py --run results/sf/string_v4_100.csv --out results/sf/string_v4_100.csv
+
+python code/rehearsal_kfold.py --repeats 100 --K 10 --out results/wf/wf_selection_k10.csv
+GOCO_DATA=funmap python code/rehearsal_kfold_sf.py --repeats 100 --K 10 --out results/sf/funmap_v4_100_selection_k10.csv
+GOCO_DATA=string/funmap_view python code/rehearsal_kfold_sf.py --repeats 100 --K 10 --out results/sf/string_v4_100_selection_k10.csv
 ```
 
-The neighbourhood commands require the large matching input files described below. Ten-fold ranking-fold selection is implemented in `rehearsal_kfold.py` and `rehearsal_kfold_sf.py`; the two-half companion files are retained because the raw-run verification gate also checks them. The frozen generic module-calibrator summary is `results/generic_module_summary.csv`.
+The neighbourhood commands require the large matching input files described below. The exhaustive-frontier command is required after each raw neighbourhood run: it adds the `frontier_all` values used for the exhaustive matched-risk comparison. The paper table builder deliberately stops with an error if that column is missing rather than silently substituting the refined-grid frontier. The ten-fold commands reproduce the ranking-fold selection analysis reported in the supplement; the two-half companion files are retained because the raw-run verification gate also checks them. The secondary module-calibrator panel is represented by the frozen aggregate summary `results/generic_module_summary.csv`; it is not described as a released split-level primary-analysis output.
 
 ```bash
 python code/test_measurability.py Wainberg 0
