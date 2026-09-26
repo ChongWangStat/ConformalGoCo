@@ -1,0 +1,42 @@
+\begin{table*}[htbp]
+\centering
+\caption{Comparison with validation $F_{\max}$ and top-$k$ release rules on the same 100 split streams and held-out folds. The $F_{\max}$ threshold is fitted on the 70\% calibration sample using the CAFA protein-centric $F_1$ measure; GoCo is shown at $\alpha=0.10$, $\delta=0.10$.}
+\label{tab:current}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\resizebox{\linewidth}{!}{\begin{tabular}{l l r r r r r r r}
+\toprule
+Predictor & Release rule & Threshold & Validation $F$ & Gene FDP & $\Pr(\widehat R_{\mathcal E}>0.10)$ & Genes with a call & Calls & Correct calls \\
+\midrule
+Wainberg & Validation $F_{\max}$ threshold & 602 & 0.002 & 0.231 & 1.00 & 1232 & 4941 & 559 \\
+ & Top-1 GO term per gene & -- & -- & 0.223 & 1.00 & 1232 & 1232 & 175 \\
+ & Top-3 GO terms per gene & -- & -- & 0.228 & 1.00 & 1232 & 2759 & 370 \\
+& \textbf{GoCo, certified at $\alpha=0.10$} & nested policy & -- & \textbf{0.095} & \textbf{0.13} & 568 & 1896 & \textbf{365} \\
+\midrule
+Sanger & Validation $F_{\max}$ threshold & 100 & 0.006 & 0.224 & 1.00 & 1094 & 21840 & 1685 \\
+ & Top-1 GO term per gene & -- & -- & 0.211 & 1.00 & 1094 & 1094 & 150 \\
+ & Top-3 GO terms per gene & -- & -- & 0.214 & 1.00 & 1094 & 3119 & 401 \\
+& \textbf{GoCo, certified at $\alpha=0.10$} & nested policy & -- & \textbf{0.093} & \textbf{0.15} & 505 & 1983 & \textbf{340} \\
+\midrule
+DRIVE & Validation $F_{\max}$ threshold & 100 & 0.004 & 0.184 & 1.00 & 378 & 8370 & 702 \\
+ & Top-1 GO term per gene & -- & -- & 0.173 & 1.00 & 378 & 378 & 51 \\
+ & Top-3 GO terms per gene & -- & -- & 0.175 & 1.00 & 378 & 1044 & 141 \\
+& \textbf{GoCo, certified at $\alpha=0.10$} & nested policy & -- & \textbf{0.093} & \textbf{0.16} & 208 & 1987 & \textbf{263} \\
+\midrule
+HAP1 & Validation $F_{\max}$ threshold & 100 & 0.004 & 0.986 & 1.00 & 4506 & 102090 & 1341 \\
+ & Top-1 GO term per gene & -- & -- & 0.979 & 1.00 & 4506 & 4506 & 94 \\
+ & Top-3 GO terms per gene & -- & -- & 0.982 & 1.00 & 4506 & 13508 & 240 \\
+& \textbf{GoCo, certified at $\alpha=0.10$} & nested policy & -- & \textbf{0.091} & \textbf{0.06} & 462 & 1252 & \textbf{138} \\
+\midrule
+FunMap & Validation $F_{\max}$ threshold & 1 & 0.069 & 0.787 & 1.00 & 2912 & 80278 & 11828 \\
+ & Top-1 GO term per gene & -- & -- & 0.599 & 1.00 & 2912 & 2912 & 1057 \\
+ & Top-3 GO terms per gene & -- & -- & 0.642 & 1.00 & 2912 & 8526 & 2746 \\
+& \textbf{GoCo, certified at $\alpha=0.10$} & nested policy & -- & \textbf{0.088} & \textbf{0.05} & 1084 & 2166 & \textbf{1616} \\
+\midrule
+STRING & Validation $F_{\max}$ threshold & 1 & 0.098 & 0.828 & 1.00 & 2375 & 156273 & 19717 \\
+ & Top-1 GO term per gene & -- & -- & 0.591 & 1.00 & 2375 & 2375 & 946 \\
+ & Top-3 GO terms per gene & -- & -- & 0.635 & 1.00 & 2375 & 7118 & 2517 \\
+& \textbf{GoCo, certified at $\alpha=0.10$} & nested policy & -- & \textbf{0.089} & \textbf{0.06} & 806 & 1622 & \textbf{1151} \\
+\bottomrule
+\end{tabular}}
+\end{table*}

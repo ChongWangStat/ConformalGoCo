@@ -1,0 +1,36 @@
+\begin{table*}[htbp]
+\centering
+\caption{Ranking-fold selection between GoCo-M and GoCo-N over 100 splits at $\delta=0.10$. In each split, the rule selects the instantiation with larger ranking-fold supported yield at the last candidate whose ranking-fold mean loss does not exceed $\alpha$.}
+\label{tab:selection}
+\scriptsize
+\begin{tabular}{l l l rr r rrr r r}
+\toprule
+Predictor & Evidence & $\alpha$ & \multicolumn{2}{c}{$\mathcal T$ yield} & Rule chooses & \multicolumn{3}{c}{Held-out supported} & $\Pr(\text{N}>\text{M})$ & Rule agrees \\
+ & & & GoCo-M & GoCo-N & GoCo-N & GoCo-M & GoCo-N & selected & held-out & with winner \\
+\midrule
+Wainberg & module-shared & 0.05 & 68.5 & 55.7 & 0.16 & 213.2 & 168.5 & 206.1 & 0.07 & 0.81 \\
+ &  & 0.10 & 117.7 & 73.3 & 0.00 & 365.2 & 222.8 & 365.2 & 0.00 & 1.00 \\
+ &  & 0.20 & 176.7 & 131.2 & 0.00 & 539.2 & 392.8 & 539.2 & 0.00 & 1.00 \\
+\addlinespace[2pt]
+Sanger & module-shared & 0.05 & 77.5 & 114.3 & 0.85 & 213.7 & 351.5 & 331.3 & 0.99 & 0.84 \\
+ &  & 0.10 & 127.7 & 185.3 & 0.96 & 340.0 & 559.2 & 553.4 & 1.00 & 0.96 \\
+ &  & 0.20 & 478.9 & 495.1 & 0.61 & 1346.8 & 1430.8 & 1411.7 & 0.78 & 0.65 \\
+\addlinespace[2pt]
+DRIVE & module-shared & 0.05 & 36.3 & 37.8 & 0.52 & 94.2 & 97.4 & 96.8 & 0.52 & 0.54 \\
+ &  & 0.10 & 98.0 & 72.0 & 0.18 & 263.5 & 194.5 & 251.5 & 0.02 & 0.80 \\
+ &  & 0.20 & 231.1 & 225.9 & 0.00 & 702.0 & 701.5 & 702.0 & 0.00 & 1.00 \\
+\addlinespace[2pt]
+HAP1 & module-shared & 0.05 & 32.9 & 49.3 & 0.86 & 102.4 & 163.3 & 156.9 & 0.97 & 0.83 \\
+ &  & 0.10 & 44.6 & 67.6 & 0.89 & 137.6 & 225.1 & 217.5 & 1.00 & 0.89 \\
+ &  & 0.20 & 61.8 & 90.6 & 0.90 & 187.7 & 299.3 & 290.2 & 1.00 & 0.90 \\
+\midrule
+FunMap & neighbourhood & 0.05 & 319.4 & 349.8 & 0.73 & 954.5 & 1016.1 & 996.7 & 0.72 & 0.61 \\
+ &  & 0.10 & 488.3 & 552.9 & 0.92 & 1474.4 & 1615.8 & 1608.1 & 0.89 & 0.83 \\
+ &  & 0.20 & 759.2 & 885.5 & 0.96 & 2157.9 & 2615.8 & 2598.2 & 1.00 & 0.96 \\
+\addlinespace[2pt]
+STRING & neighbourhood & 0.05 & 172.1 & 221.5 & 0.89 & 503.6 & 621.4 & 610.0 & 0.96 & 0.86 \\
+ &  & 0.10 & 350.2 & 395.6 & 0.76 & 1021.1 & 1151.1 & 1124.5 & 0.89 & 0.69 \\
+ &  & 0.20 & 642.1 & 766.6 & 0.93 & 1732.5 & 2243.0 & 2201.7 & 0.99 & 0.92 \\
+\bottomrule
+\end{tabular}
+\end{table*}

@@ -1,0 +1,55 @@
+\begin{table*}[htbp]
+\centering
+\caption{Operating characteristics of Multilabel, GoDag, GoCo-M, GoCo-N and $\mathcal T$-selected GoCo at $\alpha=0.10$ and $\delta\in\{0.50,0.10\}$, over 100 splits.}
+\label{tab:detail}
+\scriptsize
+\setlength{\tabcolsep}{3.2pt}
+\resizebox{\linewidth}{!}{\begin{tabular}{lll rrr rrr r r}
+\toprule
+$\delta$ & Data set & Method & Gene FDP & $\Pr(\widehat R_{\mathcal E}>\alpha)$ & $\Pr(R>\alpha)$ & Genes w/ correct call & Calls & Correct calls & $\Delta$ correct calls vs GoDag & $\Pr(>\text{GoDag})$ \\
+\midrule
+0.50 & Wainberg & Multilabel (Direct loss) & 0.0923 & 0.01 & 0.00 & 185.7 & 1614 & 339.6 & +0.0 & -- \\
+ &  & GoDag & 0.0923 & 0.01 & 0.00 & 185.7 & 1614 & 339.6 & -- & -- \\
+ &  & \textbf{GoCo-M} & 0.0964 & 0.20 & 0.08 & 197.1 & 1955 & 369.1 & +29.4 & 1.00 \\
+ &  & \textbf{GoCo-N} & 0.0944 & 0.16 & 0.07 & 129.3 & 1208 & 227.1 & $-$112.5 & 0.01 \\
+ &  & \textbf{GoCo}, $\mathcal T$-selected & 0.0964 & 0.20 & 0.08 & 197.1 & 1955 & 369.1 & +29.4 & 1.00 \\
+ & Sanger & Multilabel (Direct loss) & 0.0953 & 0.20 & 0.00 & 155.4 & 1919 & 333.0 & $-$20.8 & -- \\
+ &  & GoDag & 0.0980 & 0.36 & 0.00 & 160.9 & 2040 & 353.8 & -- & -- \\
+ &  & \textbf{GoCo-M} & 0.0980 & 0.42 & 0.20 & 166.9 & 2380 & 380.7 & +26.9 & 0.81 \\
+ &  & \textbf{GoCo-N} & 0.0942 & 0.11 & 0.03 & 206.9 & 1905 & 572.2 & +218.4 & 1.00 \\
+ &  & \textbf{GoCo}, $\mathcal T$-selected & 0.0943 & 0.11 & 0.04 & 205.7 & 1916 & 567.2 & +213.4 & 0.99 \\
+ & DRIVE & Multilabel (Direct loss) & 0.0945 & 0.13 & 0.06 & 96.1 & 1834 & 248.1 & $-$10.5 & -- \\
+ &  & GoDag & 0.0965 & 0.28 & 0.28 & 98.7 & 1954 & 258.6 & -- & -- \\
+ &  & \textbf{GoCo-M} & 0.0971 & 0.33 & 0.26 & 105.7 & 2296 & 291.7 & +33.1 & 0.89 \\
+ &  & \textbf{GoCo-N} & 0.0984 & 0.36 & 0.25 & 78.3 & 1417 & 212.0 & $-$46.6 & 0.12 \\
+ &  & \textbf{GoCo}, $\mathcal T$-selected & 0.0974 & 0.34 & 0.25 & 100.6 & 2160 & 277.5 & +18.9 & 0.72 \\
+ & HAP1 & Multilabel (Direct loss) & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & +0.0 & -- \\
+ &  & GoDag & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & -- & -- \\
+ &  & \textbf{GoCo-M} & 0.0943 & 0.19 & 0.05 & 80.8 & 1285 & 137.7 & +8.2 & 1.00 \\
+ &  & \textbf{GoCo-N} & 0.0931 & 0.17 & 0.05 & 110.5 & 997 & 228.7 & +99.3 & 1.00 \\
+ &  & \textbf{GoCo}, $\mathcal T$-selected & 0.0929 & 0.15 & 0.05 & 107.7 & 1029 & 220.9 & +91.5 & 1.00 \\
+\midrule
+0.10 & Wainberg & Multilabel (Direct loss) & 0.0923 & 0.01 & 0.00 & 185.3 & 1612 & 338.9 & $-$0.7 & -- \\
+ &  & GoDag & 0.0923 & 0.01 & 0.00 & 185.7 & 1614 & 339.6 & -- & -- \\
+ &  & \textbf{GoCo-M} & 0.0948 & 0.13 & 0.00 & 195.2 & 1896 & 365.2 & +25.6 & 0.98 \\
+ &  & \textbf{GoCo-N} & 0.0899 & 0.05 & 0.00 & 127.0 & 1150 & 222.8 & $-$116.8 & 0.00 \\
+ &  & \textbf{GoCo}, $\mathcal T$-selected & 0.0948 & 0.13 & 0.00 & 195.2 & 1896 & 365.2 & +25.6 & 0.98 \\
+ & Sanger & Multilabel (Direct loss) & 0.0913 & 0.01 & 0.00 & 150.7 & 1751 & 315.8 & $-$3.3 & -- \\
+ &  & GoDag & 0.0923 & 0.12 & 0.00 & 151.7 & 1789 & 319.1 & -- & -- \\
+ &  & \textbf{GoCo-M} & 0.0930 & 0.15 & 0.00 & 156.9 & 1983 & 340.0 & +20.9 & 0.95 \\
+ &  & \textbf{GoCo-N} & 0.0910 & 0.04 & 0.00 & 202.7 & 1820 & 559.2 & +240.1 & 1.00 \\
+ &  & \textbf{GoCo}, $\mathcal T$-selected & 0.0910 & 0.04 & 0.00 & 201.3 & 1824 & 553.4 & +234.3 & 1.00 \\
+ & DRIVE & Multilabel (Direct loss) & 0.0913 & 0.13 & 0.00 & 90.0 & 1609 & 227.9 & $-$9.3 & -- \\
+ &  & GoDag & 0.0929 & 0.13 & 0.00 & 92.9 & 1718 & 237.2 & -- & -- \\
+ &  & \textbf{GoCo-M} & 0.0931 & 0.16 & 0.01 & 99.4 & 1987 & 263.5 & +26.2 & 0.89 \\
+ &  & \textbf{GoCo-N} & 0.0923 & 0.18 & 0.01 & 73.3 & 1145 & 194.5 & $-$42.8 & 0.17 \\
+ &  & \textbf{GoCo}, $\mathcal T$-selected & 0.0931 & 0.17 & 0.01 & 94.5 & 1850 & 251.5 & +14.3 & 0.75 \\
+ & HAP1 & Multilabel (Direct loss) & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & +0.0 & -- \\
+ &  & GoDag & 0.0719 & 0.00 & 0.00 & 77.0 & 847 & 129.4 & -- & -- \\
+ &  & \textbf{GoCo-M} & 0.0915 & 0.06 & 0.00 & 80.7 & 1252 & 137.6 & +8.1 & 1.00 \\
+ &  & \textbf{GoCo-N} & 0.0895 & 0.05 & 0.00 & 108.4 & 965 & 225.1 & +95.7 & 1.00 \\
+ &  & \textbf{GoCo}, $\mathcal T$-selected & 0.0893 & 0.04 & 0.00 & 105.7 & 996 & 217.5 & +88.0 & 1.00 \\
+\bottomrule
+\end{tabular}}
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize Means over the same 100 split streams at $\alpha=0.10$. Gene FDP: held-out gene-level TruePath FDP $\widehat R_{\mathcal E}$. $\Pr(\widehat R_{\mathcal E}>\alpha)$: fraction of splits whose held-out FDP exceeded $\alpha$. $\Pr(R>\alpha)$: fraction of splits in which the TruePath risk of the certified policy over the pool of its own certificate (the whole panel for Multilabel and GoDag, $\mathcal C\cup\mathcal E$ for GoCo) exceeded $\alpha$; for GoDag and GoCo this is the event Proposition~1 bounds. Multilabel certifies the Direct loss instead: on that loss its pool failure frequencies were 0.00/0.13/0.06/0.00 (Wainberg/Sanger/DRIVE/HAP1) at $\delta=0.50$ and 0.00/0.00/0.00/0.00 at $\delta=0.10$, and a policy certified on the stricter Direct loss is conservative on TruePath. Correct calls: released gene--GO pairs the frozen reference confirms; genes w/ correct call: held-out genes receiving at least one of them; Calls: released calls of any kind. Multilabel is the released multilabel calibration of Boger et al.\ on the Direct loss, calibrated on 70\% of the panel; GoDag and GoCo-M use the TruePath loss and share the 25-unit grid; GoCo-N walks the top-$m$ calls of the ranking-fold model; GoCo, $\mathcal T$-selected is whichever of the two the ranking-fold rule chose in that split (Table~\ref{tab:selection}). $\Delta$ correct calls: paired mean difference in correct calls from GoDag; $\Pr(>\text{GoDag})$: fraction of splits in which the method released more correct calls than GoDag.\end{minipage}
+\end{table*}

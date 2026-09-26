@@ -1,0 +1,32 @@
+\begin{table*}[htbp]
+\centering
+\caption{Module-structure comparison at $\alpha=0.10$, $\delta=0.50$, over 100 splits. Wainberg is the development data set; Sanger, DRIVE and HAP1 are external studies with the same shared-evidence structure.}
+\label{tab:panelmodule50}
+\scriptsize
+\setlength{\tabcolsep}{3pt}
+\resizebox{\linewidth}{!}{\begin{tabular}{l rrr rrr rrr rrr}
+\toprule
+Method & \multicolumn{3}{c}{Wainberg ($n_{\mathcal E}$=4,738)} & \multicolumn{3}{c}{Sanger ($n_{\mathcal E}$=4,465)} & \multicolumn{3}{c}{DRIVE ($n_{\mathcal E}$=1,885)} & \multicolumn{3}{c}{HAP1 ($n_{\mathcal E}$=4,506)} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}\cmidrule(lr){8-10}\cmidrule(lr){11-13}
+ & Gene FDP & Genes with a & Correct & Gene FDP & Genes with a & Correct & Gene FDP & Genes with a & Correct & Gene FDP & Genes with a & Correct \\
+ & & correct call & calls & & correct call & calls & & correct call & calls & & correct call & calls \\
+\midrule
+\multicolumn{13}{l}{\emph{Direct loss, one global threshold (ontology-blind)}} \\
+Multilabel & 0.0923 & 185.7 & 339.6 & 0.0953 & 155.4 & 333.0 & 0.0945 & 96.1 & 248.1 & 0.0719 & 77.0 & 129.4 \\
+Hoeffding/LTT & 0.0914 & 182.6 & 333.3 & 0.0876 & 148.1 & 308.0 & 0.0864 & 84.2 & 206.1 & 0.0719 & 77.0 & 129.4 \\
+Hoeffding--Bentkus & 0.0923 & 185.7 & 339.6 & 0.0916 & 150.9 & 316.4 & 0.0923 & 91.8 & 233.9 & 0.0719 & 77.0 & 129.4 \\
+IID-normal & 0.0923 & 185.7 & 339.6 & 0.0953 & 155.4 & 333.0 & 0.0945 & 96.1 & 248.1 & 0.0719 & 77.0 & 129.4 \\
+Empirical Bernstein & 0.0919 & 183.6 & 335.7 & 0.0894 & 149.3 & 311.5 & 0.0882 & 86.0 & 213.1 & 0.0719 & 77.0 & 129.4 \\
+McDiarmid (binary incidence) & 0.0804 & 166.1 & 291.8 & 0.0777 & 142.2 & 288.6 & 0.0782 & 78.4 & 183.3 & 0.0719 & 77.0 & 129.4 \\
+Janson dependency graph & 0.0775 & 162.1 & 281.0 & 0.0769 & 141.7 & 287.0 & 0.0746 & 76.0 & 175.7 & 0.0719 & 77.0 & 129.4 \\
+Network-HAC ($b=1$) & 0.0923 & 185.7 & 339.6 & 0.0953 & 155.4 & 333.0 & 0.0945 & 96.1 & 248.1 & 0.0719 & 77.0 & 129.4 \\
+Platt calibration & 0.0908 & 182.3 & 332.1 & 0.0949 & 155.6 & 334.4 & 0.0914 & 91.7 & 233.6 & 0.0719 & 77.0 & 129.4 \\
+Isotonic calibration & 0.0919 & 184.8 & 337.6 & 0.0956 & 156.5 & 337.8 & 0.0917 & 92.0 & 235.3 & 0.0719 & 77.0 & 129.4 \\
+\addlinespace[2pt]\multicolumn{13}{l}{\emph{TruePath loss, one global threshold (GO hierarchy)}} \\
+GoDag & 0.0923 & 185.7 & 339.6 & 0.0980 & 160.9 & 353.8 & 0.0965 & 98.7 & 258.6 & 0.0719 & 77.0 & 129.4 \\
+\addlinespace[2pt]\multicolumn{13}{l}{\emph{TruePath loss, relational partial admission (GO hierarchy and module-shared evidence)}} \\
+\textbf{GoCo-M} & \textbf{0.0964} & \textbf{197.1} & \textbf{369.1} & \textbf{0.0980} & \textbf{166.9} & \textbf{380.7} & \textbf{0.0971} & \textbf{105.7} & \textbf{291.7} & \textbf{0.0943} & \textbf{80.8} & \textbf{137.7} \\
+\bottomrule
+\end{tabular}}
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize Generic baselines calibrate on Direct labels only and have no GO-DAG/TruePath input; GoDag calibrates with TruePath; GoCo-M calibrates with TruePath plus the predictor's own module membership. All rows are evaluated against the same held-out TruePath reference on the same evaluation fold, over the same 100 split streams. Every global-threshold method calibrates over the shared 25-unit grid on the first 70\% of each permutation; GoCo-M certifies on the 60\% certification fold after fitting its ordering on the 10\% ranking fold. Platt and isotonic are $\delta$-free plug-in calibrators without a risk guarantee, so their rows are the same at both $\delta$. At $\delta=0.50$ every normal-type rule coincides with Multilabel (Remark~1 of the main text); at $\delta=0.10$ they separate, only the IID-normal CLT still agreeing with it.\end{minipage}
+\end{table*}

@@ -1,0 +1,20 @@
+\begin{table*}[!t]
+\centering
+\caption{Methods compared. All are post-prediction release rules applied to the same frozen scores and split streams; columns distinguish the certified loss, candidate path, calibration sample and use of GO hierarchy and predictor-native evidence.}
+\label{tab:methods}
+\scriptsize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.12\linewidth}>{\raggedright\arraybackslash}p{0.31\linewidth}>{\raggedright\arraybackslash}p{0.15\linewidth}>{\raggedright\arraybackslash}p{0.07\linewidth}>{\raggedright\arraybackslash}p{0.13\linewidth}}
+\toprule
+Method & Loss certified & Candidate path & Calibration sample & GO hierarchy & Predictor-native evidence \\
+\midrule
+$F_{\max}$ threshold & none & global cutoff maximising $F_1$ & (threshold fitted on 70\%) & no & no \\
+Top-$k$ per gene & none & the $k$ highest-scoring terms of each gene & none & no & no \\
+Multilabel \cite{boger2025} & Direct FDP & global grid $\lambda_1>\cdots>\lambda_J$ & 70\% (module family); $\calC$ (60\%) in neighbourhood family & no & no \\
+Generic calibrators (nine rules) & Direct FDP & global grid & 70\% (module family); $\calC$ (60\%) in neighbourhood family & no & no \\
+GoDag & TruePath FDP, Eq.~\eqref{eq:fdp} & global grid & 70\% (module family); $\calC$ (60\%) in neighbourhood family & yes & no \\
+GoCo-M & TruePath FDP & grid, plus partial admission of affected genes within each step, ordered by $u_i$ (Eq.~\eqref{eq:utility}) & $\calC$ (60\%); ordering fitted on $\calT$ (10\%) & yes & yes, at gene resolution within a step \\
+GoCo-N & TruePath FDP & top-$m$ calls ordered by $\widehat p_{ig}$ & $\calC$; model fitted on $\calT$ & yes & yes, at call resolution \\
+\bottomrule
+\end{tabular}
+\end{table*}

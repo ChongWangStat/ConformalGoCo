@@ -1,0 +1,24 @@
+\begin{table*}[htbp]
+\centering
+\caption{Source-object structures, observed score granularity and ranking-fold path choice. Rows without a ranking-fold verdict are structural examples.}
+\label{tab:structures}
+\tiny
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}p{0.145\textwidth} p{0.135\textwidth} p{0.05\textwidth} p{0.085\textwidth} p{0.105\textwidth} p{0.135\textwidth} p{0.225\textwidth}@{}}
+\toprule
+Predictor family & Source set $\mathcal R_{ig}$ & Evidence & Score ties & Structure & A cutoff misses & Ranking-fold verdict \\
+\midrule
+Co-essential modules (Wainberg; Sanger and DRIVE via the same catalogue) & annotated members of the gene's module & shared & exact, up to 3,361 pairs & module-shared & the interior of every tied block & Wainberg: GoCo-M (100\%); Sanger: GoCo-N (96\%); DRIVE: GoCo-M (82\%) \\
+Protein complexes (CORUM, BioPlex) & annotated members of the complex & shared & exact & module-shared & the interior of every tied block & structural \\
+Co-regulation clusters (ProteomeHD) & annotated members of the co-regulated group & shared & exact & module-shared & the interior of every tied block & structural \\
+Community / partition detection (HAP1 Global-L2 clusters) & annotated members of the community & shared & exact, up to 14,245 pairs & module-shared & the interior of every tied block & HAP1: GoCo-N (89\%) \\
+Random-walk neighbourhoods (FunMap) & annotated neighbours, proximity-ranked & gene-specific & none material & neighbourhood & little: a refined grid recovers granularity & FunMap: GoCo-N (92\%) \\
+Interaction neighbourhoods (STRING) & annotated interactors, ranked & gene-specific & none material & neighbourhood & little: a refined grid recovers granularity & STRING: GoCo-N (76\%) \\
+Network propagation / diffusion & diffusion-weighted neighbours & gene-specific & none material & neighbourhood & little & structural \\
+Multi-network integration (GeneMANIA) & (network, neighbour) pairs with weights & gene-specific & none material & neighbourhood & little & structural \\
+Sequence-homology hit lists & homologues with alignment scores & gene-specific & none material & neighbourhood & little & structural \\
+Embedding $k$-nearest neighbours & nearest neighbours with distances & gene-specific & none material & neighbourhood & little & structural \\
+\bottomrule
+\end{tabular}
+\end{table*}

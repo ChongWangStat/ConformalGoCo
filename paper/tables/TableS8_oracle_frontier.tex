@@ -1,0 +1,26 @@
+\begin{table*}[htbp]
+\centering
+\caption{Neighbourhood-structure family: gain over the exhaustive matched-risk frontier of the global path, over 100 splits. For each arm and split, the frontier is the best yield among all global score cutoffs, including abstention, whose realised held-out risk does not exceed that arm's realised risk.}
+\label{tab:frontier}
+\scriptsize
+\begin{tabular}{l l l rr rr}
+\toprule
+Data & $\alpha$ & $\delta$ & \multicolumn{2}{c}{GoCo-M} & \multicolumn{2}{c}{GoCo-N} \\
+ & & & Correct calls vs.\ frontier & Splits ahead & Correct calls vs.\ frontier & Splits ahead \\
+\midrule
+FunMap & 0.05 & 0.10 & +101 & 1.00 & +155 & 0.95 \\
+ & 0.05 & 0.50 & +99 & 1.00 & +175 & 0.97 \\
+ & 0.10 & 0.10 & +196 & 1.00 & +379 & 1.00 \\
+ & 0.10 & 0.50 & +190 & 1.00 & +393 & 1.00 \\
+ & 0.20 & 0.10 & +164 & 1.00 & +519 & 1.00 \\
+ & 0.20 & 0.50 & +186 & 1.00 & +535 & 1.00 \\
+\midrule
+STRING & 0.05 & 0.10 & +46 & 1.00 & +172 & 1.00 \\
+ & 0.05 & 0.50 & +40 & 1.00 & +186 & 1.00 \\
+ & 0.10 & 0.10 & +138 & 1.00 & +268 & 0.97 \\
+ & 0.10 & 0.50 & +135 & 1.00 & +282 & 0.98 \\
+ & 0.20 & 0.10 & +197 & 1.00 & +561 & 0.99 \\
+ & 0.20 & 0.50 & +205 & 1.00 & +599 & 0.99 \\
+\bottomrule
+\end{tabular}
+\end{table*}

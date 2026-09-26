@@ -1,0 +1,38 @@
+{
+  "DRIVE": {
+    "n": 6283,
+    "seed0": 20260905,
+    "csv_sha256": "471ccc719f2314bc1abcc41217cf86fd1740583b77dffe56fd58a882b5660a6b",
+    "gzip_sha256": "355949c1e8f30d8dbeb470cc3c668c57e6c429e1b45ce70105ff4ab1b695dffb"
+  },
+  "FunMap": {
+    "n": 10316,
+    "seed0": 20260910,
+    "csv_sha256": "e55d9f9ec6f9c2369a96b884ed1c211b387d8b473b31119d428a4f94cb1b1ad4",
+    "gzip_sha256": "fe855c5b3c61522409ba3167a4e30d5db9b482ec2e6edf37eadcec3cf4de522d"
+  },
+  "HAP1": {
+    "n": 15020,
+    "seed0": 20260905,
+    "csv_sha256": "c63d9fe01e0db89e00c6f105b76bb2cfe9ef91a0c16a934da2d7fa305547d7d7",
+    "gzip_sha256": "f34fc89243dd8eb70348260ca192941173222075b8a7913e2f78e54954e477b4"
+  },
+  "STRING": {
+    "n": 8055,
+    "seed0": 20260910,
+    "csv_sha256": "b5ab777a5ea2f91507146e1c7e7e8fc752bf98e41580e84c5ad386359be87586",
+    "gzip_sha256": "9bb9d8d3ab07a00cffb75f16008d83a70e7133e47230ea97454e7c744b456042"
+  },
+  "Sanger": {
+    "n": 14885,
+    "seed0": 20260905,
+    "csv_sha256": "6b4ccc3cd5574548e759d7a0ad07e46948369509b5805fcb22e125c2550e02bb",
+    "gzip_sha256": "e1afd2d49f1960b2da0d9943c619ab9edff372f711817ba07ae7732ebeca990f"
+  },
+  "Wainberg": {
+    "n": 15794,
+    "seed0": 20260905,
+    "csv_sha256": "081f7aed2e3f3ad6ed2efe15f8165d4f11ff5540dbe329395fce31b5ece87d0e",
+    "gzip_sha256": "36e8758ba5529808e155c8ef87961a28e86d0ebf1bdf10a2feb7de3c031d25ba"
+  }
+}

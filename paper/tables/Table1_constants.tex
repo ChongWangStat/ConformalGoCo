@@ -1,0 +1,22 @@
+\begin{table}[!t]
+\centering
+\caption{Prespecified constants of GoCo. Module-family choices were fixed on Wainberg and the neighbourhood-family instantiation on FunMap; none uses certification- or evaluation-fold labels, and none affects validity (Proposition~\ref{prop:validity}).}
+\label{tab:constants}
+\scriptsize
+\begin{tabular}{p{0.27\columnwidth} p{0.66\columnwidth}}
+\toprule
+Constant & Value \\
+\midrule
+Split & 10\% $\calT$ / 60\% $\calC$ / 30\% $\calE$ by seeded permutation ($20260905+s$ in the module family and $20260910+s$ in the neighbourhood family, $s=0,\ldots,99$); the instantiations were fixed on streams $0$--$9$ of Wainberg and FunMap, respectively; $n_{\calT}=\operatorname{round}(0.10n)$ and $n_{\calT}+m=\operatorname{round}(0.70n)$ with round-half-to-even; module-family global methods calibrate on $\calT\cup\calC$ (70\%), whereas all neighbourhood-family methods certify on $\calC$ (60\%) \\
+GoCo-M global grid $\lambda_1>\cdots>\lambda_J$ & 3000, 2500, 2000, 1600, 1400, 1200, 1100, 1050, then 1000 downward in steps of 25 (to 600 in Wainberg, $J=25$; to 100 in Sanger, DRIVE and HAP1, $J=45$); identical for GoDag and GoCo-M in the module family \\
+GoCo-M block insertion trigger & ranking-fold mean loss at $\lambda_{j+1}$ exceeds $0.8\alpha$ (i.e.\ 0.08 at $\alpha=0.10$) and $|\calT_j|\ge5$ \\
+GoCo-M admission grid $\mathcal Q$ & 0.01, 0.02, 0.03, 0.04, 0.05, 0.075, 0.10, 0.125, 0.15, 0.175, 0.20, 0.225, 0.25, 0.275, 0.30, 0.35, 0.40, 0.50, 0.60, 0.75 ($q=1$ is the next global threshold) \\
+Shrinkage weight & $\kappa=1$ in Equation~\eqref{eq:sourcerisk}; two pseudo-calls for the per-call rate features \\
+Ranking statistic & GoCo-M: Equation~\eqref{eq:utility}; GoCo-N: individual calls ordered by $\widehat p_{ig}$, with smaller predicted unsupported probability entering first; both use the cross-fitted logistic per-call model ($C=0.5$, standardised features, two hash-defined halves of $\calT$) \\
+Instantiation & GoCo-M (partial admission within grid steps) for evidence shared between genes, fixed on Wainberg; GoCo-N (nested top-$m$ calls by $\widehat p_{ig}$) for per-gene neighbourhood evidence, fixed on FunMap \\
+Tie-break & GoCo-M: deterministic lexicographic ordering by $(u_i,h_i,\text{gene identifier})$, where $h_i$ is the SHA-256-derived hash of the gene identifier; GoCo-N: ties in $\widehat p_{ig}$ are broken by the frozen gene hash and then by call index; exact comparisons, no numerical tolerance \\
+Certification & $\alpha=0.10$ (sensitivity 0.05, 0.20); $\delta=0.10$ and $\delta=0.50$; $\shat_k$ floored at $10^{-6}$ \\
+GO reference & Direct annotations and TruePath closure frozen at one release for all four dependency data sets (GO release 2019-11-01: \texttt{goa\_human.gaf} and \texttt{go-basic.obo} from the GO archive; all evidence codes; NOT-qualified annotations and root terms removed; closure over \emph{is\_a} and \emph{part\_of}); GO archive 2024-09-08 for FunMap and STRING \\
+\bottomrule
+\end{tabular}
+\end{table}

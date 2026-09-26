@@ -1,0 +1,41 @@
+\begin{table*}[htbp]
+\centering
+\caption{Error-target sweep at $\delta=0.10$: mean held-out gene-level TruePath FDP and reference-supported calls at $\alpha\in\{0.05,0.10,0.20\}$ over 100 splits.}
+\label{tab:sweep10}
+\scriptsize
+\begin{tabular}{ll rr rr rr}
+\toprule
+Data set & Method & \multicolumn{2}{c}{$\alpha=0.05$} & \multicolumn{2}{c}{$\alpha=0.10$} & \multicolumn{2}{c}{$\alpha=0.20$} \\
+ & & FDP & Correct & FDP & Correct & FDP & Correct \\
+ & & & calls & & calls & & calls \\ \midrule
+\multicolumn{8}{l}{\emph{Module structure: GoCo-M (development: Wainberg)}} \\
+Wainberg & Multilabel (Direct loss) & 0.0359 & 183.1 & 0.0923 & 338.9 & 0.1699 & 518.9 \\
+ & GoDag & 0.0359 & 183.1 & 0.0923 & 339.6 & 0.1699 & 518.9 \\
+ & \textbf{GoCo-M} & 0.0438 & 213.2 & 0.0948 & 365.2 & 0.1882 & 539.2 \\
+\addlinespace[2pt]
+Sanger & Multilabel (Direct loss) & 0.0450 & 198.2 & 0.0913 & 315.8 & 0.1871 & 1136.0 \\
+ & GoDag & 0.0461 & 203.9 & 0.0923 & 319.1 & 0.1895 & 1163.2 \\
+ & \textbf{GoCo-M} & 0.0463 & 213.7 & 0.0930 & 340.0 & 0.1907 & 1346.8 \\
+\addlinespace[2pt]
+DRIVE & Multilabel (Direct loss) & 0.0413 & 90.0 & 0.0913 & 227.9 & 0.1823 & 691.4 \\
+ & GoDag & 0.0414 & 90.1 & 0.0929 & 237.2 & 0.1844 & 702.4 \\
+ & \textbf{GoCo-M} & 0.0436 & 94.2 & 0.0931 & 263.5 & 0.1841 & 702.0 \\
+\addlinespace[2pt]
+HAP1 & Multilabel (Direct loss) & 0.0436 & 96.0 & 0.0719 & 129.4 & 0.1353 & 160.2 \\
+ & GoDag & 0.0436 & 96.1 & 0.0719 & 129.4 & 0.1353 & 160.2 \\
+ & \textbf{GoCo-M} & 0.0450 & 102.4 & 0.0915 & 137.6 & 0.1756 & 187.7 \\
+\midrule
+\multicolumn{8}{l}{\emph{Neighbourhood structure: GoCo-N (development: FunMap)}} \\
+FunMap & Multilabel (Direct loss, shared grid) & 0.0312 & 727.9 & 0.0583 & 1004.3 & 0.1543 & 1869.5 \\
+ & GoDag, shared grid & 0.0312 & 727.9 & 0.0901 & 1261.2 & 0.1547 & 1873.0 \\
+ & GoDag, refined grid & 0.0448 & 869.7 & 0.0941 & 1279.8 & 0.1900 & 2164.4 \\
+ & \textbf{GoCo-N} & 0.0431 & 1016.1 & 0.0878 & 1615.8 & 0.1823 & 2615.8 \\
+\addlinespace[2pt]
+STRING & Multilabel (Direct loss, shared grid) & 0.0385 & 423.2 & 0.0822 & 815.8 & 0.1458 & 1383.8 \\
+ & GoDag, shared grid & 0.0386 & 424.9 & 0.0828 & 828.1 & 0.1464 & 1387.9 \\
+ & GoDag, refined grid & 0.0454 & 473.1 & 0.0928 & 909.2 & 0.1867 & 1711.7 \\
+ & \textbf{GoCo-N} & 0.0429 & 621.4 & 0.0894 & 1151.1 & 0.1830 & 2243.0 \\
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize FDP: mean held-out gene-level TruePath false discovery proportion. Correct calls: released gene--GO pairs the frozen reference confirms. Each structure is shown with the instantiation prespecified for it. Within each block every rule uses the same grid, so the rows are comparable: GoCo-M and GoDag share the 25-unit grid in the module block, and Multilabel and GoDag the shared coarse grid in the neighbourhood block, where the refined grid---free for a tie-free score---is shown as a separate GoDag row.\end{minipage}
+\end{table*}

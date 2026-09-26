@@ -1,0 +1,30 @@
+\begin{table*}[htbp]
+\centering
+\caption{Neighbourhood-structure comparison at $\alpha=0.10$, $\delta=0.50$, over 100 splits. FunMap is the development data set; the STRING v12.0 experiments-only network provides the external validation.}
+\label{tab:panelnbr50}
+\scriptsize
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{l rrr rrr}
+\toprule
+Method & \multicolumn{3}{c}{FunMap ($n_{\mathcal E}$=3,095)} & \multicolumn{3}{c}{STRING ($n_{\mathcal E}$=2,417)} \\
+\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+ & Gene FDP & Correct & Genes with & Gene FDP & Correct & Genes with \\
+ & & calls & a call & & calls & a call \\
+\midrule
+\multicolumn{7}{l}{\emph{Direct loss, one global threshold on the refined grid (ontology-blind)}} \\
+Multilabel & 0.0888 & 1245 & 734 & 0.0899 & 885 & 432 \\
+Hoeffding/LTT & 0.0820 & 1182 & 699 & 0.0820 & 826 & 405 \\
+Hoeffding--Bentkus & 0.0855 & 1213 & 717 & 0.0855 & 857 & 419 \\
+IID-normal & 0.0888 & 1245 & 734 & 0.0899 & 885 & 432 \\
+Empirical Bernstein & 0.0835 & 1193 & 706 & 0.0831 & 837 & 410 \\
+Platt calibration & 0.0647 & 1061 & 615 & 0.1003 & 989 & 487 \\
+Isotonic calibration & 0.0824 & 1184 & 701 & 0.0874 & 869 & 424 \\
+\addlinespace[2pt]\multicolumn{7}{l}{\emph{TruePath loss, one global threshold (GO hierarchy)}} \\
+GoDag & 0.0901 & 1261 & 742 & 0.0828 & 828 & 406 \\
+GoDag, refined grid & 0.0986 & 1324 & 783 & 0.0978 & 962 & 472 \\
+\addlinespace[2pt]\multicolumn{7}{l}{\emph{TruePath loss, relational ordering of calls (GO hierarchy and neighbourhood evidence)}} \\
+\textbf{GoCo-N} & \textbf{0.0921} & \textbf{1666} & \textbf{1110} & \textbf{0.0944} & \textbf{1208} & \textbf{837} \\
+\bottomrule
+\end{tabular}
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize Generic baselines calibrate on Direct labels only and have no GO-DAG input; GoDag calibrates with TruePath; GoCo-N adds the predictor's own neighbourhood evidence, ordering individual calls by the ranking-fold model, which is the instantiation this evidence structure calls for. GoCo-M, the instantiation for evidence shared between genes, is also evaluated on these data in Supplementary Table~\ref{supp-tab:frontier}. Every Direct-loss rule selects one global threshold on the refined score grid---the fair global baseline for a tie-free score, since refinement costs nothing---and GoDag is shown on both the shared coarse grid and the refined grid. All rules certify on the same 60\% fold and are evaluated against the same held-out TruePath reference, over the same 100 split streams. Correct calls: released gene--GO pairs the frozen reference confirms; genes with a call: held-out genes receiving at least one released call, correct or not. The three module-graph variance variants of the module-structure panel (McDiarmid, Janson and Network-HAC) were not evaluated in the neighbourhood family because an analogous gene-level dependency graph and corresponding variance specification were not prespecified for these analyses. Platt and isotonic are $\delta$-free plug-in calibrators without a risk guarantee.\end{minipage}
+\end{table*}

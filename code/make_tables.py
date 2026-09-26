@@ -1,5 +1,5 @@
 """Build the LaTeX/CSV tables of the GoCo manuscript from results/goco_results_100splits.csv and the frozen
-generic-calibrator summary results/first_draft_primary_method_summary_long.csv."""
+generic-calibrator summary results/generic_module_summary.csv."""
 import pandas as pd, numpy as np, glob, os
 HERE = os.path.dirname(os.path.abspath(__file__))
 REV = os.environ.get('GOCO_PAPER_DIR', os.path.join(HERE, '..', 'paper')) + os.sep
@@ -56,7 +56,7 @@ def paired(sub, m, ref, col='go_yield'):
     return dif.mean(), 1.96 * dif.std(ddof=1) / np.sqrt(len(dif)), (dif > 0).mean()
 
 GOCO = 'GoCo' if 'GoCo' in set(d.method) else 'GoCo-learned'
-GENERIC = pd.read_csv(RESULTS + 'first_draft_primary_method_summary_long.csv')
+GENERIC = pd.read_csv(RESULTS + 'generic_module_summary.csv')
 GEN_ORDER = [('Hoeffding/LTT', 'Hoeffding/LTT'), ('Hoeffding-Bentkus', 'Hoeffding--Bentkus'), ('IID-normal', 'IID-normal'), ('Empirical Bernstein', 'Empirical Bernstein'),
              ('Binary-incidence McDiarmid', 'McDiarmid (binary incidence)'), ('Janson dependency-graph', 'Janson dependency graph'),
              ('Network-HAC (b=1)', 'Network-HAC ($b=1$)'), ('Platt calibration', 'Platt calibration'), ('Isotonic calibration', 'Isotonic calibration')]

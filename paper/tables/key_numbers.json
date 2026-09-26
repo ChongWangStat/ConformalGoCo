@@ -1,0 +1,3356 @@
+{
+ "primary_Wainberg_0.5_Multilabel": {
+  "fdp": 0.09232070943077259,
+  "supp_genes": 185.71,
+  "supp_terms": 339.61,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.01,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": 0.0,
+  "calls": 1614.12,
+  "min_d_godag": 0.0
+ },
+ "primary_Wainberg_0.1_Multilabel": {
+  "fdp": 0.09226789573492906,
+  "supp_genes": 185.32,
+  "supp_terms": 338.9,
+  "d_godag": -0.71,
+  "pct_godag": -0.20906333735757343,
+  "p_godag": 0.0,
+  "exceed": 0.01,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": 0.0,
+  "calls": 1611.65,
+  "min_d_godag": -12.0
+ },
+ "primary_Wainberg_0.5_GoDag": {
+  "fdp": 0.09232070943077259,
+  "supp_genes": 185.71,
+  "supp_terms": 339.61,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.01,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1614.12,
+  "min_d_godag": 0.0
+ },
+ "primary_Wainberg_0.1_GoDag": {
+  "fdp": 0.09232070943077259,
+  "supp_genes": 185.71,
+  "supp_terms": 339.61,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.01,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1614.12,
+  "min_d_godag": 0.0
+ },
+ "primary_Wainberg_0.5_GoCo-M": {
+  "fdp": 0.09643724079667233,
+  "supp_genes": 197.06,
+  "supp_terms": 369.06,
+  "d_godag": 29.45,
+  "pct_godag": 8.67171166926768,
+  "p_godag": 1.0,
+  "exceed": 0.2,
+  "pool_exceed": 0.08,
+  "pool_exceed_direct": NaN,
+  "calls": 1955.11,
+  "min_d_godag": 15.0
+ },
+ "primary_Wainberg_0.1_GoCo-M": {
+  "fdp": 0.09479555785366628,
+  "supp_genes": 195.24,
+  "supp_terms": 365.22,
+  "d_godag": 25.61,
+  "pct_godag": 7.541002915108508,
+  "p_godag": 0.98,
+  "exceed": 0.13,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1896.08,
+  "min_d_godag": 0.0
+ },
+ "primary_Sanger_0.5_Multilabel": {
+  "fdp": 0.09532114990427669,
+  "supp_genes": 155.41,
+  "supp_terms": 332.99,
+  "d_godag": -20.8,
+  "pct_godag": -5.879193872071009,
+  "p_godag": 0.0,
+  "exceed": 0.2,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": 0.13,
+  "calls": 1918.55,
+  "min_d_godag": -59.0
+ },
+ "primary_Sanger_0.1_Multilabel": {
+  "fdp": 0.09130298535147009,
+  "supp_genes": 150.65,
+  "supp_terms": 315.81,
+  "d_godag": -3.3,
+  "pct_godag": -1.0341261633919352,
+  "p_godag": 0.0,
+  "exceed": 0.01,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": 0.0,
+  "calls": 1751.3,
+  "min_d_godag": -39.0
+ },
+ "primary_Sanger_0.5_GoDag": {
+  "fdp": 0.09799481876436428,
+  "supp_genes": 160.9,
+  "supp_terms": 353.79,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.36,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 2040.05,
+  "min_d_godag": 0.0
+ },
+ "primary_Sanger_0.1_GoDag": {
+  "fdp": 0.09227616000976432,
+  "supp_genes": 151.65,
+  "supp_terms": 319.11,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.12,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1789.29,
+  "min_d_godag": 0.0
+ },
+ "primary_Sanger_0.5_GoCo-M": {
+  "fdp": 0.09800060843657135,
+  "supp_genes": 166.94,
+  "supp_terms": 380.67,
+  "d_godag": 26.88,
+  "pct_godag": 7.597727465445603,
+  "p_godag": 0.81,
+  "exceed": 0.42,
+  "pool_exceed": 0.2,
+  "pool_exceed_direct": NaN,
+  "calls": 2380.25,
+  "min_d_godag": -34.0
+ },
+ "primary_Sanger_0.1_GoCo-M": {
+  "fdp": 0.09297943629633133,
+  "supp_genes": 156.86,
+  "supp_terms": 339.98,
+  "d_godag": 20.87,
+  "pct_godag": 6.540064554542324,
+  "p_godag": 0.95,
+  "exceed": 0.15,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1983.15,
+  "min_d_godag": -13.0
+ },
+ "primary_DRIVE_0.5_Multilabel": {
+  "fdp": 0.09454694333522323,
+  "supp_genes": 96.12,
+  "supp_terms": 248.14,
+  "d_godag": -10.46,
+  "pct_godag": -4.044856921887097,
+  "p_godag": 0.0,
+  "exceed": 0.13,
+  "pool_exceed": 0.06,
+  "pool_exceed_direct": 0.06,
+  "calls": 1834.22,
+  "min_d_godag": -57.0
+ },
+ "primary_DRIVE_0.1_Multilabel": {
+  "fdp": 0.09126237419524301,
+  "supp_genes": 90.05,
+  "supp_terms": 227.88,
+  "d_godag": -9.35,
+  "pct_godag": -3.9413227669350404,
+  "p_godag": 0.0,
+  "exceed": 0.13,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": 0.0,
+  "calls": 1608.94,
+  "min_d_godag": -42.0
+ },
+ "primary_DRIVE_0.5_GoDag": {
+  "fdp": 0.09647140532131215,
+  "supp_genes": 98.68,
+  "supp_terms": 258.6,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.28,
+  "pool_exceed": 0.28,
+  "pool_exceed_direct": NaN,
+  "calls": 1954.11,
+  "min_d_godag": 0.0
+ },
+ "primary_DRIVE_0.1_GoDag": {
+  "fdp": 0.09290384266721155,
+  "supp_genes": 92.91,
+  "supp_terms": 237.23,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.13,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1717.7,
+  "min_d_godag": 0.0
+ },
+ "primary_DRIVE_0.5_GoCo-M": {
+  "fdp": 0.09706128873116769,
+  "supp_genes": 105.69,
+  "supp_terms": 291.69,
+  "d_godag": 33.09,
+  "pct_godag": 12.79582366589327,
+  "p_godag": 0.89,
+  "exceed": 0.33,
+  "pool_exceed": 0.26,
+  "pool_exceed_direct": NaN,
+  "calls": 2295.83,
+  "min_d_godag": -41.0
+ },
+ "primary_DRIVE_0.1_GoCo-M": {
+  "fdp": 0.09312312221827491,
+  "supp_genes": 99.38,
+  "supp_terms": 263.47,
+  "d_godag": 26.24,
+  "pct_godag": 11.060995658222005,
+  "p_godag": 0.89,
+  "exceed": 0.16,
+  "pool_exceed": 0.01,
+  "pool_exceed_direct": NaN,
+  "calls": 1987.32,
+  "min_d_godag": -36.0
+ },
+ "primary_HAP1_0.5_Multilabel": {
+  "fdp": 0.07190802384926853,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.0,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": 0.0,
+  "calls": 847.17,
+  "min_d_godag": 0.0
+ },
+ "primary_HAP1_0.1_Multilabel": {
+  "fdp": 0.07190802384926853,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.0,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": 0.0,
+  "calls": 847.17,
+  "min_d_godag": 0.0
+ },
+ "primary_HAP1_0.5_GoDag": {
+  "fdp": 0.07190802384926853,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.0,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 847.17,
+  "min_d_godag": 0.0
+ },
+ "primary_HAP1_0.1_GoDag": {
+  "fdp": 0.07190802384926853,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45,
+  "d_godag": 0.0,
+  "pct_godag": 0.0,
+  "p_godag": 0.0,
+  "exceed": 0.0,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 847.17,
+  "min_d_godag": 0.0
+ },
+ "primary_HAP1_0.5_GoCo-M": {
+  "fdp": 0.09434881564340508,
+  "supp_genes": 80.79,
+  "supp_terms": 137.66,
+  "d_godag": 8.21,
+  "pct_godag": 6.342217072228662,
+  "p_godag": 1.0,
+  "exceed": 0.19,
+  "pool_exceed": 0.05,
+  "pool_exceed_direct": NaN,
+  "calls": 1285.23,
+  "min_d_godag": 2.0
+ },
+ "primary_HAP1_0.1_GoCo-M": {
+  "fdp": 0.09145378679304955,
+  "supp_genes": 80.73,
+  "supp_terms": 137.59,
+  "d_godag": 8.14,
+  "pct_godag": 6.288142139822339,
+  "p_godag": 1.0,
+  "exceed": 0.06,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1252.41,
+  "min_d_godag": 1.0
+ },
+ "primary_Wainberg_0.5_GoCo-N": {
+  "fdp": 0.0943519032436241,
+  "supp_genes": 129.31,
+  "supp_terms": 227.14,
+  "d_godag": -112.47,
+  "pct_godag": -33.11739936986544,
+  "p_godag": 0.01,
+  "exceed": 0.16,
+  "pool_exceed": 0.07,
+  "pool_exceed_direct": NaN,
+  "calls": 1207.65,
+  "min_d_godag": -203.0
+ },
+ "primary_Wainberg_0.1_GoCo-N": {
+  "fdp": 0.08988191565591717,
+  "supp_genes": 126.95,
+  "supp_terms": 222.81,
+  "d_godag": -116.8,
+  "pct_godag": -34.392391272341804,
+  "p_godag": 0.0,
+  "exceed": 0.05,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1149.51,
+  "min_d_godag": -206.0
+ },
+ "primary_Wainberg_0.5_GoCo-sel": {
+  "fdp": 0.09643724079667233,
+  "supp_genes": 197.06,
+  "supp_terms": 369.06,
+  "d_godag": 29.45,
+  "pct_godag": 8.67171166926768,
+  "p_godag": 1.0,
+  "exceed": 0.2,
+  "pool_exceed": 0.08,
+  "pool_exceed_direct": NaN,
+  "calls": 1955.11,
+  "min_d_godag": 15.0
+ },
+ "primary_Wainberg_0.1_GoCo-sel": {
+  "fdp": 0.09479555785366628,
+  "supp_genes": 195.24,
+  "supp_terms": 365.22,
+  "d_godag": 25.61,
+  "pct_godag": 7.541002915108508,
+  "p_godag": 0.98,
+  "exceed": 0.13,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1896.08,
+  "min_d_godag": 0.0
+ },
+ "primary_Sanger_0.5_GoCo-N": {
+  "fdp": 0.09423538293046275,
+  "supp_genes": 206.89,
+  "supp_terms": 572.23,
+  "d_godag": 218.44,
+  "pct_godag": 61.742841798807206,
+  "p_godag": 1.0,
+  "exceed": 0.11,
+  "pool_exceed": 0.03,
+  "pool_exceed_direct": NaN,
+  "calls": 1904.67,
+  "min_d_godag": 23.0
+ },
+ "primary_Sanger_0.1_GoCo-N": {
+  "fdp": 0.09101432938488607,
+  "supp_genes": 202.69,
+  "supp_terms": 559.2,
+  "d_godag": 240.09,
+  "pct_godag": 75.23737896023314,
+  "p_godag": 1.0,
+  "exceed": 0.04,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1819.58,
+  "min_d_godag": 71.0
+ },
+ "primary_Sanger_0.5_GoCo-sel": {
+  "fdp": 0.09427663148322094,
+  "supp_genes": 205.66,
+  "supp_terms": 567.24,
+  "d_godag": 213.45,
+  "pct_godag": 60.332400576613246,
+  "p_godag": 0.99,
+  "exceed": 0.11,
+  "pool_exceed": 0.04,
+  "pool_exceed_direct": NaN,
+  "calls": 1916.49,
+  "min_d_godag": -3.0
+ },
+ "primary_Sanger_0.1_GoCo-sel": {
+  "fdp": 0.09097313883598691,
+  "supp_genes": 201.27,
+  "supp_terms": 553.41,
+  "d_godag": 234.3,
+  "pct_godag": 73.42295760082729,
+  "p_godag": 1.0,
+  "exceed": 0.04,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 1823.84,
+  "min_d_godag": 9.0
+ },
+ "primary_DRIVE_0.5_GoCo-N": {
+  "fdp": 0.09843927657890181,
+  "supp_genes": 78.31,
+  "supp_terms": 212.04,
+  "d_godag": -46.56,
+  "pct_godag": -18.00464037122971,
+  "p_godag": 0.12,
+  "exceed": 0.36,
+  "pool_exceed": 0.25,
+  "pool_exceed_direct": NaN,
+  "calls": 1416.77,
+  "min_d_godag": -170.0
+ },
+ "primary_DRIVE_0.1_GoCo-N": {
+  "fdp": 0.0923407155110427,
+  "supp_genes": 73.29,
+  "supp_terms": 194.46,
+  "d_godag": -42.77,
+  "pct_godag": -18.028917084685737,
+  "p_godag": 0.17,
+  "exceed": 0.18,
+  "pool_exceed": 0.01,
+  "pool_exceed_direct": NaN,
+  "calls": 1145.39,
+  "min_d_godag": -132.0
+ },
+ "primary_DRIVE_0.5_GoCo-sel": {
+  "fdp": 0.09735884879740944,
+  "supp_genes": 100.58,
+  "supp_terms": 277.51,
+  "d_godag": 18.91,
+  "pct_godag": 7.312451662799679,
+  "p_godag": 0.72,
+  "exceed": 0.34,
+  "pool_exceed": 0.25,
+  "pool_exceed_direct": NaN,
+  "calls": 2160.05,
+  "min_d_godag": -103.0
+ },
+ "primary_DRIVE_0.1_GoCo-sel": {
+  "fdp": 0.09314174277244325,
+  "supp_genes": 94.53,
+  "supp_terms": 251.49,
+  "d_godag": 14.26,
+  "pct_godag": 6.011044134384358,
+  "p_godag": 0.75,
+  "exceed": 0.17,
+  "pool_exceed": 0.01,
+  "pool_exceed_direct": NaN,
+  "calls": 1850.5,
+  "min_d_godag": -109.0
+ },
+ "primary_HAP1_0.5_GoCo-N": {
+  "fdp": 0.09309899785440297,
+  "supp_genes": 110.5,
+  "supp_terms": 228.71,
+  "d_godag": 99.26,
+  "pct_godag": 76.67825415218232,
+  "p_godag": 1.0,
+  "exceed": 0.17,
+  "pool_exceed": 0.05,
+  "pool_exceed_direct": NaN,
+  "calls": 997.13,
+  "min_d_godag": 19.0
+ },
+ "primary_HAP1_0.1_GoCo-N": {
+  "fdp": 0.08949255769460042,
+  "supp_genes": 108.42,
+  "supp_terms": 225.11,
+  "d_godag": 95.66,
+  "pct_godag": 73.89725762842798,
+  "p_godag": 1.0,
+  "exceed": 0.05,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 964.78,
+  "min_d_godag": 19.0
+ },
+ "primary_HAP1_0.5_GoCo-sel": {
+  "fdp": 0.09294022840343043,
+  "supp_genes": 107.65,
+  "supp_terms": 220.92,
+  "d_godag": 91.47,
+  "pct_godag": 70.66048667439166,
+  "p_godag": 1.0,
+  "exceed": 0.15,
+  "pool_exceed": 0.05,
+  "pool_exceed_direct": NaN,
+  "calls": 1028.54,
+  "min_d_godag": 3.0
+ },
+ "primary_HAP1_0.1_GoCo-sel": {
+  "fdp": 0.08931045163423931,
+  "supp_genes": 105.68,
+  "supp_terms": 217.48,
+  "d_godag": 88.03,
+  "pct_godag": 68.0030899961375,
+  "p_godag": 1.0,
+  "exceed": 0.04,
+  "pool_exceed": 0.0,
+  "pool_exceed_direct": NaN,
+  "calls": 995.82,
+  "min_d_godag": 3.0
+ },
+ "sweep_Wainberg_0.05_0.5_Multilabel": {
+  "fdp": 0.035875333388138995,
+  "supp_terms": 183.14,
+  "exceed": 0.0
+ },
+ "sweep_Wainberg_0.1_0.5_Multilabel": {
+  "fdp": 0.09232070943077259,
+  "supp_terms": 339.61,
+  "exceed": 0.01
+ },
+ "sweep_Wainberg_0.2_0.5_Multilabel": {
+  "fdp": 0.16988224428472581,
+  "supp_terms": 518.94,
+  "exceed": 0.0
+ },
+ "sweep_Wainberg_0.05_0.1_Multilabel": {
+  "fdp": 0.035875333388138995,
+  "supp_terms": 183.14,
+  "exceed": 0.0
+ },
+ "sweep_Wainberg_0.1_0.1_Multilabel": {
+  "fdp": 0.09226789573492906,
+  "supp_terms": 338.9,
+  "exceed": 0.01
+ },
+ "sweep_Wainberg_0.2_0.1_Multilabel": {
+  "fdp": 0.16988224428472581,
+  "supp_terms": 518.94,
+  "exceed": 0.0
+ },
+ "sweep_Wainberg_0.05_0.5_GoDag": {
+  "fdp": 0.035875333388138995,
+  "supp_terms": 183.14,
+  "exceed": 0.0
+ },
+ "sweep_Wainberg_0.1_0.5_GoDag": {
+  "fdp": 0.09232070943077259,
+  "supp_terms": 339.61,
+  "exceed": 0.01
+ },
+ "sweep_Wainberg_0.2_0.5_GoDag": {
+  "fdp": 0.16988224428472581,
+  "supp_terms": 518.94,
+  "exceed": 0.0
+ },
+ "sweep_Wainberg_0.05_0.1_GoDag": {
+  "fdp": 0.035875333388138995,
+  "supp_terms": 183.14,
+  "exceed": 0.0
+ },
+ "sweep_Wainberg_0.1_0.1_GoDag": {
+  "fdp": 0.09232070943077259,
+  "supp_terms": 339.61,
+  "exceed": 0.01
+ },
+ "sweep_Wainberg_0.2_0.1_GoDag": {
+  "fdp": 0.16988224428472581,
+  "supp_terms": 518.94,
+  "exceed": 0.0
+ },
+ "sweep_Wainberg_0.05_0.5_GoCo-M": {
+  "fdp": 0.046580312101586314,
+  "supp_terms": 214.77,
+  "exceed": 0.19
+ },
+ "sweep_Wainberg_0.1_0.5_GoCo-M": {
+  "fdp": 0.09643724079667233,
+  "supp_terms": 369.06,
+  "exceed": 0.2
+ },
+ "sweep_Wainberg_0.2_0.5_GoCo-M": {
+  "fdp": 0.1939117462952877,
+  "supp_terms": 539.64,
+  "exceed": 0.21
+ },
+ "sweep_Wainberg_0.05_0.1_GoCo-M": {
+  "fdp": 0.04378796200225901,
+  "supp_terms": 213.19,
+  "exceed": 0.08
+ },
+ "sweep_Wainberg_0.1_0.1_GoCo-M": {
+  "fdp": 0.09479555785366628,
+  "supp_terms": 365.22,
+  "exceed": 0.13
+ },
+ "sweep_Wainberg_0.2_0.1_GoCo-M": {
+  "fdp": 0.18818788105130518,
+  "supp_terms": 539.19,
+  "exceed": 0.1
+ },
+ "sweep_Wainberg_0.05_0.5_GoCo-N": {
+  "fdp": 0.046498397517993825,
+  "supp_terms": 173.46,
+  "exceed": 0.2
+ },
+ "sweep_Wainberg_0.1_0.5_GoCo-N": {
+  "fdp": 0.0943519032436241,
+  "supp_terms": 227.14,
+  "exceed": 0.16
+ },
+ "sweep_Wainberg_0.2_0.5_GoCo-N": {
+  "fdp": 0.19228062266547724,
+  "supp_terms": 401.72,
+  "exceed": 0.16
+ },
+ "sweep_Wainberg_0.05_0.1_GoCo-N": {
+  "fdp": 0.04402648705826895,
+  "supp_terms": 168.51,
+  "exceed": 0.06
+ },
+ "sweep_Wainberg_0.1_0.1_GoCo-N": {
+  "fdp": 0.08988191565591717,
+  "supp_terms": 222.81,
+  "exceed": 0.05
+ },
+ "sweep_Wainberg_0.2_0.1_GoCo-N": {
+  "fdp": 0.1880846869467726,
+  "supp_terms": 392.77,
+  "exceed": 0.05
+ },
+ "sweep_Wainberg_0.05_0.5_GoCo-sel": {
+  "fdp": 0.04709444166757777,
+  "supp_terms": 208.26,
+  "exceed": 0.22
+ },
+ "sweep_Wainberg_0.1_0.5_GoCo-sel": {
+  "fdp": 0.09643724079667233,
+  "supp_terms": 369.06,
+  "exceed": 0.2
+ },
+ "sweep_Wainberg_0.2_0.5_GoCo-sel": {
+  "fdp": 0.1939117462952877,
+  "supp_terms": 539.64,
+  "exceed": 0.21
+ },
+ "sweep_Wainberg_0.05_0.1_GoCo-sel": {
+  "fdp": 0.044118160507057115,
+  "supp_terms": 206.06,
+  "exceed": 0.09
+ },
+ "sweep_Wainberg_0.1_0.1_GoCo-sel": {
+  "fdp": 0.09479555785366628,
+  "supp_terms": 365.22,
+  "exceed": 0.13
+ },
+ "sweep_Wainberg_0.2_0.1_GoCo-sel": {
+  "fdp": 0.18818788105130518,
+  "supp_terms": 539.19,
+  "exceed": 0.1
+ },
+ "sweep_Sanger_0.05_0.5_Multilabel": {
+  "fdp": 0.04739821379068579,
+  "supp_terms": 212.06,
+  "exceed": 0.31
+ },
+ "sweep_Sanger_0.1_0.5_Multilabel": {
+  "fdp": 0.09532114990427669,
+  "supp_terms": 332.99,
+  "exceed": 0.2
+ },
+ "sweep_Sanger_0.2_0.5_Multilabel": {
+  "fdp": 0.18952151303515583,
+  "supp_terms": 1163.21,
+  "exceed": 0.0
+ },
+ "sweep_Sanger_0.05_0.1_Multilabel": {
+  "fdp": 0.04504506875309267,
+  "supp_terms": 198.2,
+  "exceed": 0.07
+ },
+ "sweep_Sanger_0.1_0.1_Multilabel": {
+  "fdp": 0.09130298535147009,
+  "supp_terms": 315.81,
+  "exceed": 0.01
+ },
+ "sweep_Sanger_0.2_0.1_Multilabel": {
+  "fdp": 0.18710465128471168,
+  "supp_terms": 1136.01,
+  "exceed": 0.0
+ },
+ "sweep_Sanger_0.05_0.5_GoDag": {
+  "fdp": 0.048374294711887984,
+  "supp_terms": 218.2,
+  "exceed": 0.31
+ },
+ "sweep_Sanger_0.1_0.5_GoDag": {
+  "fdp": 0.09799481876436428,
+  "supp_terms": 353.79,
+  "exceed": 0.36
+ },
+ "sweep_Sanger_0.2_0.5_GoDag": {
+  "fdp": 0.18952151303515583,
+  "supp_terms": 1163.21,
+  "exceed": 0.0
+ },
+ "sweep_Sanger_0.05_0.1_GoDag": {
+  "fdp": 0.04608869159288391,
+  "supp_terms": 203.91,
+  "exceed": 0.11
+ },
+ "sweep_Sanger_0.1_0.1_GoDag": {
+  "fdp": 0.09227616000976432,
+  "supp_terms": 319.11,
+  "exceed": 0.12
+ },
+ "sweep_Sanger_0.2_0.1_GoDag": {
+  "fdp": 0.18952151303515583,
+  "supp_terms": 1163.21,
+  "exceed": 0.0
+ },
+ "sweep_Sanger_0.05_0.5_GoCo-M": {
+  "fdp": 0.04911805447929377,
+  "supp_terms": 234.53,
+  "exceed": 0.45
+ },
+ "sweep_Sanger_0.1_0.5_GoCo-M": {
+  "fdp": 0.09800060843657135,
+  "supp_terms": 380.67,
+  "exceed": 0.42
+ },
+ "sweep_Sanger_0.2_0.5_GoCo-M": {
+  "fdp": 0.1913428216587589,
+  "supp_terms": 1360.88,
+  "exceed": 0.01
+ },
+ "sweep_Sanger_0.05_0.1_GoCo-M": {
+  "fdp": 0.046273739400762945,
+  "supp_terms": 213.72,
+  "exceed": 0.13
+ },
+ "sweep_Sanger_0.1_0.1_GoCo-M": {
+  "fdp": 0.09297943629633133,
+  "supp_terms": 339.98,
+  "exceed": 0.15
+ },
+ "sweep_Sanger_0.2_0.1_GoCo-M": {
+  "fdp": 0.19067401766506709,
+  "supp_terms": 1346.75,
+  "exceed": 0.0
+ },
+ "sweep_Sanger_0.05_0.5_GoCo-N": {
+  "fdp": 0.04567155442926356,
+  "supp_terms": 360.73,
+  "exceed": 0.2
+ },
+ "sweep_Sanger_0.1_0.5_GoCo-N": {
+  "fdp": 0.09423538293046275,
+  "supp_terms": 572.23,
+  "exceed": 0.11
+ },
+ "sweep_Sanger_0.2_0.5_GoCo-N": {
+  "fdp": 0.19506981765317286,
+  "supp_terms": 1503.81,
+  "exceed": 0.23
+ },
+ "sweep_Sanger_0.05_0.1_GoCo-N": {
+  "fdp": 0.04371070449661846,
+  "supp_terms": 351.47,
+  "exceed": 0.09
+ },
+ "sweep_Sanger_0.1_0.1_GoCo-N": {
+  "fdp": 0.09101432938488607,
+  "supp_terms": 559.2,
+  "exceed": 0.04
+ },
+ "sweep_Sanger_0.2_0.1_GoCo-N": {
+  "fdp": 0.19082342331844845,
+  "supp_terms": 1430.85,
+  "exceed": 0.11
+ },
+ "sweep_Sanger_0.05_0.5_GoCo-sel": {
+  "fdp": 0.045978646767437334,
+  "supp_terms": 342.75,
+  "exceed": 0.2
+ },
+ "sweep_Sanger_0.1_0.5_GoCo-sel": {
+  "fdp": 0.09427663148322094,
+  "supp_terms": 567.24,
+  "exceed": 0.11
+ },
+ "sweep_Sanger_0.2_0.5_GoCo-sel": {
+  "fdp": 0.1937302919124649,
+  "supp_terms": 1459.67,
+  "exceed": 0.13
+ },
+ "sweep_Sanger_0.05_0.1_GoCo-sel": {
+  "fdp": 0.04379263314260745,
+  "supp_terms": 331.32,
+  "exceed": 0.08
+ },
+ "sweep_Sanger_0.1_0.1_GoCo-sel": {
+  "fdp": 0.09097313883598691,
+  "supp_terms": 553.41,
+  "exceed": 0.04
+ },
+ "sweep_Sanger_0.2_0.1_GoCo-sel": {
+  "fdp": 0.19109366311020803,
+  "supp_terms": 1411.72,
+  "exceed": 0.06
+ },
+ "sweep_DRIVE_0.05_0.5_Multilabel": {
+  "fdp": 0.04435049169536289,
+  "supp_terms": 92.3,
+  "exceed": 0.31
+ },
+ "sweep_DRIVE_0.1_0.5_Multilabel": {
+  "fdp": 0.09454694333522323,
+  "supp_terms": 248.14,
+  "exceed": 0.13
+ },
+ "sweep_DRIVE_0.2_0.5_Multilabel": {
+  "fdp": 0.1843980092747774,
+  "supp_terms": 702.43,
+  "exceed": 0.01
+ },
+ "sweep_DRIVE_0.05_0.1_Multilabel": {
+  "fdp": 0.04131669335126556,
+  "supp_terms": 90.03,
+  "exceed": 0.0
+ },
+ "sweep_DRIVE_0.1_0.1_Multilabel": {
+  "fdp": 0.09126237419524301,
+  "supp_terms": 227.88,
+  "exceed": 0.13
+ },
+ "sweep_DRIVE_0.2_0.1_Multilabel": {
+  "fdp": 0.182347672181199,
+  "supp_terms": 691.43,
+  "exceed": 0.01
+ },
+ "sweep_DRIVE_0.05_0.5_GoDag": {
+  "fdp": 0.04662093908227086,
+  "supp_terms": 94.36,
+  "exceed": 0.53
+ },
+ "sweep_DRIVE_0.1_0.5_GoDag": {
+  "fdp": 0.09647140532131215,
+  "supp_terms": 258.6,
+  "exceed": 0.28
+ },
+ "sweep_DRIVE_0.2_0.5_GoDag": {
+  "fdp": 0.1843980092747774,
+  "supp_terms": 702.43,
+  "exceed": 0.01
+ },
+ "sweep_DRIVE_0.05_0.1_GoDag": {
+  "fdp": 0.04144542403475671,
+  "supp_terms": 90.07,
+  "exceed": 0.01
+ },
+ "sweep_DRIVE_0.1_0.1_GoDag": {
+  "fdp": 0.09290384266721155,
+  "supp_terms": 237.23,
+  "exceed": 0.13
+ },
+ "sweep_DRIVE_0.2_0.1_GoDag": {
+  "fdp": 0.1843980092747774,
+  "supp_terms": 702.43,
+  "exceed": 0.01
+ },
+ "sweep_DRIVE_0.05_0.5_GoCo-M": {
+  "fdp": 0.04822125625286237,
+  "supp_terms": 99.43,
+  "exceed": 0.45
+ },
+ "sweep_DRIVE_0.1_0.5_GoCo-M": {
+  "fdp": 0.09706128873116769,
+  "supp_terms": 291.69,
+  "exceed": 0.33
+ },
+ "sweep_DRIVE_0.2_0.5_GoCo-M": {
+  "fdp": 0.1843980092747774,
+  "supp_terms": 702.43,
+  "exceed": 0.01
+ },
+ "sweep_DRIVE_0.05_0.1_GoCo-M": {
+  "fdp": 0.043635061062694484,
+  "supp_terms": 94.15,
+  "exceed": 0.12
+ },
+ "sweep_DRIVE_0.1_0.1_GoCo-M": {
+  "fdp": 0.09312312221827491,
+  "supp_terms": 263.47,
+  "exceed": 0.16
+ },
+ "sweep_DRIVE_0.2_0.1_GoCo-M": {
+  "fdp": 0.18413680899190646,
+  "supp_terms": 702.05,
+  "exceed": 0.01
+ },
+ "sweep_DRIVE_0.05_0.5_GoCo-N": {
+  "fdp": 0.04742579889770943,
+  "supp_terms": 104.71,
+  "exceed": 0.32
+ },
+ "sweep_DRIVE_0.1_0.5_GoCo-N": {
+  "fdp": 0.09843927657890181,
+  "supp_terms": 212.04,
+  "exceed": 0.36
+ },
+ "sweep_DRIVE_0.2_0.5_GoCo-N": {
+  "fdp": 0.18439800911857207,
+  "supp_terms": 702.43,
+  "exceed": 0.01
+ },
+ "sweep_DRIVE_0.05_0.1_GoCo-N": {
+  "fdp": 0.043342253063805965,
+  "supp_terms": 97.37,
+  "exceed": 0.12
+ },
+ "sweep_DRIVE_0.1_0.1_GoCo-N": {
+  "fdp": 0.0923407155110427,
+  "supp_terms": 194.46,
+  "exceed": 0.18
+ },
+ "sweep_DRIVE_0.2_0.1_GoCo-N": {
+  "fdp": 0.18430232704395394,
+  "supp_terms": 701.52,
+  "exceed": 0.01
+ },
+ "sweep_DRIVE_0.05_0.5_GoCo-sel": {
+  "fdp": 0.04714375967027693,
+  "supp_terms": 103.09,
+  "exceed": 0.35
+ },
+ "sweep_DRIVE_0.1_0.5_GoCo-sel": {
+  "fdp": 0.09735884879740944,
+  "supp_terms": 277.51,
+  "exceed": 0.34
+ },
+ "sweep_DRIVE_0.2_0.5_GoCo-sel": {
+  "fdp": 0.1843980092747774,
+  "supp_terms": 702.43,
+  "exceed": 0.01
+ },
+ "sweep_DRIVE_0.05_0.1_GoCo-sel": {
+  "fdp": 0.042997263333071425,
+  "supp_terms": 96.84,
+  "exceed": 0.07
+ },
+ "sweep_DRIVE_0.1_0.1_GoCo-sel": {
+  "fdp": 0.09314174277244325,
+  "supp_terms": 251.49,
+  "exceed": 0.17
+ },
+ "sweep_DRIVE_0.2_0.1_GoCo-sel": {
+  "fdp": 0.18413680899190646,
+  "supp_terms": 702.05,
+  "exceed": 0.01
+ },
+ "sweep_HAP1_0.05_0.5_Multilabel": {
+  "fdp": 0.04363644428012158,
+  "supp_terms": 96.07,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.1_0.5_Multilabel": {
+  "fdp": 0.07190802384926853,
+  "supp_terms": 129.45,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.2_0.5_Multilabel": {
+  "fdp": 0.13526040444652393,
+  "supp_terms": 160.15,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.05_0.1_Multilabel": {
+  "fdp": 0.04359261383183041,
+  "supp_terms": 96.01,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.1_0.1_Multilabel": {
+  "fdp": 0.07190802384926853,
+  "supp_terms": 129.45,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.2_0.1_Multilabel": {
+  "fdp": 0.13526040444652393,
+  "supp_terms": 160.15,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.05_0.5_GoDag": {
+  "fdp": 0.04363644428012158,
+  "supp_terms": 96.07,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.1_0.5_GoDag": {
+  "fdp": 0.07190802384926853,
+  "supp_terms": 129.45,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.2_0.5_GoDag": {
+  "fdp": 0.13526040444652393,
+  "supp_terms": 160.15,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.05_0.1_GoDag": {
+  "fdp": 0.04363644428012158,
+  "supp_terms": 96.07,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.1_0.1_GoDag": {
+  "fdp": 0.07190802384926853,
+  "supp_terms": 129.45,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.2_0.1_GoDag": {
+  "fdp": 0.13526040444652393,
+  "supp_terms": 160.15,
+  "exceed": 0.0
+ },
+ "sweep_HAP1_0.05_0.5_GoCo-M": {
+  "fdp": 0.04590320326311817,
+  "supp_terms": 102.69,
+  "exceed": 0.13
+ },
+ "sweep_HAP1_0.1_0.5_GoCo-M": {
+  "fdp": 0.09434881564340508,
+  "supp_terms": 137.66,
+  "exceed": 0.19
+ },
+ "sweep_HAP1_0.2_0.5_GoCo-M": {
+  "fdp": 0.1872012187966467,
+  "supp_terms": 188.3,
+  "exceed": 0.17
+ },
+ "sweep_HAP1_0.05_0.1_GoCo-M": {
+  "fdp": 0.04502929560069603,
+  "supp_terms": 102.36,
+  "exceed": 0.06
+ },
+ "sweep_HAP1_0.1_0.1_GoCo-M": {
+  "fdp": 0.09145378679304955,
+  "supp_terms": 137.59,
+  "exceed": 0.06
+ },
+ "sweep_HAP1_0.2_0.1_GoCo-M": {
+  "fdp": 0.1756235481858835,
+  "supp_terms": 187.67,
+  "exceed": 0.02
+ },
+ "sweep_HAP1_0.05_0.5_GoCo-N": {
+  "fdp": 0.04629863831983206,
+  "supp_terms": 168.09,
+  "exceed": 0.17
+ },
+ "sweep_HAP1_0.1_0.5_GoCo-N": {
+  "fdp": 0.09309899785440297,
+  "supp_terms": 228.71,
+  "exceed": 0.17
+ },
+ "sweep_HAP1_0.2_0.5_GoCo-N": {
+  "fdp": 0.1886271092710835,
+  "supp_terms": 302.51,
+  "exceed": 0.13
+ },
+ "sweep_HAP1_0.05_0.1_GoCo-N": {
+  "fdp": 0.0431420130559289,
+  "supp_terms": 163.33,
+  "exceed": 0.06
+ },
+ "sweep_HAP1_0.1_0.1_GoCo-N": {
+  "fdp": 0.08949255769460042,
+  "supp_terms": 225.11,
+  "exceed": 0.05
+ },
+ "sweep_HAP1_0.2_0.1_GoCo-N": {
+  "fdp": 0.18370472337590443,
+  "supp_terms": 299.27,
+  "exceed": 0.04
+ },
+ "sweep_HAP1_0.05_0.5_GoCo-sel": {
+  "fdp": 0.04602088129523502,
+  "supp_terms": 160.84,
+  "exceed": 0.14
+ },
+ "sweep_HAP1_0.1_0.5_GoCo-sel": {
+  "fdp": 0.09294022840343043,
+  "supp_terms": 220.92,
+  "exceed": 0.15
+ },
+ "sweep_HAP1_0.2_0.5_GoCo-sel": {
+  "fdp": 0.18910389899850272,
+  "supp_terms": 293.26,
+  "exceed": 0.17
+ },
+ "sweep_HAP1_0.05_0.1_GoCo-sel": {
+  "fdp": 0.04323399181275556,
+  "supp_terms": 156.9,
+  "exceed": 0.06
+ },
+ "sweep_HAP1_0.1_0.1_GoCo-sel": {
+  "fdp": 0.08931045163423931,
+  "supp_terms": 217.48,
+  "exceed": 0.04
+ },
+ "sweep_HAP1_0.2_0.1_GoCo-sel": {
+  "fdp": 0.18330314500320394,
+  "supp_terms": 290.18,
+  "exceed": 0.05
+ },
+ "ml_direct_pool_exceed": {
+  "Wainberg_0.5": 0.0,
+  "Wainberg_0.1": 0.0,
+  "Sanger_0.5": 0.13,
+  "Sanger_0.1": 0.0,
+  "DRIVE_0.5": 0.06,
+  "DRIVE_0.1": 0.0,
+  "HAP1_0.5": 0.0,
+  "HAP1_0.1": 0.0
+ },
+ "module_Wainberg_0.05_0.5": {
+  "godag": 183.14,
+  "M": 214.77,
+  "N": 173.46,
+  "sel": 208.26,
+  "dNM": -41.31,
+  "pN": 0.07,
+  "fdpN": 0.046498397517993825,
+  "exceedN": 0.2,
+  "pct_N_godag": -5.285573877907601,
+  "pct_M_godag": 17.27094026427871,
+  "pct_sel_godag": 13.71628262531397,
+  "min_sel_minus_godag": -62.0,
+  "p_sel_ge_godag": 0.9
+ },
+ "module_Wainberg_0.05_0.1": {
+  "godag": 183.14,
+  "M": 213.19,
+  "N": 168.51,
+  "sel": 206.06,
+  "dNM": -44.68,
+  "pN": 0.07,
+  "fdpN": 0.04402648705826895,
+  "exceedN": 0.06,
+  "pct_N_godag": -7.98842415638309,
+  "pct_M_godag": 16.408212296603697,
+  "pct_sel_godag": 12.515015834880439,
+  "min_sel_minus_godag": -68.0,
+  "p_sel_ge_godag": 0.89
+ },
+ "module_Wainberg_0.1_0.5": {
+  "godag": 339.61,
+  "M": 369.06,
+  "N": 227.14,
+  "sel": 369.06,
+  "dNM": -141.92,
+  "pN": 0.0,
+  "fdpN": 0.0943519032436241,
+  "exceedN": 0.16,
+  "pct_N_godag": -33.11739936986544,
+  "pct_M_godag": 8.67171166926768,
+  "pct_sel_godag": 8.67171166926768,
+  "min_sel_minus_godag": 15.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_Wainberg_0.1_0.1": {
+  "godag": 339.61,
+  "M": 365.22,
+  "N": 222.81,
+  "sel": 365.22,
+  "dNM": -142.41,
+  "pN": 0.0,
+  "fdpN": 0.08988191565591717,
+  "exceedN": 0.05,
+  "pct_N_godag": -34.392391272341804,
+  "pct_M_godag": 7.541002915108508,
+  "pct_sel_godag": 7.541002915108508,
+  "min_sel_minus_godag": 0.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_Wainberg_0.2_0.5": {
+  "godag": 518.94,
+  "M": 539.64,
+  "N": 401.72,
+  "sel": 539.64,
+  "dNM": -137.92,
+  "pN": 0.0,
+  "fdpN": 0.19228062266547724,
+  "exceedN": 0.16,
+  "pct_N_godag": -22.588353181485342,
+  "pct_M_godag": 3.988900450919175,
+  "pct_sel_godag": 3.988900450919175,
+  "min_sel_minus_godag": 12.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_Wainberg_0.2_0.1": {
+  "godag": 518.94,
+  "M": 539.19,
+  "N": 392.77,
+  "sel": 539.19,
+  "dNM": -146.42,
+  "pN": 0.0,
+  "fdpN": 0.1880846869467726,
+  "exceedN": 0.05,
+  "pct_N_godag": -24.31302270011949,
+  "pct_M_godag": 3.9021852237252963,
+  "pct_sel_godag": 3.9021852237252963,
+  "min_sel_minus_godag": 12.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_Sanger_0.05_0.5": {
+  "godag": 218.2,
+  "M": 234.53,
+  "N": 360.73,
+  "sel": 342.75,
+  "dNM": 126.2,
+  "pN": 1.0,
+  "fdpN": 0.04567155442926356,
+  "exceedN": 0.2,
+  "pct_N_godag": 65.32080659945005,
+  "pct_M_godag": 7.483959670027507,
+  "pct_sel_godag": 57.0806599450046,
+  "min_sel_minus_godag": -14.0,
+  "p_sel_ge_godag": 0.97
+ },
+ "module_Sanger_0.05_0.1": {
+  "godag": 203.91,
+  "M": 213.72,
+  "N": 351.47,
+  "sel": 331.32,
+  "dNM": 137.75,
+  "pN": 0.99,
+  "fdpN": 0.04371070449661846,
+  "exceedN": 0.09,
+  "pct_N_godag": 72.36525918297289,
+  "pct_M_godag": 4.8109460055907105,
+  "pct_sel_godag": 62.48344858025598,
+  "min_sel_minus_godag": -21.0,
+  "p_sel_ge_godag": 0.96
+ },
+ "module_Sanger_0.1_0.5": {
+  "godag": 353.79,
+  "M": 380.67,
+  "N": 572.23,
+  "sel": 567.24,
+  "dNM": 191.56,
+  "pN": 0.99,
+  "fdpN": 0.09423538293046275,
+  "exceedN": 0.11,
+  "pct_N_godag": 61.742841798807206,
+  "pct_M_godag": 7.597727465445603,
+  "pct_sel_godag": 60.332400576613246,
+  "min_sel_minus_godag": -3.0,
+  "p_sel_ge_godag": 0.99
+ },
+ "module_Sanger_0.1_0.1": {
+  "godag": 319.11,
+  "M": 339.98,
+  "N": 559.2,
+  "sel": 553.41,
+  "dNM": 219.22,
+  "pN": 1.0,
+  "fdpN": 0.09101432938488607,
+  "exceedN": 0.04,
+  "pct_N_godag": 75.23737896023314,
+  "pct_M_godag": 6.540064554542324,
+  "pct_sel_godag": 73.42295760082729,
+  "min_sel_minus_godag": 9.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_Sanger_0.2_0.5": {
+  "godag": 1163.21,
+  "M": 1360.88,
+  "N": 1503.81,
+  "sel": 1459.67,
+  "dNM": 142.93,
+  "pN": 0.88,
+  "fdpN": 0.19506981765317286,
+  "exceedN": 0.23,
+  "pct_N_godag": 29.28104125652289,
+  "pct_M_godag": 16.993492146731892,
+  "pct_sel_godag": 25.48636961511679,
+  "min_sel_minus_godag": 0.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_Sanger_0.2_0.1": {
+  "godag": 1163.21,
+  "M": 1346.75,
+  "N": 1430.85,
+  "sel": 1411.72,
+  "dNM": 84.1,
+  "pN": 0.78,
+  "fdpN": 0.19082342331844845,
+  "exceedN": 0.11,
+  "pct_N_godag": 23.008743047257152,
+  "pct_M_godag": 15.778750182684131,
+  "pct_sel_godag": 21.364156085315635,
+  "min_sel_minus_godag": -60.0,
+  "p_sel_ge_godag": 0.95
+ },
+ "module_DRIVE_0.05_0.5": {
+  "godag": 94.36,
+  "M": 99.43,
+  "N": 104.71,
+  "sel": 103.09,
+  "dNM": 5.28,
+  "pN": 0.53,
+  "fdpN": 0.04742579889770943,
+  "exceedN": 0.32,
+  "pct_N_godag": 10.96863077575243,
+  "pct_M_godag": 5.373039423484527,
+  "pct_sel_godag": 9.251801610852063,
+  "min_sel_minus_godag": -37.0,
+  "p_sel_ge_godag": 0.72
+ },
+ "module_DRIVE_0.05_0.1": {
+  "godag": 90.07,
+  "M": 94.15,
+  "N": 97.37,
+  "sel": 96.84,
+  "dNM": 3.22,
+  "pN": 0.52,
+  "fdpN": 0.043342253063805965,
+  "exceedN": 0.12,
+  "pct_N_godag": 8.104807372043975,
+  "pct_M_godag": 4.529810147662938,
+  "pct_sel_godag": 7.516376151881876,
+  "min_sel_minus_godag": -35.0,
+  "p_sel_ge_godag": 0.81
+ },
+ "module_DRIVE_0.1_0.5": {
+  "godag": 258.6,
+  "M": 291.69,
+  "N": 212.04,
+  "sel": 277.51,
+  "dNM": -79.65,
+  "pN": 0.01,
+  "fdpN": 0.09843927657890181,
+  "exceedN": 0.36,
+  "pct_N_godag": -18.00464037122971,
+  "pct_M_godag": 12.79582366589327,
+  "pct_sel_godag": 7.312451662799679,
+  "min_sel_minus_godag": -103.0,
+  "p_sel_ge_godag": 0.73
+ },
+ "module_DRIVE_0.1_0.1": {
+  "godag": 237.23,
+  "M": 263.47,
+  "N": 194.46,
+  "sel": 251.49,
+  "dNM": -69.01,
+  "pN": 0.02,
+  "fdpN": 0.0923407155110427,
+  "exceedN": 0.18,
+  "pct_N_godag": -18.028917084685737,
+  "pct_M_godag": 11.060995658222005,
+  "pct_sel_godag": 6.011044134384358,
+  "min_sel_minus_godag": -109.0,
+  "p_sel_ge_godag": 0.78
+ },
+ "module_DRIVE_0.2_0.5": {
+  "godag": 702.43,
+  "M": 702.43,
+  "N": 702.43,
+  "sel": 702.43,
+  "dNM": 0.0,
+  "pN": 0.0,
+  "fdpN": 0.18439800911857207,
+  "exceedN": 0.01,
+  "pct_N_godag": 0.0,
+  "pct_M_godag": 0.0,
+  "pct_sel_godag": 0.0,
+  "min_sel_minus_godag": 0.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_DRIVE_0.2_0.1": {
+  "godag": 702.43,
+  "M": 702.05,
+  "N": 701.52,
+  "sel": 702.05,
+  "dNM": -0.53,
+  "pN": 0.0,
+  "fdpN": 0.18430232704395394,
+  "exceedN": 0.01,
+  "pct_N_godag": -0.12955027547228992,
+  "pct_M_godag": -0.054097917230189196,
+  "pct_sel_godag": -0.054097917230189196,
+  "min_sel_minus_godag": -38.0,
+  "p_sel_ge_godag": 0.99
+ },
+ "module_HAP1_0.05_0.5": {
+  "godag": 96.07,
+  "M": 102.69,
+  "N": 168.09,
+  "sel": 160.84,
+  "dNM": 65.4,
+  "pN": 1.0,
+  "fdpN": 0.04629863831983206,
+  "exceedN": 0.17,
+  "pct_N_godag": 74.9661705006766,
+  "pct_M_godag": 6.89080878526076,
+  "pct_sel_godag": 67.41958988237744,
+  "min_sel_minus_godag": 2.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_HAP1_0.05_0.1": {
+  "godag": 96.07,
+  "M": 102.36,
+  "N": 163.33,
+  "sel": 156.9,
+  "dNM": 60.97,
+  "pN": 0.97,
+  "fdpN": 0.0431420130559289,
+  "exceedN": 0.06,
+  "pct_N_godag": 70.01144998438642,
+  "pct_M_godag": 6.547309253669198,
+  "pct_sel_godag": 63.31841365670867,
+  "min_sel_minus_godag": 1.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_HAP1_0.1_0.5": {
+  "godag": 129.45,
+  "M": 137.66,
+  "N": 228.71,
+  "sel": 220.92,
+  "dNM": 91.05,
+  "pN": 1.0,
+  "fdpN": 0.09309899785440297,
+  "exceedN": 0.17,
+  "pct_N_godag": 76.67825415218232,
+  "pct_M_godag": 6.342217072228662,
+  "pct_sel_godag": 70.66048667439166,
+  "min_sel_minus_godag": 3.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_HAP1_0.1_0.1": {
+  "godag": 129.45,
+  "M": 137.59,
+  "N": 225.11,
+  "sel": 217.48,
+  "dNM": 87.52,
+  "pN": 1.0,
+  "fdpN": 0.08949255769460042,
+  "exceedN": 0.05,
+  "pct_N_godag": 73.89725762842798,
+  "pct_M_godag": 6.288142139822339,
+  "pct_sel_godag": 68.0030899961375,
+  "min_sel_minus_godag": 3.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_HAP1_0.2_0.5": {
+  "godag": 160.15,
+  "M": 188.3,
+  "N": 302.51,
+  "sel": 293.26,
+  "dNM": 114.21,
+  "pN": 1.0,
+  "fdpN": 0.1886271092710835,
+  "exceedN": 0.13,
+  "pct_N_godag": 88.8916640649391,
+  "pct_M_godag": 17.57727130814861,
+  "pct_sel_godag": 83.11582891039649,
+  "min_sel_minus_godag": 17.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "module_HAP1_0.2_0.1": {
+  "godag": 160.15,
+  "M": 187.67,
+  "N": 299.27,
+  "sel": 290.18,
+  "dNM": 111.6,
+  "pN": 1.0,
+  "fdpN": 0.18370472337590443,
+  "exceedN": 0.04,
+  "pct_N_godag": 86.86856072432091,
+  "pct_M_godag": 17.18389010302841,
+  "pct_sel_godag": 81.19263190758663,
+  "min_sel_minus_godag": 17.0,
+  "p_sel_ge_godag": 1.0
+ },
+ "FunMap_0.05_0.1_global-coarse": {
+  "fdp": 0.031224990383875634,
+  "exceed": 0.0,
+  "pool": 0.0,
+  "supported": 727.94,
+  "calls": 990.21,
+  "genes": 405.36,
+  "vs_grid": 0.0,
+  "d_ref": -141.72,
+  "p_ref": 0.0
+ },
+ "FunMap_0.05_0.1_global-dense": {
+  "fdp": 0.044761702182219094,
+  "exceed": 0.13,
+  "pool": 0.0,
+  "supported": 869.66,
+  "calls": 1233.2,
+  "genes": 500.94,
+  "vs_grid": 19.468637525070733,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "FunMap_0.05_0.1_goco-M": {
+  "fdp": 0.04216674231351125,
+  "exceed": 0.0,
+  "pool": 0.0,
+  "supported": 954.52,
+  "calls": 1363.38,
+  "genes": 490.39,
+  "vs_grid": 31.12619171909772,
+  "d_ref": 84.86,
+  "p_ref": 1.0
+ },
+ "FunMap_0.05_0.1_goco-N": {
+  "fdp": 0.04309146719241031,
+  "exceed": 0.05,
+  "pool": 0.0,
+  "supported": 1016.13,
+  "calls": 1245.21,
+  "genes": 763.0,
+  "vs_grid": 39.589801357254714,
+  "d_ref": 146.47,
+  "p_ref": 0.92
+ },
+ "FunMap_0.05_0.1_goco-sel": {
+  "fdp": 0.04235960366910899,
+  "exceed": 0.03,
+  "pool": 0.0,
+  "supported": 996.66,
+  "calls": 1272.73,
+  "genes": 685.73,
+  "vs_grid": 36.91513036788745,
+  "d_ref": 127.0,
+  "p_ref": 0.93
+ },
+ "FunMap_0.1_0.1_global-coarse": {
+  "fdp": 0.09012595840705691,
+  "exceed": 0.0,
+  "pool": 0.0,
+  "supported": 1261.19,
+  "calls": 2014.62,
+  "genes": 742.06,
+  "vs_grid": 0.0,
+  "d_ref": -18.62,
+  "p_ref": 0.0
+ },
+ "FunMap_0.1_0.1_global-dense": {
+  "fdp": 0.09407839962048359,
+  "exceed": 0.15,
+  "pool": 0.0,
+  "supported": 1279.81,
+  "calls": 2061.24,
+  "genes": 759.83,
+  "vs_grid": 1.4763834156629851,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "FunMap_0.1_0.1_goco-M": {
+  "fdp": 0.09334602020668249,
+  "exceed": 0.12,
+  "pool": 0.0,
+  "supported": 1474.44,
+  "calls": 2408.0,
+  "genes": 778.52,
+  "vs_grid": 16.908633909244443,
+  "d_ref": 194.63,
+  "p_ref": 1.0
+ },
+ "FunMap_0.1_0.1_goco-N": {
+  "fdp": 0.08784887409930926,
+  "exceed": 0.05,
+  "pool": 0.0,
+  "supported": 1615.76,
+  "calls": 2165.5,
+  "genes": 1084.42,
+  "vs_grid": 28.113924151000248,
+  "d_ref": 335.95,
+  "p_ref": 1.0
+ },
+ "FunMap_0.1_0.1_goco-sel": {
+  "fdp": 0.0884398914287757,
+  "exceed": 0.05,
+  "pool": 0.0,
+  "supported": 1608.09,
+  "calls": 2189.49,
+  "genes": 1061.22,
+  "vs_grid": 27.505768361626703,
+  "d_ref": 328.28,
+  "p_ref": 1.0
+ },
+ "FunMap_0.2_0.1_global-coarse": {
+  "fdp": 0.15473040396150248,
+  "exceed": 0.01,
+  "pool": 0.0,
+  "supported": 1872.95,
+  "calls": 3354.45,
+  "genes": 1069.03,
+  "vs_grid": 0.0,
+  "d_ref": -291.41,
+  "p_ref": 0.0
+ },
+ "FunMap_0.2_0.1_global-dense": {
+  "fdp": 0.18998765747804522,
+  "exceed": 0.09,
+  "pool": 0.0,
+  "supported": 2164.36,
+  "calls": 4130.02,
+  "genes": 1210.16,
+  "vs_grid": 15.558877706292208,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "FunMap_0.2_0.1_goco-M": {
+  "fdp": 0.1700069944684645,
+  "exceed": 0.01,
+  "pool": 0.0,
+  "supported": 2157.91,
+  "calls": 4089.35,
+  "genes": 1124.23,
+  "vs_grid": 15.214501187965501,
+  "d_ref": -6.45,
+  "p_ref": 0.34
+ },
+ "FunMap_0.2_0.1_goco-N": {
+  "fdp": 0.18227370660076622,
+  "exceed": 0.04,
+  "pool": 0.0,
+  "supported": 2615.79,
+  "calls": 4051.29,
+  "genes": 1557.66,
+  "vs_grid": 39.66149656958273,
+  "d_ref": 451.43,
+  "p_ref": 1.0
+ },
+ "FunMap_0.2_0.1_goco-sel": {
+  "fdp": 0.18138168408897748,
+  "exceed": 0.02,
+  "pool": 0.0,
+  "supported": 2598.18,
+  "calls": 4051.43,
+  "genes": 1537.32,
+  "vs_grid": 38.72126858698843,
+  "d_ref": 433.82,
+  "p_ref": 0.97
+ },
+ "STRING_0.05_0.1_global-coarse": {
+  "fdp": 0.03863286837283522,
+  "exceed": 0.0,
+  "pool": 0.0,
+  "supported": 424.9,
+  "calls": 669.59,
+  "genes": 235.33,
+  "vs_grid": 0.0,
+  "d_ref": -48.15,
+  "p_ref": 0.0
+ },
+ "STRING_0.05_0.1_global-dense": {
+  "fdp": 0.045390148156904425,
+  "exceed": 0.26,
+  "pool": 0.01,
+  "supported": 473.05,
+  "calls": 780.7,
+  "genes": 253.74,
+  "vs_grid": 11.33207813603201,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "STRING_0.05_0.1_goco-M": {
+  "fdp": 0.043465891404141255,
+  "exceed": 0.05,
+  "pool": 0.0,
+  "supported": 503.57,
+  "calls": 850.59,
+  "genes": 249.25,
+  "vs_grid": 18.514944692868916,
+  "d_ref": 30.52,
+  "p_ref": 0.96
+ },
+ "STRING_0.05_0.1_goco-N": {
+  "fdp": 0.04291775938330396,
+  "exceed": 0.08,
+  "pool": 0.01,
+  "supported": 621.4,
+  "calls": 830.83,
+  "genes": 460.91,
+  "vs_grid": 46.24617557072253,
+  "d_ref": 148.35,
+  "p_ref": 0.97
+ },
+ "STRING_0.05_0.1_goco-sel": {
+  "fdp": 0.043025148959663334,
+  "exceed": 0.08,
+  "pool": 0.01,
+  "supported": 610.02,
+  "calls": 837.52,
+  "genes": 438.61,
+  "vs_grid": 43.5678983290186,
+  "d_ref": 136.97,
+  "p_ref": 0.97
+ },
+ "STRING_0.1_0.1_global-coarse": {
+  "fdp": 0.08278183961489707,
+  "exceed": 0.0,
+  "pool": 0.0,
+  "supported": 828.15,
+  "calls": 1643.01,
+  "genes": 405.64,
+  "vs_grid": 0.0,
+  "d_ref": -81.01,
+  "p_ref": 0.0
+ },
+ "STRING_0.1_0.1_global-dense": {
+  "fdp": 0.09276746228763189,
+  "exceed": 0.16,
+  "pool": 0.0,
+  "supported": 909.16,
+  "calls": 1840.11,
+  "genes": 444.04,
+  "vs_grid": 9.78204431564329,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "STRING_0.1_0.1_goco-M": {
+  "fdp": 0.08956676239909582,
+  "exceed": 0.06,
+  "pool": 0.0,
+  "supported": 1021.1,
+  "calls": 2052.04,
+  "genes": 456.4,
+  "vs_grid": 23.298919277908592,
+  "d_ref": 111.94,
+  "p_ref": 1.0
+ },
+ "STRING_0.1_0.1_goco-N": {
+  "fdp": 0.08941218319789294,
+  "exceed": 0.06,
+  "pool": 0.01,
+  "supported": 1151.14,
+  "calls": 1622.32,
+  "genes": 806.14,
+  "vs_grid": 39.00138863732416,
+  "d_ref": 241.98,
+  "p_ref": 0.98
+ },
+ "STRING_0.1_0.1_goco-sel": {
+  "fdp": 0.0900395422242107,
+  "exceed": 0.07,
+  "pool": 0.01,
+  "supported": 1124.48,
+  "calls": 1739.17,
+  "genes": 724.28,
+  "vs_grid": 35.78216506671497,
+  "d_ref": 215.32,
+  "p_ref": 0.98
+ },
+ "STRING_0.2_0.1_global-coarse": {
+  "fdp": 0.14640231573738,
+  "exceed": 0.01,
+  "pool": 0.0,
+  "supported": 1387.91,
+  "calls": 2924.34,
+  "genes": 711.83,
+  "vs_grid": 0.0,
+  "d_ref": -323.77,
+  "p_ref": 0.0
+ },
+ "STRING_0.2_0.1_global-dense": {
+  "fdp": 0.18666576480966873,
+  "exceed": 0.12,
+  "pool": 0.0,
+  "supported": 1711.68,
+  "calls": 3802.51,
+  "genes": 865.58,
+  "vs_grid": 23.32788149087477,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "STRING_0.2_0.1_goco-M": {
+  "fdp": 0.16479699609437468,
+  "exceed": 0.01,
+  "pool": 0.0,
+  "supported": 1732.47,
+  "calls": 3844.27,
+  "genes": 788.22,
+  "vs_grid": 24.825817235987913,
+  "d_ref": 20.79,
+  "p_ref": 0.84
+ },
+ "STRING_0.2_0.1_goco-N": {
+  "fdp": 0.18298861934474758,
+  "exceed": 0.09,
+  "pool": 0.0,
+  "supported": 2242.96,
+  "calls": 3452.31,
+  "genes": 1295.96,
+  "vs_grid": 61.6070206281387,
+  "d_ref": 531.28,
+  "p_ref": 0.99
+ },
+ "STRING_0.2_0.1_goco-sel": {
+  "fdp": 0.18192305888201019,
+  "exceed": 0.09,
+  "pool": 0.0,
+  "supported": 2201.67,
+  "calls": 3473.41,
+  "genes": 1261.83,
+  "vs_grid": 58.6320438645157,
+  "d_ref": 489.99,
+  "p_ref": 0.97
+ },
+ "FunMap_0.05_0.5_global-coarse": {
+  "fdp": 0.031224990383875634,
+  "exceed": 0.0,
+  "pool": 0.0,
+  "supported": 727.94,
+  "calls": 990.21,
+  "genes": 405.36,
+  "vs_grid": 0.0,
+  "d_ref": -183.09,
+  "p_ref": 0.0
+ },
+ "FunMap_0.05_0.5_global-dense": {
+  "fdp": 0.048624228786829704,
+  "exceed": 0.36,
+  "pool": 0.09,
+  "supported": 911.03,
+  "calls": 1305.76,
+  "genes": 524.52,
+  "vs_grid": 25.15179822512843,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "FunMap_0.05_0.5_goco-M": {
+  "fdp": 0.0425543952098879,
+  "exceed": 0.0,
+  "pool": 0.0,
+  "supported": 956.87,
+  "calls": 1367.88,
+  "genes": 492.63,
+  "vs_grid": 31.449020523669514,
+  "d_ref": 45.84,
+  "p_ref": 0.99
+ },
+ "FunMap_0.05_0.5_goco-N": {
+  "fdp": 0.04622705791653092,
+  "exceed": 0.17,
+  "pool": 0.08,
+  "supported": 1065.81,
+  "calls": 1315.16,
+  "genes": 790.44,
+  "vs_grid": 46.414539659862065,
+  "d_ref": 154.78,
+  "p_ref": 0.96
+ },
+ "FunMap_0.05_0.5_goco-sel": {
+  "fdp": 0.044923003139859016,
+  "exceed": 0.11,
+  "pool": 0.06,
+  "supported": 1036.74,
+  "calls": 1329.32,
+  "genes": 708.38,
+  "vs_grid": 42.42107866032914,
+  "d_ref": 125.71,
+  "p_ref": 0.97
+ },
+ "FunMap_0.1_0.5_global-coarse": {
+  "fdp": 0.09012595840705691,
+  "exceed": 0.0,
+  "pool": 0.0,
+  "supported": 1261.19,
+  "calls": 2014.62,
+  "genes": 742.06,
+  "vs_grid": 0.0,
+  "d_ref": -62.82,
+  "p_ref": 0.0
+ },
+ "FunMap_0.1_0.5_global-dense": {
+  "fdp": 0.09862325050644916,
+  "exceed": 0.42,
+  "pool": 0.24,
+  "supported": 1324.01,
+  "calls": 2144.03,
+  "genes": 783.41,
+  "vs_grid": 4.981009998493491,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "FunMap_0.1_0.5_goco-M": {
+  "fdp": 0.09683117291073667,
+  "exceed": 0.29,
+  "pool": 0.12,
+  "supported": 1502.24,
+  "calls": 2469.3,
+  "genes": 796.06,
+  "vs_grid": 19.1129013074953,
+  "d_ref": 178.23,
+  "p_ref": 1.0
+ },
+ "FunMap_0.1_0.5_goco-N": {
+  "fdp": 0.09207489034340495,
+  "exceed": 0.17,
+  "pool": 0.08,
+  "supported": 1665.81,
+  "calls": 2249.68,
+  "genes": 1110.02,
+  "vs_grid": 32.08239836979361,
+  "d_ref": 341.8,
+  "p_ref": 1.0
+ },
+ "FunMap_0.1_0.5_goco-sel": {
+  "fdp": 0.09260956412412073,
+  "exceed": 0.16,
+  "pool": 0.07,
+  "supported": 1656.4,
+  "calls": 2271.87,
+  "genes": 1086.09,
+  "vs_grid": 31.33627764254394,
+  "d_ref": 332.39,
+  "p_ref": 1.0
+ },
+ "FunMap_0.2_0.5_global-coarse": {
+  "fdp": 0.17217718336232068,
+  "exceed": 0.34,
+  "pool": 0.22,
+  "supported": 1995.42,
+  "calls": 3696.86,
+  "genes": 1136.11,
+  "vs_grid": 0.0,
+  "d_ref": -193.99,
+  "p_ref": 0.0
+ },
+ "FunMap_0.2_0.5_global-dense": {
+  "fdp": 0.19677855355020132,
+  "exceed": 0.35,
+  "pool": 0.32,
+  "supported": 2189.41,
+  "calls": 4219.13,
+  "genes": 1232.72,
+  "vs_grid": 9.721762836896474,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "FunMap_0.2_0.5_goco-M": {
+  "fdp": 0.18222196469837826,
+  "exceed": 0.35,
+  "pool": 0.3,
+  "supported": 2261.03,
+  "calls": 4373.38,
+  "genes": 1172.08,
+  "vs_grid": 13.310982149121497,
+  "d_ref": 71.62,
+  "p_ref": 0.38
+ },
+ "FunMap_0.2_0.5_goco-N": {
+  "fdp": 0.18809704057479312,
+  "exceed": 0.17,
+  "pool": 0.05,
+  "supported": 2671.77,
+  "calls": 4173.43,
+  "genes": 1581.17,
+  "vs_grid": 33.89511982439786,
+  "d_ref": 482.36,
+  "p_ref": 1.0
+ },
+ "FunMap_0.2_0.5_goco-sel": {
+  "fdp": 0.18731644839357847,
+  "exceed": 0.14,
+  "pool": 0.05,
+  "supported": 2653.95,
+  "calls": 4174.63,
+  "genes": 1561.15,
+  "vs_grid": 33.0020747511802,
+  "d_ref": 464.54,
+  "p_ref": 0.97
+ },
+ "STRING_0.05_0.5_global-coarse": {
+  "fdp": 0.03863286837283522,
+  "exceed": 0.0,
+  "pool": 0.0,
+  "supported": 424.9,
+  "calls": 669.59,
+  "genes": 235.33,
+  "vs_grid": 0.0,
+  "d_ref": -71.22,
+  "p_ref": 0.0
+ },
+ "STRING_0.05_0.5_global-dense": {
+  "fdp": 0.04866445514904342,
+  "exceed": 0.38,
+  "pool": 0.23,
+  "supported": 496.12,
+  "calls": 836.86,
+  "genes": 264.86,
+  "vs_grid": 16.761590962579433,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "STRING_0.05_0.5_goco-M": {
+  "fdp": 0.044646615245187815,
+  "exceed": 0.09,
+  "pool": 0.02,
+  "supported": 507.65,
+  "calls": 862.97,
+  "genes": 252.86,
+  "vs_grid": 19.475170628383154,
+  "d_ref": 11.53,
+  "p_ref": 0.87
+ },
+ "STRING_0.05_0.5_goco-N": {
+  "fdp": 0.04664269540170073,
+  "exceed": 0.26,
+  "pool": 0.12,
+  "supported": 663.9,
+  "calls": 892.04,
+  "genes": 491.88,
+  "vs_grid": 56.24852906566251,
+  "d_ref": 167.78,
+  "p_ref": 0.99
+ },
+ "STRING_0.05_0.5_goco-sel": {
+  "fdp": 0.04611606569664737,
+  "exceed": 0.23,
+  "pool": 0.1,
+  "supported": 645.2,
+  "calls": 888.7,
+  "genes": 464.35,
+  "vs_grid": 51.84749352788893,
+  "d_ref": 149.08,
+  "p_ref": 0.99
+ },
+ "STRING_0.1_0.5_global-coarse": {
+  "fdp": 0.08278183961489707,
+  "exceed": 0.0,
+  "pool": 0.0,
+  "supported": 828.15,
+  "calls": 1643.01,
+  "genes": 405.64,
+  "vs_grid": 0.0,
+  "d_ref": -133.95,
+  "p_ref": 0.0
+ },
+ "STRING_0.1_0.5_global-dense": {
+  "fdp": 0.09779184316120595,
+  "exceed": 0.31,
+  "pool": 0.23,
+  "supported": 962.1,
+  "calls": 1955.85,
+  "genes": 471.64,
+  "vs_grid": 16.174606049628704,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "STRING_0.1_0.5_goco-M": {
+  "fdp": 0.09120089481612027,
+  "exceed": 0.08,
+  "pool": 0.01,
+  "supported": 1030.18,
+  "calls": 2074.35,
+  "genes": 463.38,
+  "vs_grid": 24.39533900863371,
+  "d_ref": 68.08,
+  "p_ref": 1.0
+ },
+ "STRING_0.1_0.5_goco-N": {
+  "fdp": 0.09444819530391044,
+  "exceed": 0.19,
+  "pool": 0.09,
+  "supported": 1207.98,
+  "calls": 1711.0,
+  "genes": 837.21,
+  "vs_grid": 45.86487955080602,
+  "d_ref": 245.88,
+  "p_ref": 0.99
+ },
+ "STRING_0.1_0.5_goco-sel": {
+  "fdp": 0.09339026226967302,
+  "exceed": 0.13,
+  "pool": 0.07,
+  "supported": 1159.16,
+  "calls": 1795.34,
+  "genes": 743.94,
+  "vs_grid": 39.96981223208358,
+  "d_ref": 197.06,
+  "p_ref": 0.99
+ },
+ "STRING_0.2_0.5_global-coarse": {
+  "fdp": 0.16933402543311463,
+  "exceed": 0.32,
+  "pool": 0.13,
+  "supported": 1562.53,
+  "calls": 3405.44,
+  "genes": 798.33,
+  "vs_grid": 0.0,
+  "d_ref": -205.88,
+  "p_ref": 0.0
+ },
+ "STRING_0.2_0.5_global-dense": {
+  "fdp": 0.19668871160642176,
+  "exceed": 0.37,
+  "pool": 0.22,
+  "supported": 1768.41,
+  "calls": 3971.93,
+  "genes": 901.46,
+  "vs_grid": 13.176067019513237,
+  "d_ref": 0.0,
+  "p_ref": 0.0
+ },
+ "STRING_0.2_0.5_goco-M": {
+  "fdp": 0.17988491240558893,
+  "exceed": 0.29,
+  "pool": 0.21,
+  "supported": 1854.85,
+  "calls": 4176.88,
+  "genes": 844.96,
+  "vs_grid": 18.70812080408055,
+  "d_ref": 86.44,
+  "p_ref": 0.65
+ },
+ "STRING_0.2_0.5_goco-N": {
+  "fdp": 0.19048781681654034,
+  "exceed": 0.19,
+  "pool": 0.04,
+  "supported": 2332.28,
+  "calls": 3612.44,
+  "genes": 1329.33,
+  "vs_grid": 49.26305414936034,
+  "d_ref": 563.87,
+  "p_ref": 1.0
+ },
+ "STRING_0.2_0.5_goco-sel": {
+  "fdp": 0.19011445161399734,
+  "exceed": 0.2,
+  "pool": 0.05,
+  "supported": 2294.46,
+  "calls": 3650.38,
+  "genes": 1297.49,
+  "vs_grid": 46.84262062168407,
+  "d_ref": 526.05,
+  "p_ref": 0.98
+ },
+ "gen_Wainberg_0.1_Hoeffding/LTT": {
+  "fdp": 0.0771074569923767,
+  "supp_genes": 161.51,
+  "supp_terms": 279.38
+ },
+ "gen_Sanger_0.1_Hoeffding/LTT": {
+  "fdp": 0.0768927226319224,
+  "supp_genes": 141.73,
+  "supp_terms": 287.02
+ },
+ "gen_DRIVE_0.1_Hoeffding/LTT": {
+  "fdp": 0.0796198041279372,
+  "supp_genes": 79.28,
+  "supp_terms": 186.17
+ },
+ "gen_HAP1_0.1_Hoeffding/LTT": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.1_Hoeffding-Bentkus": {
+  "fdp": 0.0916680781166315,
+  "supp_genes": 183.08,
+  "supp_terms": 334.5
+ },
+ "gen_Sanger_0.1_Hoeffding-Bentkus": {
+  "fdp": 0.0887656344931576,
+  "supp_genes": 148.95,
+  "supp_terms": 310.41
+ },
+ "gen_DRIVE_0.1_Hoeffding-Bentkus": {
+  "fdp": 0.0873736997463342,
+  "supp_genes": 85.14,
+  "supp_terms": 209.41
+ },
+ "gen_HAP1_0.1_Hoeffding-Bentkus": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.1_IID-normal": {
+  "fdp": 0.0922678955953225,
+  "supp_genes": 185.32,
+  "supp_terms": 338.9
+ },
+ "gen_Sanger_0.1_IID-normal": {
+  "fdp": 0.09130298535147,
+  "supp_genes": 150.65,
+  "supp_terms": 315.81
+ },
+ "gen_DRIVE_0.1_IID-normal": {
+  "fdp": 0.091262374195243,
+  "supp_genes": 90.05,
+  "supp_terms": 227.88
+ },
+ "gen_HAP1_0.1_IID-normal": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.1_Empirical Bernstein": {
+  "fdp": 0.0867824916349837,
+  "supp_genes": 175.0,
+  "supp_terms": 314.88
+ },
+ "gen_Sanger_0.1_Empirical Bernstein": {
+  "fdp": 0.0803103094448033,
+  "supp_genes": 143.79,
+  "supp_terms": 293.75
+ },
+ "gen_DRIVE_0.1_Empirical Bernstein": {
+  "fdp": 0.0828030811403568,
+  "supp_genes": 81.49,
+  "supp_terms": 194.27
+ },
+ "gen_HAP1_0.1_Empirical Bernstein": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.1_Binary-incidence McDiarmid": {
+  "fdp": 0.0763318332036145,
+  "supp_genes": 160.49,
+  "supp_terms": 276.81
+ },
+ "gen_Sanger_0.1_Binary-incidence McDiarmid": {
+  "fdp": 0.0768927226319224,
+  "supp_genes": 141.73,
+  "supp_terms": 287.02
+ },
+ "gen_DRIVE_0.1_Binary-incidence McDiarmid": {
+  "fdp": 0.0682140440895797,
+  "supp_genes": 67.49,
+  "supp_terms": 150.13
+ },
+ "gen_HAP1_0.1_Binary-incidence McDiarmid": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.1_Janson dependency-graph": {
+  "fdp": 0.0763318332036145,
+  "supp_genes": 160.49,
+  "supp_terms": 276.81
+ },
+ "gen_Sanger_0.1_Janson dependency-graph": {
+  "fdp": 0.0727411487381174,
+  "supp_genes": 132.19,
+  "supp_terms": 263.28
+ },
+ "gen_DRIVE_0.1_Janson dependency-graph": {
+  "fdp": 0.0628839365794898,
+  "supp_genes": 61.92,
+  "supp_terms": 135.34
+ },
+ "gen_HAP1_0.1_Janson dependency-graph": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.1_Network-HAC (b=1)": {
+  "fdp": 0.0902829207691821,
+  "supp_genes": 180.6,
+  "supp_terms": 328.77
+ },
+ "gen_Sanger_0.1_Network-HAC (b=1)": {
+  "fdp": 0.0857071160252924,
+  "supp_genes": 146.97,
+  "supp_terms": 304.31
+ },
+ "gen_DRIVE_0.1_Network-HAC (b=1)": {
+  "fdp": 0.0830613270856499,
+  "supp_genes": 81.64,
+  "supp_terms": 194.98
+ },
+ "gen_HAP1_0.1_Network-HAC (b=1)": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.1_Platt calibration": {
+  "fdp": 0.0907824938205984,
+  "supp_genes": 182.31,
+  "supp_terms": 332.15
+ },
+ "gen_Sanger_0.1_Platt calibration": {
+  "fdp": 0.0949429137872287,
+  "supp_genes": 155.59,
+  "supp_terms": 334.36
+ },
+ "gen_DRIVE_0.1_Platt calibration": {
+  "fdp": 0.0914177288005933,
+  "supp_genes": 91.68,
+  "supp_terms": 233.55
+ },
+ "gen_HAP1_0.1_Platt calibration": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.1_Isotonic calibration": {
+  "fdp": 0.0919312651853409,
+  "supp_genes": 184.82,
+  "supp_terms": 337.64
+ },
+ "gen_Sanger_0.1_Isotonic calibration": {
+  "fdp": 0.0956184177596918,
+  "supp_genes": 156.48,
+  "supp_terms": 337.78
+ },
+ "gen_DRIVE_0.1_Isotonic calibration": {
+  "fdp": 0.091708376965725,
+  "supp_genes": 92.03,
+  "supp_terms": 235.26
+ },
+ "gen_HAP1_0.1_Isotonic calibration": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.5_Hoeffding/LTT": {
+  "fdp": 0.0914036577151456,
+  "supp_genes": 182.57,
+  "supp_terms": 333.34
+ },
+ "gen_Sanger_0.5_Hoeffding/LTT": {
+  "fdp": 0.0876084415361969,
+  "supp_genes": 148.1,
+  "supp_terms": 308.0
+ },
+ "gen_DRIVE_0.5_Hoeffding/LTT": {
+  "fdp": 0.0864042272176444,
+  "supp_genes": 84.2,
+  "supp_terms": 206.06
+ },
+ "gen_HAP1_0.5_Hoeffding/LTT": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.5_Hoeffding-Bentkus": {
+  "fdp": 0.0923207092894686,
+  "supp_genes": 185.71,
+  "supp_terms": 339.61
+ },
+ "gen_Sanger_0.5_Hoeffding-Bentkus": {
+  "fdp": 0.0915679868741705,
+  "supp_genes": 150.87,
+  "supp_terms": 316.42
+ },
+ "gen_DRIVE_0.5_Hoeffding-Bentkus": {
+  "fdp": 0.092290288945487,
+  "supp_genes": 91.79,
+  "supp_terms": 233.87
+ },
+ "gen_HAP1_0.5_Hoeffding-Bentkus": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.5_IID-normal": {
+  "fdp": 0.0923207092894686,
+  "supp_genes": 185.71,
+  "supp_terms": 339.61
+ },
+ "gen_Sanger_0.5_IID-normal": {
+  "fdp": 0.0953211499042766,
+  "supp_genes": 155.41,
+  "supp_terms": 332.99
+ },
+ "gen_DRIVE_0.5_IID-normal": {
+  "fdp": 0.0945469433352232,
+  "supp_genes": 96.12,
+  "supp_terms": 248.14
+ },
+ "gen_HAP1_0.5_IID-normal": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.5_Empirical Bernstein": {
+  "fdp": 0.0918995443789147,
+  "supp_genes": 183.61,
+  "supp_terms": 335.66
+ },
+ "gen_Sanger_0.5_Empirical Bernstein": {
+  "fdp": 0.0893578175084387,
+  "supp_genes": 149.29,
+  "supp_terms": 311.51
+ },
+ "gen_DRIVE_0.5_Empirical Bernstein": {
+  "fdp": 0.0882019034196432,
+  "supp_genes": 86.0,
+  "supp_terms": 213.1
+ },
+ "gen_HAP1_0.5_Empirical Bernstein": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.5_Binary-incidence McDiarmid": {
+  "fdp": 0.0804466780660415,
+  "supp_genes": 166.14,
+  "supp_terms": 291.82
+ },
+ "gen_Sanger_0.5_Binary-incidence McDiarmid": {
+  "fdp": 0.0776623880478729,
+  "supp_genes": 142.18,
+  "supp_terms": 288.6
+ },
+ "gen_DRIVE_0.5_Binary-incidence McDiarmid": {
+  "fdp": 0.0781683405180033,
+  "supp_genes": 78.39,
+  "supp_terms": 183.32
+ },
+ "gen_HAP1_0.5_Binary-incidence McDiarmid": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.5_Janson dependency-graph": {
+  "fdp": 0.0775178694511482,
+  "supp_genes": 162.14,
+  "supp_terms": 281.0
+ },
+ "gen_Sanger_0.5_Janson dependency-graph": {
+  "fdp": 0.0768927226319224,
+  "supp_genes": 141.73,
+  "supp_terms": 287.02
+ },
+ "gen_DRIVE_0.5_Janson dependency-graph": {
+  "fdp": 0.0745723316811756,
+  "supp_genes": 76.01,
+  "supp_terms": 175.65
+ },
+ "gen_HAP1_0.5_Janson dependency-graph": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.5_Network-HAC (b=1)": {
+  "fdp": 0.0923207092894686,
+  "supp_genes": 185.71,
+  "supp_terms": 339.61
+ },
+ "gen_Sanger_0.5_Network-HAC (b=1)": {
+  "fdp": 0.0953211499042766,
+  "supp_genes": 155.41,
+  "supp_terms": 332.99
+ },
+ "gen_DRIVE_0.5_Network-HAC (b=1)": {
+  "fdp": 0.0945469433352232,
+  "supp_genes": 96.12,
+  "supp_terms": 248.14
+ },
+ "gen_HAP1_0.5_Network-HAC (b=1)": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.5_Platt calibration": {
+  "fdp": 0.0907824938205984,
+  "supp_genes": 182.31,
+  "supp_terms": 332.15
+ },
+ "gen_Sanger_0.5_Platt calibration": {
+  "fdp": 0.0949429137872287,
+  "supp_genes": 155.59,
+  "supp_terms": 334.36
+ },
+ "gen_DRIVE_0.5_Platt calibration": {
+  "fdp": 0.0914177288005933,
+  "supp_genes": 91.68,
+  "supp_terms": 233.55
+ },
+ "gen_HAP1_0.5_Platt calibration": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gen_Wainberg_0.5_Isotonic calibration": {
+  "fdp": 0.0919312651853409,
+  "supp_genes": 184.82,
+  "supp_terms": 337.64
+ },
+ "gen_Sanger_0.5_Isotonic calibration": {
+  "fdp": 0.0956184177596918,
+  "supp_genes": 156.48,
+  "supp_terms": 337.78
+ },
+ "gen_DRIVE_0.5_Isotonic calibration": {
+  "fdp": 0.091708376965725,
+  "supp_genes": 92.03,
+  "supp_terms": 235.26
+ },
+ "gen_HAP1_0.5_Isotonic calibration": {
+  "fdp": 0.0719080238492685,
+  "supp_genes": 77.03,
+  "supp_terms": 129.45
+ },
+ "gensf_FunMap_0.1_Multilabel": {
+  "fdp": 0.08472094391876295,
+  "supported": 1205.64,
+  "genes": 712.91
+ },
+ "gensf_STRING_0.1_Multilabel": {
+  "fdp": 0.08470896625096042,
+  "supported": 849.98,
+  "genes": 416.11
+ },
+ "gensf_FunMap_0.1_Hoeffding/LTT": {
+  "fdp": 0.07619839731261374,
+  "supported": 1143.85,
+  "genes": 674.9
+ },
+ "gensf_STRING_0.1_Hoeffding/LTT": {
+  "fdp": 0.07616133078524469,
+  "supported": 735.53,
+  "genes": 372.35
+ },
+ "gensf_FunMap_0.1_Hoeffding-Bentkus": {
+  "fdp": 0.0827634318024463,
+  "supported": 1187.4,
+  "genes": 703.05
+ },
+ "gensf_STRING_0.1_Hoeffding-Bentkus": {
+  "fdp": 0.08246121060477699,
+  "supported": 832.02,
+  "genes": 407.47
+ },
+ "gensf_FunMap_0.1_IID-normal": {
+  "fdp": 0.08472094391876295,
+  "supported": 1205.64,
+  "genes": 712.91
+ },
+ "gensf_STRING_0.1_IID-normal": {
+  "fdp": 0.08470896625096042,
+  "supported": 849.98,
+  "genes": 416.11
+ },
+ "gensf_FunMap_0.1_Empirical Bernstein": {
+  "fdp": 0.0806092725081416,
+  "supported": 1172.18,
+  "genes": 693.34
+ },
+ "gensf_STRING_0.1_Empirical Bernstein": {
+  "fdp": 0.07995305245253523,
+  "supported": 802.36,
+  "genes": 394.78
+ },
+ "gensf_FunMap_0.1_Platt calibration": {
+  "fdp": 0.0647077005923532,
+  "supported": 1060.75,
+  "genes": 615.05
+ },
+ "gensf_STRING_0.1_Platt calibration": {
+  "fdp": 0.10034495406216541,
+  "supported": 989.49,
+  "genes": 486.55
+ },
+ "gensf_FunMap_0.1_Isotonic calibration": {
+  "fdp": 0.08236152011693204,
+  "supported": 1184.38,
+  "genes": 701.22
+ },
+ "gensf_STRING_0.1_Isotonic calibration": {
+  "fdp": 0.08738589586986353,
+  "supported": 868.66,
+  "genes": 424.39
+ },
+ "gensf_FunMap_0.5_Multilabel": {
+  "fdp": 0.08878556683847469,
+  "supported": 1245.33,
+  "genes": 734.03
+ },
+ "gensf_STRING_0.5_Multilabel": {
+  "fdp": 0.08991850549349512,
+  "supported": 885.31,
+  "genes": 432.29
+ },
+ "gensf_FunMap_0.5_Hoeffding/LTT": {
+  "fdp": 0.08203092545580425,
+  "supported": 1181.52,
+  "genes": 699.38
+ },
+ "gensf_STRING_0.5_Hoeffding/LTT": {
+  "fdp": 0.08195278647936899,
+  "supported": 825.74,
+  "genes": 404.85
+ },
+ "gensf_FunMap_0.5_Hoeffding-Bentkus": {
+  "fdp": 0.08552062081698587,
+  "supported": 1212.84,
+  "genes": 716.76
+ },
+ "gensf_STRING_0.5_Hoeffding-Bentkus": {
+  "fdp": 0.08554840219083079,
+  "supported": 856.78,
+  "genes": 418.93
+ },
+ "gensf_FunMap_0.5_IID-normal": {
+  "fdp": 0.08878556683847469,
+  "supported": 1245.33,
+  "genes": 734.03
+ },
+ "gensf_STRING_0.5_IID-normal": {
+  "fdp": 0.08991850549349512,
+  "supported": 885.31,
+  "genes": 432.29
+ },
+ "gensf_FunMap_0.5_Empirical Bernstein": {
+  "fdp": 0.08347909069928452,
+  "supported": 1193.07,
+  "genes": 706.42
+ },
+ "gensf_STRING_0.5_Empirical Bernstein": {
+  "fdp": 0.08305298940704399,
+  "supported": 837.35,
+  "genes": 409.82
+ },
+ "gensf_FunMap_0.5_Platt calibration": {
+  "fdp": 0.0647077005923532,
+  "supported": 1060.75,
+  "genes": 615.05
+ },
+ "gensf_STRING_0.5_Platt calibration": {
+  "fdp": 0.10034495406216541,
+  "supported": 989.49,
+  "genes": 486.55
+ },
+ "gensf_FunMap_0.5_Isotonic calibration": {
+  "fdp": 0.08236152011693204,
+  "supported": 1184.38,
+  "genes": 701.22
+ },
+ "gensf_STRING_0.5_Isotonic calibration": {
+  "fdp": 0.08738589586986353,
+  "supported": 868.66,
+  "genes": 424.39
+ },
+ "frontier_FunMap_0.05_0.1_goco-M": {
+  "d": 100.53,
+  "p": 1.0,
+  "d_grid": 119.64,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.05_0.1_goco-N": {
+  "d": 154.71,
+  "p": 0.95,
+  "d_grid": 172.08,
+  "p_grid": 0.96,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.05_0.5_goco-M": {
+  "d": 98.83,
+  "p": 1.0,
+  "d_grid": 118.31,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.05_0.5_goco-N": {
+  "d": 175.24,
+  "p": 0.97,
+  "d_grid": 191.96,
+  "p_grid": 0.97,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.1_0.1_goco-M": {
+  "d": 196.09,
+  "p": 1.0,
+  "d_grid": 206.37,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.1_0.1_goco-N": {
+  "d": 378.98,
+  "p": 1.0,
+  "d_grid": 393.27,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.1_0.5_goco-M": {
+  "d": 190.03,
+  "p": 1.0,
+  "d_grid": 206.47,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.1_0.5_goco-N": {
+  "d": 392.82,
+  "p": 1.0,
+  "d_grid": 407.61,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.2_0.1_goco-M": {
+  "d": 164.24,
+  "p": 1.0,
+  "d_grid": 184.1,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.2_0.1_goco-N": {
+  "d": 518.72,
+  "p": 1.0,
+  "d_grid": 537.07,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.2_0.5_goco-M": {
+  "d": 185.77,
+  "p": 1.0,
+  "d_grid": 203.01,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_FunMap_0.2_0.5_goco-N": {
+  "d": 534.72,
+  "p": 1.0,
+  "d_grid": 551.57,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.05_0.1_goco-M": {
+  "d": 46.39,
+  "p": 1.0,
+  "d_grid": 49.62,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.05_0.1_goco-N": {
+  "d": 172.17,
+  "p": 1.0,
+  "d_grid": 179.56,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.05_0.5_goco-M": {
+  "d": 40.21,
+  "p": 1.0,
+  "d_grid": 44.2,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.05_0.5_goco-N": {
+  "d": 186.45,
+  "p": 1.0,
+  "d_grid": 192.82,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.1_0.1_goco-M": {
+  "d": 137.73,
+  "p": 1.0,
+  "d_grid": 149.46,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.1_0.1_goco-N": {
+  "d": 267.72,
+  "p": 0.97,
+  "d_grid": 278.68,
+  "p_grid": 0.97,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.1_0.5_goco-M": {
+  "d": 135.37,
+  "p": 1.0,
+  "d_grid": 146.14,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.1_0.5_goco-N": {
+  "d": 281.59,
+  "p": 0.98,
+  "d_grid": 289.98,
+  "p_grid": 0.98,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.2_0.1_goco-M": {
+  "d": 196.54,
+  "p": 1.0,
+  "d_grid": 211.9,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.2_0.1_goco-N": {
+  "d": 561.21,
+  "p": 0.99,
+  "d_grid": 577.62,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.2_0.5_goco-M": {
+  "d": 204.56,
+  "p": 1.0,
+  "d_grid": 218.87,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "frontier_STRING_0.2_0.5_goco-N": {
+  "d": 598.51,
+  "p": 0.99,
+  "d_grid": 615.72,
+  "p_grid": 1.0,
+  "exhaustive": true
+ },
+ "select_Wainberg_0.05": {
+  "yM": 68.49,
+  "yN": 55.66,
+  "chooseN": 0.16,
+  "heldM": 213.19,
+  "heldN": 168.51,
+  "heldSel": 206.06,
+  "pN": 0.07,
+  "agree": 0.81,
+  "oracle": 213.81
+ },
+ "select_Wainberg_0.1": {
+  "yM": 117.67,
+  "yN": 73.27,
+  "chooseN": 0.0,
+  "heldM": 365.22,
+  "heldN": 222.81,
+  "heldSel": 365.22,
+  "pN": 0.0,
+  "agree": 1.0,
+  "oracle": 365.22
+ },
+ "select_Wainberg_0.2": {
+  "yM": 176.74,
+  "yN": 131.19,
+  "chooseN": 0.0,
+  "heldM": 539.19,
+  "heldN": 392.77,
+  "heldSel": 539.19,
+  "pN": 0.0,
+  "agree": 1.0,
+  "oracle": 539.19
+ },
+ "select_Sanger_0.05": {
+  "yM": 77.49,
+  "yN": 114.34,
+  "chooseN": 0.85,
+  "heldM": 213.72,
+  "heldN": 351.47,
+  "heldSel": 331.32,
+  "pN": 0.99,
+  "agree": 0.84,
+  "oracle": 351.62
+ },
+ "select_Sanger_0.1": {
+  "yM": 127.69,
+  "yN": 185.31,
+  "chooseN": 0.96,
+  "heldM": 339.98,
+  "heldN": 559.2,
+  "heldSel": 553.41,
+  "pN": 1.0,
+  "agree": 0.96,
+  "oracle": 559.2
+ },
+ "select_Sanger_0.2": {
+  "yM": 478.95,
+  "yN": 495.15,
+  "chooseN": 0.61,
+  "heldM": 1346.75,
+  "heldN": 1430.85,
+  "heldSel": 1411.72,
+  "pN": 0.78,
+  "agree": 0.65,
+  "oracle": 1459.07
+ },
+ "select_DRIVE_0.05": {
+  "yM": 36.26,
+  "yN": 37.75,
+  "chooseN": 0.52,
+  "heldM": 94.15,
+  "heldN": 97.37,
+  "heldSel": 96.84,
+  "pN": 0.52,
+  "agree": 0.54,
+  "oracle": 105.09
+ },
+ "select_DRIVE_0.1": {
+  "yM": 98.05,
+  "yN": 71.98,
+  "chooseN": 0.18,
+  "heldM": 263.47,
+  "heldN": 194.46,
+  "heldSel": 251.49,
+  "pN": 0.02,
+  "agree": 0.8,
+  "oracle": 263.98
+ },
+ "select_DRIVE_0.2": {
+  "yM": 231.14,
+  "yN": 225.92,
+  "chooseN": 0.0,
+  "heldM": 702.05,
+  "heldN": 701.52,
+  "heldSel": 702.05,
+  "pN": 0.0,
+  "agree": 1.0,
+  "oracle": 702.05
+ },
+ "select_HAP1_0.05": {
+  "yM": 32.92,
+  "yN": 49.3,
+  "chooseN": 0.86,
+  "heldM": 102.36,
+  "heldN": 163.33,
+  "heldSel": 156.9,
+  "pN": 0.97,
+  "agree": 0.83,
+  "oracle": 163.45
+ },
+ "select_HAP1_0.1": {
+  "yM": 44.59,
+  "yN": 67.62,
+  "chooseN": 0.89,
+  "heldM": 137.59,
+  "heldN": 225.11,
+  "heldSel": 217.48,
+  "pN": 1.0,
+  "agree": 0.89,
+  "oracle": 225.11
+ },
+ "select_HAP1_0.2": {
+  "yM": 61.78,
+  "yN": 90.6,
+  "chooseN": 0.9,
+  "heldM": 187.67,
+  "heldN": 299.27,
+  "heldSel": 290.18,
+  "pN": 1.0,
+  "agree": 0.9,
+  "oracle": 299.27
+ },
+ "select_FunMap_0.05": {
+  "yM": 319.38,
+  "yN": 349.78,
+  "chooseN": 0.73,
+  "heldM": 954.52,
+  "heldN": 1016.13,
+  "heldSel": 996.66,
+  "pN": 0.72,
+  "agree": 0.61,
+  "oracle": 1031.06
+ },
+ "select_FunMap_0.1": {
+  "yM": 488.31,
+  "yN": 552.85,
+  "chooseN": 0.92,
+  "heldM": 1474.44,
+  "heldN": 1615.76,
+  "heldSel": 1608.09,
+  "pN": 0.89,
+  "agree": 0.83,
+  "oracle": 1621.5
+ },
+ "select_FunMap_0.2": {
+  "yM": 759.22,
+  "yN": 885.47,
+  "chooseN": 0.96,
+  "heldM": 2157.91,
+  "heldN": 2615.79,
+  "heldSel": 2598.18,
+  "pN": 1.0,
+  "agree": 0.96,
+  "oracle": 2615.79
+ },
+ "select_STRING_0.05": {
+  "yM": 172.07,
+  "yN": 221.46,
+  "chooseN": 0.89,
+  "heldM": 503.57,
+  "heldN": 621.4,
+  "heldSel": 610.02,
+  "pN": 0.96,
+  "agree": 0.86,
+  "oracle": 622.5
+ },
+ "select_STRING_0.1": {
+  "yM": 350.22,
+  "yN": 395.55,
+  "chooseN": 0.76,
+  "heldM": 1021.1,
+  "heldN": 1151.14,
+  "heldSel": 1124.48,
+  "pN": 0.89,
+  "agree": 0.69,
+  "oracle": 1157.36
+ },
+ "select_STRING_0.2": {
+  "yM": 642.11,
+  "yN": 766.59,
+  "chooseN": 0.93,
+  "heldM": 1732.47,
+  "heldN": 2242.96,
+  "heldSel": 2201.67,
+  "pN": 0.99,
+  "agree": 0.92,
+  "oracle": 2243.44
+ },
+ "auc": {
+  "DRIVE": {
+   "score_T": 0.6017170112653106,
+   "phat_T": 0.5375985124112755,
+   "score_E": 0.6032207954290847,
+   "phat_E": 0.5537165180836436,
+   "p_phat_better_T": 0.14
+  },
+  "HAP1": {
+   "score_T": 0.5548837367561125,
+   "phat_T": 0.5170453800119261,
+   "score_E": 0.5561136606652177,
+   "phat_E": 0.6247469328942994,
+   "p_phat_better_T": 0.34
+  },
+  "Sanger": {
+   "score_T": 0.5874841468680583,
+   "phat_T": 0.6226930984610707,
+   "score_E": 0.5882307045383592,
+   "phat_E": 0.6819356160109824,
+   "p_phat_better_T": 0.71
+  },
+  "Wainberg": {
+   "score_T": 0.6962215051967394,
+   "phat_T": 0.5357181530103534,
+   "score_E": 0.7010738139365248,
+   "phat_E": 0.5971807655025251,
+   "p_phat_better_T": 0.0
+  }
+ },
+ "unc_DRIVE_Floor": {
+  "fdp": 0.18439800888299943,
+  "ex10": 1.0,
+  "genes": 377.87,
+  "calls": 8371.71,
+  "supp": 702.43
+ },
+ "unc_DRIVE_Fmax": {
+  "fdp": 0.09919157706201073,
+  "ex10": 0.41,
+  "genes": 219.36,
+  "calls": 2150.78,
+  "supp": 275.54
+ },
+ "unc_DRIVE_Fmax-full": {
+  "fdp": 0.18439779952168464,
+  "ex10": 1.0,
+  "genes": 377.87,
+  "calls": 8370.47,
+  "supp": 702.43
+ },
+ "unc_DRIVE_Top-1": {
+  "fdp": 0.17340583554376654,
+  "ex10": 1.0,
+  "genes": 377.87,
+  "calls": 377.87,
+  "supp": 51.0
+ },
+ "unc_DRIVE_Top-3": {
+  "fdp": 0.17519363395225462,
+  "ex10": 1.0,
+  "genes": 377.87,
+  "calls": 1043.64,
+  "supp": 140.68
+ },
+ "unc_HAP1_Floor": {
+  "fdp": 0.9860820305347443,
+  "ex10": 1.0,
+  "genes": 4505.74,
+  "calls": 102090.27,
+  "supp": 1340.62
+ },
+ "unc_HAP1_Fmax": {
+  "fdp": 0.08799480311572548,
+  "ex10": 0.25,
+  "genes": 450.62,
+  "calls": 1067.31,
+  "supp": 137.29
+ },
+ "unc_HAP1_Fmax-full": {
+  "fdp": 0.9860819995403289,
+  "ex10": 1.0,
+  "genes": 4505.74,
+  "calls": 102089.68,
+  "supp": 1340.52
+ },
+ "unc_HAP1_Top-1": {
+  "fdp": 0.9791433644030184,
+  "ex10": 1.0,
+  "genes": 4505.74,
+  "calls": 4505.74,
+  "supp": 93.72
+ },
+ "unc_HAP1_Top-3": {
+  "fdp": 0.9821774670809291,
+  "ex10": 1.0,
+  "genes": 4505.74,
+  "calls": 13508.44,
+  "supp": 240.01
+ },
+ "unc_Sanger_Floor": {
+  "fdp": 0.22394888907670973,
+  "ex10": 1.0,
+  "genes": 1093.99,
+  "calls": 21841.88,
+  "supp": 1684.57
+ },
+ "unc_Sanger_Fmax": {
+  "fdp": 0.14176943898200986,
+  "ex10": 1.0,
+  "genes": 729.21,
+  "calls": 5525.18,
+  "supp": 632.44
+ },
+ "unc_Sanger_Fmax-full": {
+  "fdp": 0.22394419342279434,
+  "ex10": 1.0,
+  "genes": 1093.99,
+  "calls": 21840.07,
+  "supp": 1684.57
+ },
+ "unc_Sanger_Top-1": {
+  "fdp": 0.21149384098544233,
+  "ex10": 1.0,
+  "genes": 1093.99,
+  "calls": 1093.99,
+  "supp": 149.67
+ },
+ "unc_Sanger_Top-3": {
+  "fdp": 0.21425457260171704,
+  "ex10": 1.0,
+  "genes": 1093.99,
+  "calls": 3118.71,
+  "supp": 401.41
+ },
+ "unc_Wainberg_Floor": {
+  "fdp": 0.230971307605505,
+  "ex10": 1.0,
+  "genes": 1232.22,
+  "calls": 4941.8,
+  "supp": 559.22
+ },
+ "unc_Wainberg_Fmax": {
+  "fdp": 0.06320753481239076,
+  "ex10": 0.0,
+  "genes": 411.39,
+  "calls": 892.58,
+  "supp": 249.19
+ },
+ "unc_Wainberg_Fmax-full": {
+  "fdp": 0.230971307605505,
+  "ex10": 1.0,
+  "genes": 1232.22,
+  "calls": 4941.02,
+  "supp": 559.22
+ },
+ "unc_Wainberg_Top-1": {
+  "fdp": 0.22316378218657654,
+  "ex10": 1.0,
+  "genes": 1232.22,
+  "calls": 1232.22,
+  "supp": 174.87
+ },
+ "unc_Wainberg_Top-3": {
+  "fdp": 0.22753552835232868,
+  "ex10": 1.0,
+  "genes": 1232.22,
+  "calls": 2759.24,
+  "supp": 370.3
+ },
+ "unc_FunMap_Fmax": {
+  "fdp": 0.5461567101321889,
+  "ex10": 1.0,
+  "genes": 2356.42,
+  "calls": 19598.42,
+  "supp": 5590.74
+ },
+ "unc_FunMap_Fmax-full": {
+  "fdp": 0.7866801130412615,
+  "ex10": 1.0,
+  "genes": 2911.63,
+  "calls": 80278.43,
+  "supp": 11828.26
+ },
+ "unc_FunMap_Top-1": {
+  "fdp": 0.5993182552504038,
+  "ex10": 1.0,
+  "genes": 2911.63,
+  "calls": 2911.63,
+  "supp": 1056.74
+ },
+ "unc_FunMap_Top-3": {
+  "fdp": 0.6416768982229403,
+  "ex10": 1.0,
+  "genes": 2911.63,
+  "calls": 8526.49,
+  "supp": 2746.37
+ },
+ "unc_STRING_Fmax": {
+  "fdp": 0.7120467927098595,
+  "ex10": 1.0,
+  "genes": 2315.18,
+  "calls": 35419.17,
+  "supp": 9137.18
+ },
+ "unc_STRING_Fmax-full": {
+  "fdp": 0.8279153291061873,
+  "ex10": 1.0,
+  "genes": 2375.11,
+  "calls": 156272.8,
+  "supp": 19716.7
+ },
+ "unc_STRING_Top-1": {
+  "fdp": 0.5911543235415805,
+  "ex10": 1.0,
+  "genes": 2375.11,
+  "calls": 2375.11,
+  "supp": 946.29
+ },
+ "unc_STRING_Top-3": {
+  "fdp": 0.6352765135843331,
+  "ex10": 1.0,
+  "genes": 2375.11,
+  "calls": 7117.97,
+  "supp": 2517.16
+ },
+ "fixed_FunMap_0.30103": {
+  "fdp": 0.8321797141873357,
+  "ex10": 1.0,
+  "genes": 2967.55,
+  "calls": 140313.83,
+  "supp": 15826.11
+ },
+ "fixed_FunMap_0.5": {
+  "fdp": 0.8188387429433617,
+  "ex10": 1.0,
+  "genes": 2946.55,
+  "calls": 120291.22,
+  "supp": 14485.82
+ },
+ "fixed_FunMap_1": {
+  "fdp": 0.7866801130412615,
+  "ex10": 1.0,
+  "genes": 2911.63,
+  "calls": 80278.43,
+  "supp": 11828.26
+ },
+ "fixed_FunMap_1.30103": {
+  "fdp": 0.7683300832865272,
+  "ex10": 1.0,
+  "genes": 2882.45,
+  "calls": 65261.73,
+  "supp": 10716.78
+ },
+ "fixed_FunMap_2": {
+  "fdp": 0.7240993800103008,
+  "ex10": 1.0,
+  "genes": 2783.37,
+  "calls": 48541.24,
+  "supp": 9025.69
+ },
+ "fixed_STRING_0.30103": {
+  "fdp": 0.8652934476291868,
+  "ex10": 1.0,
+  "genes": 2378.63,
+  "calls": 313716.76,
+  "supp": 26699.62
+ },
+ "fixed_STRING_0.5": {
+  "fdp": 0.8543287822693056,
+  "ex10": 1.0,
+  "genes": 2376.64,
+  "calls": 235970.44,
+  "supp": 23861.46
+ },
+ "fixed_STRING_1": {
+  "fdp": 0.8279153291061873,
+  "ex10": 1.0,
+  "genes": 2375.11,
+  "calls": 156272.8,
+  "supp": 19716.7
+ },
+ "fixed_STRING_1.30103": {
+  "fdp": 0.8144215364770993,
+  "ex10": 1.0,
+  "genes": 2375.11,
+  "calls": 121057.56,
+  "supp": 17619.21
+ },
+ "fixed_STRING_2": {
+  "fdp": 0.790315227716492,
+  "ex10": 1.0,
+  "genes": 2370.21,
+  "calls": 82850.22,
+  "supp": 14690.6
+ },
+ "unc_Wainberg_GoCo": {
+  "fdp": 0.09479555785366628,
+  "ex10": 0.13,
+  "genes": 567.68,
+  "calls": 1896.08,
+  "supp": 365.22
+ },
+ "unc_Sanger_GoCo": {
+  "fdp": 0.09297943629633133,
+  "ex10": 0.15,
+  "genes": 504.89,
+  "calls": 1983.15,
+  "supp": 339.98
+ },
+ "unc_DRIVE_GoCo": {
+  "fdp": 0.09312312221827491,
+  "ex10": 0.16,
+  "genes": 207.93,
+  "calls": 1987.32,
+  "supp": 263.47
+ },
+ "unc_HAP1_GoCo": {
+  "fdp": 0.09145378679304955,
+  "ex10": 0.06,
+  "genes": 462.19,
+  "calls": 1252.41,
+  "supp": 137.59
+ },
+ "unc_FunMap_GoCo": {
+  "fdp": 0.08784887409930926,
+  "ex10": 0.05,
+  "genes": 1084.42,
+  "calls": 2165.5,
+  "supp": 1615.76
+ },
+ "unc_STRING_GoCo": {
+  "fdp": 0.08941218319789294,
+  "ex10": 0.06,
+  "genes": 806.14,
+  "calls": 1622.32,
+  "supp": 1151.14
+ }
+}
