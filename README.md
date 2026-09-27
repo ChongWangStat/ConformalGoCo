@@ -69,9 +69,9 @@ A summary/table rebuild is not a full raw-input rerun. The verification tools re
 
 ## Large inputs and archive
 
-`funmap/funmap_gene_go_scores.csv.gz` and the large files in `string/funmap_view/` are intentionally not committed to Git. Use the matching complete reproducibility archive under the stable Zenodo concept DOI **10.5281/zenodo.22677009** and verify the supplied input checksums. Updating this repository does not itself update the Zenodo deposit. The small STRING-view checksum and instruction files remain here so omitted inputs are explicit.
+`funmap/funmap_gene_go_scores.csv.gz` and the large files in `string/funmap_view/` are intentionally not committed to Git. They are needed only for a complete raw-input rerun of the neighbourhood-family analyses; the repository retains the corresponding stored split-level outputs, reconstruction code, checksums, and verification tools used for the manuscript. The Zenodo record under the stable concept DOI **10.5281/zenodo.22677009** archives the tracked GitHub software release and therefore does not add files that are intentionally absent from Git. The small STRING-view checksum and instruction files remain here so the omitted inputs are explicit.
 
-`CODE_FREEZE.md` records checksums for the current tracked files. Original data-source, GO snapshot, and target-exclusion details are documented in the manuscript and source code.
+`CODE_FREEZE.md` records checksums for the tracked release files. Original data-source, GO snapshot, and target-exclusion details are documented in the manuscript and source code.
 
 ## License and citation
 
