@@ -7,6 +7,8 @@
     "all five manuscript figures",
     "Wainberg split-zero ranking-fold measurability"
   ],
-  "final_change": "Figure 1 text wrap only; numerical analyses unchanged",
-  "raw_neighbourhood_rerun": "Not rerun in this synchronization; matching large FunMap/STRING inputs remain in the separate archive"
+  "full_rebuild_scope": "Historical rebuild before the 28 September submission-file synchronization; not rerun in this pass.",
+  "final_change": "Submission synchronization: two main tables and S1-S13; checked manuscript snapshots; already-approved Python figure formatting; no numerical analysis changes.",
+  "current_checks": "See submission_sync_verification.json and release_verification.json for this pass.",
+  "raw_neighbourhood_rerun": "Not performed; see README for the scope and availability of large inputs."
 }

@@ -1,6 +1,6 @@
 \begin{table*}[htbp]
 \centering
-\caption{Module-structure comparison at $\alpha=0.10$, $\delta=0.50$, over 100 splits. Wainberg is the development data set; Sanger, DRIVE and HAP1 are external studies with the same shared-evidence structure.}
+\caption{Module-structure comparison of mean held-out FDP and supported yield at $\alpha=0.10$, $\delta=0.50$, over 100 splits. Wainberg is the development data set; Sanger, DRIVE and HAP1 are external studies with the same shared-evidence structure.}
 \label{tab:panelmodule50}
 \scriptsize
 \setlength{\tabcolsep}{3pt}
@@ -24,9 +24,9 @@ Platt calibration & 0.0908 & 182.3 & 332.1 & 0.0949 & 155.6 & 334.4 & 0.0914 & 9
 Isotonic calibration & 0.0919 & 184.8 & 337.6 & 0.0956 & 156.5 & 337.8 & 0.0917 & 92.0 & 235.3 & 0.0719 & 77.0 & 129.4 \\
 \addlinespace[2pt]\multicolumn{13}{l}{\emph{TruePath loss, one global threshold (GO hierarchy)}} \\
 GoDag & 0.0923 & 185.7 & 339.6 & 0.0980 & 160.9 & 353.8 & 0.0965 & 98.7 & 258.6 & 0.0719 & 77.0 & 129.4 \\
-\addlinespace[2pt]\multicolumn{13}{l}{\emph{TruePath loss, relational partial admission (GO hierarchy and module-shared evidence)}} \\
+\addlinespace[2pt]\multicolumn{13}{l}{\emph{TruePath loss, structure-guided partial admission (GO hierarchy and module-shared evidence)}} \\
 \textbf{GoCo-M} & \textbf{0.0964} & \textbf{197.1} & \textbf{369.1} & \textbf{0.0980} & \textbf{166.9} & \textbf{380.7} & \textbf{0.0971} & \textbf{105.7} & \textbf{291.7} & \textbf{0.0943} & \textbf{80.8} & \textbf{137.7} \\
 \bottomrule
 \end{tabular}}
-\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize Generic baselines calibrate on Direct labels only and have no GO-DAG/TruePath input; GoDag calibrates with TruePath; GoCo-M calibrates with TruePath plus the predictor's own module membership. All rows are evaluated against the same held-out TruePath reference on the same evaluation fold, over the same 100 split streams. Every global-threshold method calibrates over the shared 25-unit grid on the first 70\% of each permutation; GoCo-M certifies on the 60\% certification fold after fitting its ordering on the 10\% ranking fold. Platt and isotonic are $\delta$-free plug-in calibrators without a risk guarantee, so their rows are the same at both $\delta$. At $\delta=0.50$ every normal-type rule coincides with Multilabel (Remark~1 of the main text); at $\delta=0.10$ they separate, only the IID-normal CLT still agreeing with it.\end{minipage}
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize Gene FDP: mean held-out TruePath false discovery proportion. Correct calls: reference-supported gene--GO pairs. Genes with a correct call: genes with at least one supported release. All global methods use the same 25-unit grid and 70\% calibration; GoCo-M uses 10\% ranking and 60\% certification. Platt/isotonic rules are $\delta$-free and have no risk guarantee. Normal-type rules coincide at $\delta=0.50$ on the same path, loss and calibration sample (Supplementary Remark~\ref{supp-rem:delta}).\end{minipage}
 \end{table*}

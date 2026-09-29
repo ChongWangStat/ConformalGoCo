@@ -7,7 +7,7 @@ from matplotlib.patches import FancyBboxPatch, FancyArrowPatch
 HERE = os.path.dirname(os.path.abspath(__file__))
 REV = os.environ.get('GOCO_PAPER_DIR', os.path.join(HERE, '..', 'paper')) + os.sep
 RESULTS = os.environ.get('GOCO_SPLITS', os.path.join(HERE, '..', 'results')) + os.sep
-OUT = REV + 'figures/'; os.makedirs(OUT, exist_ok=True)
+OUT = os.environ.get('GOCO_FIGURE_DIR', REV + 'figures') + os.sep; os.makedirs(OUT, exist_ok=True)
 d = pd.read_csv(RESULTS + 'all_methods_harmonised_100splits.csv')
 # v4: long frame with GoCo-N and the ranking-fold-selected GoCo (written by make_v4_tables.py); falls back to the harmonised file
 LONG = os.environ.get('GOCO_LONG', '')
@@ -51,31 +51,37 @@ def fig_primary(delta, name):
     axes[1, 0].text(-0.02, 1.12, 'B  Correct calls released', transform=axes[1, 0].transAxes, fontsize=9, fontweight='bold')
     fig.suptitle(f'$\\alpha=0.10$, $\\delta={delta:.2f}$: mean over 100 splits (marker) and interquartile range (bar)', y=1.02, fontsize=9)
     save(fig, name)
-fig_primary(0.50, 'Figure3_primary_delta050'); fig_primary(0.10, 'FigureS1_primary_delta010')
+if os.environ.get('GOCO_FIGURES_ONLY') != 'sweep':
+    fig_primary(0.50, 'Figure3_primary_delta050'); fig_primary(0.10, 'FigureS1_primary_delta010')
 
 # ------------------------------------------------------------------ Figure 4: alpha sweep
 def fig_sweep(delta, name):
     methods = METHODS
-    fig, axes = plt.subplots(2, 4, figsize=(11, 5.4), gridspec_kw={'hspace': 0.85, 'wspace': 0.35})
+    fig, axes = plt.subplots(2, 4, figsize=(11, 5.8), gridspec_kw={'hspace': 0.80, 'wspace': 0.35})
     for j, ds in enumerate(DS):
         sub = d[(d.dataset == ds) & (d.delta == delta)]
         ref = sub[sub.method == 'Boger'].groupby('alpha').go_yield.mean()
         for m in methods:
             g = sub[sub.method == m].groupby('alpha').agg(fdp=('unit_fdp', 'mean'), terms=('go_yield', 'mean'))
             if len(g) == 0: continue
-            ls = '--' if m == 'GoCo-sel' else '-'
-            axes[0, j].plot(g.index, g.fdp, marker=MARK[m], ms=4 if MARK[m] != '*' else 6, color=C[m], label=NAME[m], ls=ls)
-            axes[1, j].plot(g.index, 100 * (g.terms / ref.loc[g.index] - 1), marker=MARK[m], ms=4 if MARK[m] != '*' else 6, color=C[m], label=NAME[m], ls=ls)
-        axes[0, j].plot([0.04, 0.21], [0.04, 0.21], ls='--', color='k', lw=0.8); axes[0, j].set_title(ds, fontsize=9, fontweight='bold')
-        axes[1, j].axhline(0, color='k', lw=0.8)
+            ls = '--' if m in ('Boger', 'GoCo-sel') else '-'
+            style = dict(marker=MARK[m], ms=7 if m == 'Boger' else (6 if MARK[m] == '*' else 4), color=C[m], label=NAME[m], ls=ls, markerfacecolor='none' if m == 'Boger' else C[m], markeredgewidth=1.4 if m == 'Boger' else 0.8, zorder=5 if m == 'Boger' else 3)
+            axes[0, j].plot(g.index, g.fdp, **style)
+            axes[1, j].plot(g.index, 100 * (g.terms / ref.loc[g.index] - 1), **style)
+        axes[0, j].plot([0.04, 0.21], [0.04, 0.21], ls=':', color='k', lw=0.8); axes[0, j].set_title(ds, fontsize=9, fontweight='bold')
+        axes[1, j].axhline(0, color='#dddddd', lw=0.5, zorder=1)
         for r in range(2):
             axes[r, j].set_xticks([0.05, 0.10, 0.20]); axes[r, j].set_xlabel(r'target $\alpha$', fontsize=7.5); axes[r, j].grid(lw=0.3, alpha=0.5)
-    axes[0, 0].set_ylabel('mean held-out gene-level FDP'); axes[1, 0].set_ylabel('correct calls, % change vs Multilabel')
-    axes[0, 0].legend(fontsize=6.5, frameon=False, loc='upper left')
-    axes[0, 0].text(-0.02, 1.25, 'A  Held-out risk tracks the target', transform=axes[0, 0].transAxes, fontsize=9, fontweight='bold')
+    axes[0, 0].set_ylabel('mean held-out gene-level FDP'); axes[1, 0].set_ylabel('supported calls, % change vs Multilabel')
+    handles, labels = axes[0, 0].get_legend_handles_labels()
+    fig.legend(handles, labels, fontsize=8, frameon=False, loc='upper center', bbox_to_anchor=(0.52, 1.04), ncol=len(methods))
+    axes[0, 0].text(-0.02, 1.25, 'A  Mean held-out FDP', transform=axes[0, 0].transAxes, fontsize=9, fontweight='bold')
     axes[1, 0].text(-0.02, 1.1, 'B  Yield relative to Multilabel at each target', transform=axes[1, 0].transAxes, fontsize=9, fontweight='bold')
     save(fig, name)
 fig_sweep(0.50, 'Figure4_alpha_sweep_delta050')
+if os.environ.get('GOCO_FIGURES_ONLY') == 'sweep':
+    print('Figure 4 regenerated from frozen results; no analyses rerun.')
+    sys.exit(0)
 
 # ------------------------------------------------------------------ Figure 2: ties and the risk staircase
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

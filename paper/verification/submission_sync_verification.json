@@ -1,0 +1,13 @@
+{
+  "baseline_commit": "7c2ab4bc41c5bcd05dc99232ab253b59a6282c0e",
+  "remote_changed": false,
+  "current_tables": 15,
+  "main_tables": 2,
+  "supplementary_tables": 13,
+  "all_13_numeric_expectation_arrays_unchanged": true,
+  "all_15_table_fragments_exactly_match_submission": true,
+  "protected_input_result_split_files_unmodified": 67,
+  "statistical_and_prediction_code_unchanged": true,
+  "table_and_figure_generators_not_executed": true,
+  "publication_generator_syntax_checked": true
+}

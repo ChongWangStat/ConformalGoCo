@@ -1,8 +1,8 @@
 # Current reproducibility file checksums
 
-SHA-256 hashes cover the current checkout. This manifest excludes itself and temporary build output.
+SHA-256 hashes cover Git-normalized file contents (text line endings may differ in a Windows checkout). This manifest excludes itself and temporary build output.
 
-The complete FunMap score file and large STRING view are distributed separately through the Zenodo archive.
+Large inputs intentionally absent from Git are not covered here; see README.md for their availability and archive scope.
 
 | File | Bytes | SHA-256 |
 |---|---:|---|
@@ -11,7 +11,7 @@ The complete FunMap score file and large STRING view are distributed separately 
 | `.zenodo.json` | 1029 | `37e9afa641f98ba1f3d7e3c9dbe7049ac6a84b564a85bb59d672fea4f0c8fd8e` |
 | `CITATION.cff` | 1360 | `c709d27e9ebeec600c567e07bfb6a44772025de05a79cfa0b2d4b3fc1c99af14` |
 | `LICENSE` | 1092 | `2e1b6124893bb6e158c426869d3c559d4cb92368138342c411341d800a8f3057` |
-| `README.md` | 5767 | `6ae1e8c05b1a3aa0a77b6e85197a59e862658b612d28eb69a81c782106cac1ff` |
+| `README.md` | 6963 | `b62d0a48bb982140c2d3e2fbfd437ee822f79cfba069945482f52d7c563ee6f0` |
 | `code/_table_builder.py` | 51713 | `d9a19e7536d60ab32c475f40070af82b74af2ec6a0397373729c161f0ccd9a4a` |
 | `code/build_string_from_shipped_nb.py` | 9519 | `b1cbcd9159dd795c4872f1667c9f3ab9519f02a7ca43552f96acabc602059d39` |
 | `code/build_string_validation.py` | 10707 | `b994b7c55fc729846d462f2d991dc38e5076353854e245011222e729fff1074a` |
@@ -25,9 +25,9 @@ The complete FunMap score file and large STRING view are distributed separately 
 | `code/goco_second_family.py` | 15546 | `9e450ebf5884f2ced0fdabe565bae4642bacd1cdc92b1d98fd9cbaf9215ec150` |
 | `code/make_block_diagnostics.py` | 9055 | `9c21c9f8186ee832f5a165190e8c6ed4c5142ad278e5a1192fd36cdeda3a8958` |
 | `code/make_case_study.py` | 6043 | `8fa1c88989b99345a25d34fb16505d43e2a57e1df4db34196e30abc8c1d4c07e` |
-| `code/make_code_freeze.py` | 1021 | `9019bdc5950e09acffe8ce5fe20f75413ac36841d48e52ec9f326d2977e993f3` |
-| `code/make_figures.py` | 8615 | `5daa27ba83cf6af3ee61ad525c1566f04ea4857c7f472b967f32b7a0d19190cf` |
-| `code/make_paper_tables.py` | 3432 | `6244a9b2cad8585567e2b4c587b3e41e16e6507251616ab600ec219996a707ff` |
+| `code/make_code_freeze.py` | 1297 | `74ea37ee7265da8ec3dbc1f0296a2d25518217ca3b87ff8ad1359651b948b78b` |
+| `code/make_figures.py` | 9103 | `43252a6968c48f63d730f7f6ea01e493d7e1c4dfb0dc24341728a9ff3ec0db1b` |
+| `code/make_paper_tables.py` | 3436 | `ec78f52467a31caabde3f5b2283ef3ecc8f4343fc79b409d29c16ecb80f2af0f` |
 | `code/make_supp_tables.py` | 2789 | `f76f0460efac8428d743fcafd758e1b21ca812a7433a8673c22a2686b2472aba` |
 | `code/make_table_s9.py` | 2916 | `21385b934e02ea9170a1dd3da7c3544a11b34ff2f6147f4f562100d3ddb82a2c` |
 | `code/make_tables.py` | 15174 | `7a5f102ae15da76b18d52090b06d1a6999cffa422f240f4ec24eeb81cfe97e81` |
@@ -55,36 +55,40 @@ The complete FunMap score file and large STRING view are distributed separately 
 | `funmap/go_truth_direct.csv.gz` | 685982 | `593841d888b1d764a46d1ebaa010c835466d53be13c935c851861a5853913cf3` |
 | `funmap/go_truth_true_path.csv.gz` | 3396068 | `b569c4b4a7cb70b3e8071dd03d0f19510e720a95ee5892c62fa51a3e7a479f2c` |
 | `funmap/score_construction_metadata.json` | 1006 | `bc03c6012662ca99a8ffa5207d619d3e0d3e1308322f0ff796c5d2d1b33d7901` |
-| `paper/figures/Figure2_ties.pdf` | 26295 | `d5ecf63f0cd66af03f46ff7eebc18b348195565d0f01cc477fd01bd3219613dc` |
+| `paper/figures/Figure2_ties.pdf` | 26295 | `fdf23eca132e1b393e9a53633a0a10d1b99ec7a2bb27395f12df38a0dee4c04b` |
 | `paper/figures/Figure2_ties.png` | 184999 | `ddc19890e74a921084e44c3638d6c8fec433f2601cb1342c00544ad8a7633bbc` |
-| `paper/figures/Figure3_primary_delta050.pdf` | 29385 | `f88d53682f6dfe22b433ee66986a1b26a6f2cb80366d0a242bae51dac23132b9` |
+| `paper/figures/Figure3_primary_delta050.pdf` | 29385 | `2d41202006275f16960725a1c0a121da0207f6c7e32c212da3aa7526ef840574` |
 | `paper/figures/Figure3_primary_delta050.png` | 144575 | `9624b09e040efbad3caaab1d989ce340a761a5458db55a23fc4c49abb3625354` |
-| `paper/figures/Figure4_alpha_sweep_delta050.pdf` | 34149 | `361e29543557cc30393811304e5ebd4c3cd1799e234d29bde6816ff03d2146de` |
-| `paper/figures/Figure4_alpha_sweep_delta050.png` | 297393 | `fe70e20ee4cddcc107a3fbed1b14ade42e50f43430064335580a541941908bfb` |
-| `paper/figures/FigureS1_primary_delta010.pdf` | 29354 | `6797e2ebae5121a3004a583b0a5dbbea48c44768c0050523983ee7151b844422` |
+| `paper/figures/Figure4_alpha_sweep_delta050.pdf` | 33989 | `33308b738b593f38bfdfcff14d9f89b0f8d8d8fbc2da5dea001004e20bcb3199` |
+| `paper/figures/Figure4_alpha_sweep_delta050.png` | 295221 | `78397c64a6d6bc6b6fa0caff93bfec2591b5680f9b5cc6d56d6a9945aaeca0ef` |
+| `paper/figures/FigureS1_primary_delta010.pdf` | 29354 | `bf4dedb02669c87da968af3a2595c4b68951478307ce7077c6b741d58643d3be` |
 | `paper/figures/FigureS1_primary_delta010.png` | 143126 | `6ab20695d0b7eddf1867368ec79a695d3b64021612d724ed03819b536a6f86e6` |
-| `paper/figures/GoCo_Workflow.pdf` | 37432 | `9353d70510c734e1b166202ae5b32cab991519bdae358c076f1f86d0f9e4313c` |
-| `paper/figures/GoCo_Workflow.png` | 362357 | `5606a016765c0928600d9b7d8f62c0e46aa94baf332e3b1b3be6ad9d76142ee9` |
-| `paper/table_specs.json` | 27033 | `202507c1d6be8d871ee19ce2d817e6259d9080682a275d52850330339126e7fc` |
-| `paper/tables/Table1_constants.tex` | 2993 | `400676f806d25b99d89c4aba7140d29d1f10062c1ddba11e4795a9ca54bd6345` |
-| `paper/tables/Table2_methods_compared.tex` | 1793 | `7420a2b27cd083cd74492fc4f8bff23ca65f4fd2d68e0bb327de9a94c9153fe5` |
-| `paper/tables/Table3_panel_module.tex` | 3736 | `d60169e175497c8093e9ece8b9f2c53b3b912bf327c43cae750c351664e77f95` |
-| `paper/tables/Table4_alpha_sweep_delta050.tex` | 2924 | `a96ff3051e4b6d38cc8574da44310fde830ca820593272b79f136b2043022891` |
-| `paper/tables/Table5_panel_neighbourhood.tex` | 3049 | `5548fb667c74d816fd69749f559685cff025d18846e9724d3a79646ef44b64e2` |
+| `paper/figures/GoCo_Workflow.pdf` | 37438 | `00d7e94f1d3cb7f8618afe14ee6240d1d67f22aaeebcd95d970f131270649278` |
+| `paper/figures/GoCo_Workflow.png` | 335279 | `0556ea53c5c594d90e47a9f40e042f2e558de6443f8dd5165632b1bc0e8eb07b` |
+| `paper/submission/GoCo_main.pdf` | 680685 | `5cdaa15bc95ebe93afeca9cfa174fb44854beed3270c1e269be2a3cfe8487734` |
+| `paper/submission/GoCo_submission_sources_2026-09-28_checked.zip` | 508073 | `592886fb448bee64da10da9a29face955d19bc2c338314ffd689cdd25d6ab6da` |
+| `paper/submission/GoCo_supplement.pdf` | 504075 | `38af7d812861dcc01d1e975ddda5964c6a5e87c01f72f4a4146452658c6269f7` |
+| `paper/table_specs.json` | 25915 | `9afb63a5bc4169eac3ec0caf562eec2c1d0b2b0ec15068f64bb4fdd838e4adce` |
+| `paper/tables/Table1_panel_module.tex` | 3447 | `4ed6f474ac242d6183fb3d4a4271d19ddee12108dda2e250eda0f805c0455e64` |
+| `paper/tables/Table2_panel_neighbourhood.tex` | 2209 | `3a6973d9df8bc4e92f8514a4f6d37789680d2e1888fe468b2908784aaa5a3753` |
 | `paper/tables/TableS10_current_practice.tex` | 2923 | `c61fff596b7a653cd6c55900ed5f148269766d2e368305b2b7e566097cb58359` |
-| `paper/tables/TableS1_detail.tex` | 5763 | `9ea9290f19d037c7cc315eb25fa5ea5d4a00b6ad4239792f3ad02ad62305b7b3` |
-| `paper/tables/TableS2_alpha_sweep_delta010.tex` | 2921 | `acdf700de55d8d8ee7fad4a2418e086dd11d4d99ae07426a383dfffcb32084ce` |
-| `paper/tables/TableS3_risk_decomposition.tex` | 2149 | `39d386bbae00425e1c860391a384e573d47aead99b97d053c3ed92a834f66fbe` |
-| `paper/tables/TableS4_block_diagnostics.tex` | 1196 | `ace744372ab03a0d11ac521973b3fbfc819dcf7625e8a1a0d25344d56f029d56` |
-| `paper/tables/TableS5_case_study.tex` | 3732 | `c36a975c2d7356c771474f3bffe07247a08b2e787ce60f8ddf97392815cb9223` |
-| `paper/tables/TableS6_estimands.tex` | 889 | `b681679e8d898197021312a1a72ce1d9961c493206d549e6f5a131b7727abbaa` |
-| `paper/tables/TableS7_structures.tex` | 2377 | `45fed64966e009c791405bd10dbe42a94fc0ec34b00a7caa5da2d3fd5d54340a` |
+| `paper/tables/TableS11_constants.tex` | 3009 | `3069a1addbc212ab0cf1bceb307d19b800f67296f0830909fbe7d0146d65f91a` |
+| `paper/tables/TableS12_methods_compared.tex` | 1818 | `c11aa6c651e2369d21b06362ba7d775c34bb463b85d3f9036f930e3b6995c00e` |
+| `paper/tables/TableS13_alpha_sweep_delta050.tex` | 2940 | `e1eabf37ff3c9b43aaddf6e9907918b57337209e3c2a259697f08e6ec50efd39` |
+| `paper/tables/TableS1_detail.tex` | 5799 | `25ac0af535b616aa783fcd4e2f7bc45a7c934562e458e8c4ded56bd5134674ae` |
+| `paper/tables/TableS2_alpha_sweep_delta010.tex` | 2914 | `1a24251743f830b774b4f7b4e8e0a5b1960de7e2078feab33b63f2353a7a30f3` |
+| `paper/tables/TableS3_risk_decomposition.tex` | 2167 | `9de1e6b1729ad2548b8798d08a00d175b3ef1d840b97518f917aab54470c9a1c` |
+| `paper/tables/TableS4_block_diagnostics.tex` | 1197 | `649fd78e2fd81b7d9e7b1907c3c148e2247699467175a591bda8ffe0d7477e5e` |
+| `paper/tables/TableS5_case_study.tex` | 3735 | `f221798950b2fb5a760043363f072ddf5c7df5a3ec00b4928b955f41560c3ee3` |
+| `paper/tables/TableS6_estimands.tex` | 1004 | `6082ce35f9062b09ebf8a429e8b90363b64e4b22e96fdc78121ecee3b17b992a` |
+| `paper/tables/TableS7_structures.tex` | 2439 | `3b5c8487506cd8b1be30c622f3234c54daa7fea7a126b58291f866dea79525c1` |
 | `paper/tables/TableS8_oracle_frontier.tex` | 1213 | `9dd91154ad6d7cd368ae317fa308b1010f9165d9996921f1d512fb8c83775757` |
 | `paper/tables/TableS9_selection_rule.tex` | 2229 | `c193a9febb3916e30d5fc31357d85c6a6045233df605fb7bd70bf418c0d32bd7` |
 | `paper/tables/key_numbers.json` | 71399 | `7d9c162cd6a95599aee11137dfba81b7f53f5811d57494306d34488e280473a1` |
-| `paper/verification/release_verification.json` | 447 | `b3dddfdba26e68a81cf0da22b474d6ecd9e5c10ae0aa2d00c39302b136d036e8` |
-| `paper/verification/table_verification.json` | 1353 | `2383456468568b7180eaa6e1fa3a4407970c70393be871726478ea4237635659` |
-| `paper/verification/validation_summary.json` | 544 | `da14a4491adb1c5a16f6bab48521de50598b576483444fbea839c7231ba33081` |
+| `paper/verification/release_verification.json` | 834 | `e8c2aa3f6925f644458df47a3a99e3edb2a7062a582bc4fd2caf42f5a5dc4a53` |
+| `paper/verification/submission_sync_verification.json` | 491 | `01d66fb2b4b524a9248db8712fbb84df009b5b9b590142b5daf7507aa67d881b` |
+| `paper/verification/table_verification.json` | 1355 | `329e84de37a2b3c568f755e5858b0d270e3186e16e296053fac618c3faa85c52` |
+| `paper/verification/validation_summary.json` | 855 | `0a440f811127019fb36916559c376f2e68fb0dff459a18482375e1601da7bb1e` |
 | `results/all_methods_harmonised_100splits.csv` | 3171816 | `814c8a0bdc37a8a7e4707e96b97e7b359c0067055328564a73ab8657e432ff0f` |
 | `results/block_diagnostics_alpha010.csv` | 1019 | `d93961dff58bb72662b2b966ab83761afa65b28e0f78f281c6dedf9486872ea1` |
 | `results/case_study_split0.csv` | 8030 | `1d71f060fb2e6c0214ad63394cd5d913ac482296b4f24ac9821388ab42cf8e87` |

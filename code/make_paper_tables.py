@@ -38,7 +38,7 @@ def replace_command(text, name, replacement):
 def main():
     TABLES.mkdir(parents=True,exist_ok=True)
     spec=json.loads((ROOT/'paper'/'table_specs.json').read_text())
-    static={p.name:p.read_text() for p in TABLES.glob('*.tex') if p.name in ('Table1_constants.tex','Table2_methods_compared.tex')}
+    static={p.name:p.read_text() for p in TABLES.glob('*.tex') if p.name in ('TableS11_constants.tex','TableS12_methods_compared.tex')}
     for script in ['make_tables.py','make_supp_tables.py','make_block_diagnostics.py','make_case_study.py','make_table_s9.py','_table_builder.py']:
         subprocess.run([sys.executable,str(ROOT/'code'/script)],cwd=ROOT,check=True)
     final=dict(static); report={}; failures=[]

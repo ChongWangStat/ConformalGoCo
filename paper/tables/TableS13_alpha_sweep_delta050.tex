@@ -37,5 +37,6 @@ STRING & Multilabel (Direct loss, shared grid) & 0.0386 & 424.9 & 0.0828 & 828.1
  & \textbf{GoCo-N} & 0.0466 & 663.9 & 0.0944 & 1208.0 & 0.1905 & 2332.3 \\
 \bottomrule
 \end{tabular}
-\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize FDP: mean held-out gene-level TruePath false discovery proportion. Correct calls: released gene--GO pairs the frozen reference confirms. Each structure is shown with the instantiation prespecified for it. Within each block every rule uses the same grid, so the rows are comparable: GoCo-M and GoDag share the 25-unit grid in the module block, and Multilabel and GoDag the shared coarse grid in the neighbourhood block, where the refined grid---free for a tie-free score---is shown as a separate GoDag row.\end{minipage}
+\par\vspace{3pt}\begin{minipage}{\linewidth}\footnotesize FDP: mean held-out gene-level TruePath false discovery proportion. Correct calls: released gene--GO pairs the frozen reference confirms. Each structure is shown with the instantiation prespecified for it. Module-family GoCo-M and GoDag share the 25-unit grid. In the neighbourhood family, Multilabel and GoDag are shown on the shared coarse grid, with refined-grid GoDag separately; GoCo-N uses a distinct call-ordered path. Grid refinement does not change the fixed-sequence multiplicity argument.\end{minipage}
+\label{supp:last-page}
 \end{table*}

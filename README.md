@@ -21,8 +21,9 @@ funmap/        frozen FunMap network, neighbourhood and GO-reference objects
 string/        STRING experiments-channel objects and large-input checksums
 splits/        explicit T/C/E assignments for all six panels and 100 streams
 results/       current split-level results (sf/ = neighbourhood; wf/ = modules)
-paper/tables/  current main Tables 1--5 and Supplementary Tables S1--S10
+paper/tables/  current main Tables 1--2 and Supplementary Tables S1--S13
 paper/figures/ current Figures 1--4 and Supplementary Figure S1
+paper/submission/ checked main/supplement PDFs and the clean LaTeX source bundle
 ```
 
 There is one current set of results and publication outputs. Old 50-split results, Near-d sensitivity materials, duplicate table sets, and unused graphics are not retained in the active tree. Git history is preserved. The `v4` component in two result filenames identifies the frozen analysis specification, not a second copy of those results.
@@ -39,7 +40,9 @@ python code/make_figures.py
 python code/verify_release.py
 ```
 
-The table builder recalculates the numeric cells from the stored analysis outputs. The authors' current captions, notes, and expected displayed numbers in `paper/table_specs.json` are used for formatting and verification, not as calculation inputs. Figures are drawn by Python/Matplotlib; no generative-image model or pre-existing illustration is used by their builders. Figure 4 uses **Multilabel** as its percentage-gain denominator.
+The table builder recalculates the numeric cells from the stored analysis outputs. The authors' current captions, notes, and expected displayed numbers in `paper/table_specs.json` are used for formatting and verification, not as calculation inputs. Figures are drawn by Python/Matplotlib; no generative-image model or pre-existing illustration is used by their builders. Figure 4 uses **Multilabel** as its percentage-gain denominator. The sensitivity-figure formatting and colours match the submitted version; the workflow remains the original Python-generated figure.
+
+The 28 September 2026 submission has two main tables and thirteen supplementary tables. Constants, the method inventory and the delta=0.50 sweep are Tables S11, S12 and S13, respectively. Internal intermediate table filenames in the calculation scripts retain their historical names; paper/table_specs.json maps them to the current publication filenames. Numerical calculations and stored analysis results are unchanged. The paper/submission/ directory contains the checked manuscript PDFs and a clean source archive, not internal review or redline material. Its source archive includes the five figures actually referenced by the TeX files and the class, cross-reference sidecars and build helper needed to compile them. This synchronization does not update Zenodo.
 
 ## Recompute analyses
 

@@ -1,7 +1,11 @@
 {
-  "table_check": "All 13 calculated tables match displayed manuscript numbers",
-  "split_check": "All six explicit tables match the decompressed v4-bundle checksums",
-  "neighbourhood_outputs": "100 unique repeats per arm/target/delta",
-  "figures": "Five current figures regenerated from Python; Figure 4 baseline is Multilabel",
-  "raw_neighbourhood_rerun": "Not performed in this synchronization; large FunMap/STRING inputs are not in Git"
+  "scope": "28 September 2026 submission-file synchronization; read-only comparison with stored results and the previously checked manuscript.",
+  "table_check": "13 numerical expectation arrays unchanged; all 15 table fragments exactly match the checked manuscript.",
+  "layout": "Main Tables 1-2; Supplementary Tables S1-S13.",
+  "manuscript_check": "Four requested text replacements only; 21 displayed mathematical blocks and all 15 manuscript tables unchanged.",
+  "figures": "Approved existing Python-generated figures copied; no figure or analysis generator executed.",
+  "statistical_and_prediction_code": "Unchanged.",
+  "raw_input_analysis_rerun": "Not performed.",
+  "source_archive": "paper/submission/GoCo_submission_sources_2026-09-28_checked.zip",
+  "zenodo": "Not updated; final release step remains with authors."
 }
