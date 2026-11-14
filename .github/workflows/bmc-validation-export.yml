@@ -1,0 +1,39 @@
+name: Export frozen GoCo module inputs for BMC validation
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths: ['.github/workflows/bmc-validation-export.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm frozen module datasets and code
+        shell: bash
+        run: |
+          test -s code/goco_rerun.py
+          test -s code/goco_learned.py
+          test -s w/go_truth_direct.csv.gz
+          test -s w/go_truth_true_path.csv.gz
+          test -s w/wainberg_highscore_source_attribution.csv.gz
+          test -s ext/sanger_external_go_scores_extended100.csv.gz
+          test -s ext/drive_external_go_scores_extended100.csv.gz
+          test -s ext/hap1_external_go_scores_extended100.csv.gz
+          sha256sum w/* ext/* > FROZEN_INPUT_SHA256.txt
+      - name: Export frozen public module data and scripts
+        uses: actions/upload-artifact@v4
+        with:
+          name: goco-bmc-module-inputs
+          path: |
+            code/
+            w/
+            ext/
+            FROZEN_INPUT_SHA256.txt
+          if-no-files-found: error
+          retention-days: 3
