@@ -16,10 +16,10 @@ At the **principal BMC setting** (`alpha=delta=0.10`), GoCo-M released **6.3--15
 The BMC revision adds matched-certification-fold comparisons on six panels and a fixed-resolution ordering ablation on four module panels (100 splits each). Both are documented and verified from archived split results.
 
 - [Updated ablation and paired reproducibility bundle](bmc_analysis/GoCo_BMC_Reproducibility_Extension_2026-11-15.tar.gz)
-- [Current official publisher-template LaTeX sources and figures](paper/bmc_2026-11-15/GoCo_BMC_Official_Sources_2026-11-15.tar.gz)
+- [Published BMC numerical Tables 1–4 and Figures S3–S4](bmc_analysis/GoCo_BMC_Results_Tables_Figures_2026-11-15.tar.gz)
 - [Verification and reproduction instructions](BMC_RELEASE_2026-11-15.md)
 
-The repository's existing code, frozen predictor inputs, 100-split fold assignments and original benchmark outputs are preserved. The final BMC source archive contains the current principal `delta=0.10` manuscript and supplement. The new data archive contains all 400 ablation splits, 800 paired differences, scripts and verification checks.
+The repository's existing code, frozen predictor inputs, 100-split fold assignments and original benchmark outputs are preserved. Only code, frozen inputs, data, table values, figures, and verification scripts are distributed here. Manuscript and LaTeX sources are **not published in this repository**. The revised data archive contains all 400 ablation splits, 800 paired differences, scripts and verification checks; the tables/figures bundle contains the four main result tables as CSV plus new supplementary figures.
 
 ## Current file layout
 
@@ -31,9 +31,9 @@ funmap/        frozen FunMap network, neighbourhood and GO-reference objects
 string/        STRING experiments-channel objects and large-input checksums
 splits/        explicit T/C/E assignments for all six panels and 100 streams
 results/       current split-level results (sf/ = neighbourhood; wf/ = modules)
-paper/tables/  current main Tables 1--2 and Supplementary Tables S1--S13
+paper/tables/  table-value JSON, specifications and locally generated outputs (tracked LaTeX table fragments removed)
 paper/figures/ current Figures 1--4 and Supplementary Figure S1
-paper/submission/ checked main/supplement PDFs and the clean LaTeX source bundle
+bmc_analysis/   100-split ablation, paired contrasts, result table CSVs, and figures
 ```
 
 There is one current set of results and publication outputs. Old 50-split results, Near-d sensitivity materials, duplicate table sets, and unused graphics are not retained in the active tree. Git history is preserved. The `v4` component in two result filenames identifies the frozen analysis specification, not a second copy of those results.
@@ -52,7 +52,7 @@ python code/verify_release.py
 
 The table builder recalculates the numeric cells from the stored analysis outputs. The authors' current captions, notes, and expected displayed numbers in `paper/table_specs.json` are used for formatting and verification, not as calculation inputs. Figures are drawn by Python/Matplotlib; no generative-image model or pre-existing illustration is used by their builders. Figure 4 uses **Multilabel** as its percentage-gain denominator. The sensitivity-figure formatting and colours match the submitted version; the workflow remains the original Python-generated figure.
 
-The archived September submission has two main tables and thirteen supplementary tables; the final November BMC tables are in the new source archive. Constants, the method inventory and the delta=0.50 sweep are Tables S11, S12 and S13, respectively. Internal intermediate table filenames in the calculation scripts retain their historical names; paper/table_specs.json maps them to the current publication filenames. Numerical calculations and stored analysis results are unchanged. The paper/submission/ directory contains the checked manuscript PDFs and a clean source archive, not internal review or redline material. Its source archive includes the five figures actually referenced by the TeX files and the class, cross-reference sidecars and build helper needed to compile them. The manuscript uses a pinned GitHub commit/release for this submission.
+The archived September submission had two main tables and thirteen supplementary tables; the final November BMC numerical tables are shared as CSV in the results/figures bundle. Constants, the method inventory and the delta=0.50 sweep are Tables S11, S12 and S13, respectively. Internal intermediate table filenames in the calculation scripts retain their historical names; paper/table_specs.json maps them to the current publication filenames. Numerical calculations and stored analysis results are unchanged. The manuscript and its LaTeX source are provided directly with the journal submission, not in this software/data repository. Table-building scripts can generate TeX table snippets locally when needed; generated TeX is not tracked. Use the pinned GitHub `v4.1.1-bmc` code/data release for the BMC analysis; no publisher source is included.
 
 ## Recompute analyses
 
@@ -88,4 +88,4 @@ A summary/table rebuild is not a full raw-input rerun. The verification tools re
 
 ## License and citation
 
-Code is released under the MIT License. Cite the manuscript and the pinned GitHub BMC release using `CITATION.cff`.
+Code is released under the MIT License. Cite the manuscript and the pinned GitHub `v4.1.1-bmc` code-and-results release using `CITATION.cff`.

@@ -10,3 +10,10 @@ string/funmap_view/*.csv.gz
 string/funmap_view/*.npz
 results/_verify/
 results/sf/_verify/
+
+# Manuscript and publisher source are not stored in this code-and-results repository.
+paper/submission/
+paper/bmc_*/
+paper/tables/*.tex
+*.aux
+*.log
