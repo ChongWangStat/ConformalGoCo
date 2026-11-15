@@ -25,8 +25,10 @@ python bmc_bundled/bmc_analysis/run_matched_ablation.py --repo . --families modu
 
 These analyses use frozen predictor outputs and preserve the same ranking, certification and evaluation folds. The control results do not claim a new independent cohort. Raw FunMap/STRING score inputs needed for a new neighborhood ordering ablation are not bundled; the already archived neighbourhood benchmark results are included in the main repository.
 
+To regenerate Supplementary Figures S3 and S4 from the shipped split-level differences after extraction, run `python bmc_public/code/plot_bmc_added_figures.py --data bmc_bundled --output bmc_replotted`. The four principal table values are provided as CSV files in the results/figures bundle.
+
 ## Citation and exact release
 
-Refer to the repository's **versioned `v4.1.1-bmc` release / commit** when available, and use GitHub as the software source. The BMC submission cites this pinned GitHub version; no Zenodo record is required or claimed for the revision.
+Refer to the repository's **versioned `v4.1.2-bmc` release / commit** when available, and use GitHub as the software source. The BMC submission cites this pinned GitHub version; no Zenodo record is required or claimed for the revision.
 
 This repository contains reproducibility materials only; the author-approved manuscript, LaTeX and supplement are distributed directly with the journal submission. Results, tables and figures are reproducible from the frozen code and inputs in this release.

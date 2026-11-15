@@ -52,7 +52,7 @@ python code/verify_release.py
 
 The table builder recalculates the numeric cells from the stored analysis outputs. The authors' current captions, notes, and expected displayed numbers in `paper/table_specs.json` are used for formatting and verification, not as calculation inputs. Figures are drawn by Python/Matplotlib; no generative-image model or pre-existing illustration is used by their builders. Figure 4 uses **Multilabel** as its percentage-gain denominator. The sensitivity-figure formatting and colours match the submitted version; the workflow remains the original Python-generated figure.
 
-The archived September submission had two main tables and thirteen supplementary tables; the final November BMC numerical tables are shared as CSV in the results/figures bundle. Constants, the method inventory and the delta=0.50 sweep are Tables S11, S12 and S13, respectively. Internal intermediate table filenames in the calculation scripts retain their historical names; paper/table_specs.json maps them to the current publication filenames. Numerical calculations and stored analysis results are unchanged. The manuscript and its LaTeX source are provided directly with the journal submission, not in this software/data repository. Table-building scripts can generate TeX table snippets locally when needed; generated TeX is not tracked. Use the pinned GitHub `v4.1.1-bmc` code/data release for the BMC analysis; no publisher source is included.
+The archived September submission had two main tables and thirteen supplementary tables; the final November BMC numerical tables are shared as CSV in the results/figures bundle. Constants, the method inventory and the delta=0.50 sweep are Tables S11, S12 and S13, respectively. Internal intermediate table filenames in the calculation scripts retain their historical names; paper/table_specs.json maps them to the current publication filenames. Numerical calculations and stored analysis results are unchanged. The manuscript and its LaTeX source are provided directly with the journal submission, not in this software/data repository. Table-building scripts can generate TeX table snippets locally when needed; generated TeX is not tracked. Use the pinned GitHub `v4.1.2-bmc` code/data release for the BMC analysis; no publisher source is included.
 
 ## Recompute analyses
 
@@ -88,4 +88,4 @@ A summary/table rebuild is not a full raw-input rerun. The verification tools re
 
 ## License and citation
 
-Code is released under the MIT License. Cite the manuscript and the pinned GitHub `v4.1.1-bmc` code-and-results release using `CITATION.cff`.
+Code is released under the MIT License. Cite the manuscript and the pinned GitHub `v4.1.2-bmc` code-and-results release using `CITATION.cff`.
