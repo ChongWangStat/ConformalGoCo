@@ -1,55 +1,53 @@
-name: Verify GoCo BMC code-and-results release
+name: Regenerate BMC results from code and frozen prediction inputs
 on:
   push:
-    branches: [main, bmc-results-only-20261115]
+    branches: [main, bmc-code-inputs-20261115]
 permissions:
   contents: write
 jobs:
-  verify-results:
+  reproduce:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 40
+    env:
+      MPLBACKEND: Agg
+      OMP_NUM_THREADS: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.13'
-      - run: python -m pip install numpy pandas scipy matplotlib
-      - name: Verify all reproducibility archives and unpack
+          python-version: '3.13.9'
+      - name: Install pinned analysis dependencies
+        run: python -m pip install -r code/requirements.txt
+      - name: Reconstruct every BMC table and figure
         run: |
-          tar -tzf bmc_analysis/GoCo_BMC_Reproducibility_Extension_2026-11-15.tar.gz > /dev/null
-          tar -tzf bmc_analysis/GoCo_BMC_Results_Tables_Figures_2026-11-15.tar.gz > /dev/null
-          mkdir -p bmc_unpacked bmc_public
-          tar -xzf bmc_analysis/GoCo_BMC_Reproducibility_Extension_2026-11-15.tar.gz -C bmc_unpacked
-          tar -xzf bmc_analysis/GoCo_BMC_Results_Tables_Figures_2026-11-15.tar.gz -C bmc_public
-      - name: Verify 400 ordering splits and 800 paired differences
+          python code/rebuild_missing_splits.py
+          python code/reproduce_bmc.py --output generated/bmc
+          test -s generated/bmc/Table1_regenerated.csv
+          test -s generated/bmc/Table2_regenerated.csv
+          test -s generated/bmc/Table3_regenerated.csv
+          test -s generated/bmc/Table4_regenerated.csv
+          test -s generated/bmc/figures/FigureS3_regenerated.pdf
+          test -s generated/bmc/figures/FigureS4_regenerated.pdf
+          test -s generated/bmc/figures/FigureS1_primary_delta010.pdf
+      - name: Regenerate and check original numerical methods tables
         run: |
-          python bmc_unpacked/bmc_analysis/verify_ordering_ablation.py
-          python bmc_unpacked/bmc_analysis/paired_archive/test_reproduce.py
-      - name: Verify publication tables and new figures are present
+          python code/make_paper_tables.py
+          python code/verify_release.py
+      - name: Confirm current release has no stored manuscript or printed outputs
         run: |
-          test -s bmc_public/tables/Table1_module_010.csv
-          test -s bmc_public/tables/Table2_neighbour_010.csv
-          test -s bmc_public/tables/Table3_matched_fold_differences.csv
-          test -s bmc_public/tables/Table4_ordering_ablation.csv
-          test -s bmc_public/figures/FigureS3_paired_changes.pdf
-          test -s bmc_public/figures/FigureS4_ordering_ablation.pdf
-          python bmc_public/code/plot_bmc_added_figures.py --data bmc_unpacked --output bmc_replotted
-          test -s bmc_replotted/FigureS3_paired_changes_regenerated.pdf
-          test -s bmc_replotted/FigureS4_ordering_ablation_regenerated.pdf
-      - name: Confirm no tracked manuscript or LaTeX files
-        run: |
-          if git ls-files | grep -E '(^paper/submission/|^paper/bmc_|\.tex$|BMC_GoCo_main\.pdf|BMC_GoCo_supplement\.pdf)'; then
-            echo 'Unexpected manuscript/LaTeX content in the repository'; exit 1
+          if git ls-files | grep -E '(^paper/|^generated/|\.tex$|\.pdf$|\.png$|Results_Tables_Figures|Official_Sources|Submission_Source)'; then
+            echo 'Publication copy found in reproducibility repository'; exit 1
           fi
-      - name: Publish results-only release and remove obsolete manuscript release
+      - name: Publish tagged input-and-code release after checks pass
         if: github.ref == 'refs/heads/main'
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if ! gh release view v4.1.2-bmc >/dev/null 2>&1; then
-            gh release create v4.1.2-bmc --target "$GITHUB_SHA" --title 'GoCo v4.1.1 — BMC reproducibility only' --notes-file BMC_RELEASE_2026-11-15.md
+          if ! gh release view v4.1.3-bmc >/dev/null 2>&1; then
+            gh release create v4.1.3-bmc --target "$GITHUB_SHA" --title 'GoCo v4.1.3 — algorithms, frozen scores and reproduction code' --notes-file BMC_RELEASE_2026-11-15.md
           fi
-          if gh release view v4.1.1-bmc >/dev/null 2>&1; then
-            gh release delete v4.1.1-bmc --cleanup-tag --yes
+          if gh release view v4.1.2-bmc >/dev/null 2>&1; then
+            gh release delete v4.1.2-bmc --cleanup-tag --yes
           fi
-          git push origin --delete bmc-final-20261115 || true

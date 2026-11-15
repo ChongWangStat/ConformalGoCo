@@ -1,19 +1,20 @@
 __pycache__/
 *.pyc
-code/out/
 .DS_Store
+code/out/
+generated/
+paper/
+*.tex
+*.aux
+*.log
+*.pdf
+*.png
+results/_verify/
+results/sf/_verify/
+# Large raw model inputs and separate frozen per-call files unavailable here.
 funmap/funmap_gene_go_scores.csv.gz
 string/links.txt.gz
 string/info.txt.gz
 string/string_gene_go_scores.csv.gz
 string/funmap_view/*.csv.gz
 string/funmap_view/*.npz
-results/_verify/
-results/sf/_verify/
-
-# Manuscript and publisher source are not stored in this code-and-results repository.
-paper/submission/
-paper/bmc_*/
-paper/tables/*.tex
-*.aux
-*.log

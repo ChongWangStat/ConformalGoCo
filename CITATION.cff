@@ -3,7 +3,7 @@ message: "If you use this software, please cite the paper and versioned GitHub B
 title: "GoCo: structure-guided conformal calibration for error-controlled Gene Ontology annotation release — reference implementation, analysis inputs and split-level outputs"
 abstract: "Reference implementation, analysis inputs and split-level outputs for GoCo, a post-prediction calibration and release framework for Gene Ontology annotation."
 type: software
-version: 4.1.1-bmc
+version: 4.1.3-bmc
 license: MIT
 repository-code: "https://github.com/ChongWangStat/ConformalGoCo"
 authors:

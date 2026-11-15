@@ -1,34 +1,31 @@
-# GoCo for BMC Bioinformatics — 2026-11-15
+# GoCo BMC Bioinformatics — code, frozen prediction inputs and reproducibility
 
-The current submitted manuscript uses **alpha = 0.10 and delta = 0.10** as its principal risk setting. The original `delta=0.50` runs remain available as supplementary benchmark results.
+Release **v4.1.3-bmc** provides *only* analysis algorithms, frozen AI predictor scores where available, GO reference annotations, module/neighborhood source evidence, deterministic split assignments and intermediate split-level algorithm outputs.
 
-The repository's original `code/`, `w/`, `ext/`, `funmap/`, `string/`, `splits/`, and `results/` contain the frozen predictor code, fold assignments, and archived benchmark results. The two new extension artifacts are:
+**Do not store completed manuscript tables, pre-rendered figures, manuscript PDFs, or LaTeX files on GitHub.**
 
-- `bmc_analysis/GoCo_BMC_Reproducibility_Extension_2026-11-15.tar.gz`: exact scripts, 400-split/2,800-row matched-resolution ordering ablation, 800 paired archive differences, detailed protocol and verification scripts.
-- `bmc_analysis/GoCo_BMC_Results_Tables_Figures_2026-11-15.tar.gz`: Tables 1–4 as CSV, new Figures S3/S4 as PDF and a plotting script; **no manuscript, TeX, or publisher class**.
-
-## Verify the extension
-
+## Rebuild all published numerical result summaries and figures
+From the checked-out tagged release:
 ```bash
-mkdir -p bmc_bundled
-cd bmc_bundled
-tar -xzf ../bmc_analysis/GoCo_BMC_Reproducibility_Extension_2026-11-15.tar.gz
-python bmc_analysis/verify_ordering_ablation.py
-python bmc_analysis/paired_archive/test_reproduce.py
+python -m pip install -r code/requirements.txt
+python code/rebuild_missing_splits.py
+python code/reproduce_bmc.py --output generated/bmc
 ```
 
-To reproduce raw module ablations from the frozen inputs in the repository root (more time-consuming), run:
-
+The last command computes BMC numerical Tables 1–4 as local CSV files and regenerates all original plots plus the two new supplementary figures S3/S4 under an ignored directory. It does not read published tables or previously rendered figures. For the original supplementary numerical tables, run:
 ```bash
-python bmc_bundled/bmc_analysis/run_matched_ablation.py --repo . --families module --datasets Wainberg,Sanger,DRIVE,HAP1 --repeats 100 --random-reps 3 --out bmc_bundled/raw_repeat
+python code/make_paper_tables.py
+python code/verify_release.py
 ```
 
-These analyses use frozen predictor outputs and preserve the same ranking, certification and evaluation folds. The control results do not claim a new independent cohort. Raw FunMap/STRING score inputs needed for a new neighborhood ordering ablation are not bundled; the already archived neighbourhood benchmark results are included in the main repository.
+## Regenerate algorithm results directly from frozen input scores
 
-To regenerate Supplementary Figures S3 and S4 from the shipped split-level differences after extraction, run `python bmc_public/code/plot_bmc_added_figures.py --data bmc_bundled --output bmc_replotted`. The four principal table values are provided as CSV files in the results/figures bundle.
+For the four module panels, `code/goco_rerun.py` reruns the GO-hierarchy-aware global threshold and structure-guided calibration algorithms from the frozen predicted scores and evidence at `w/` and `ext/`. The fixed-resolution ablation re-run code is in `bmc_analysis/GoCo_BMC_Reproducibility_Extension_2026-11-15.tar.gz`.
 
-## Citation and exact release
+The original archived 100-split algorithm outputs (not publication table copies) remain in `results/` and in the BMC extension. They allow numerical checks and regenerated figures without retaining finished tables/figures.
 
-Refer to the repository's **versioned `v4.1.2-bmc` release / commit** when available, and use GitHub as the software source. The BMC submission cites this pinned GitHub version; no Zenodo record is required or claimed for the revision.
+**Transparency:** The exact frozen per-call FunMap and STRING score matrices are not currently tracked. The neighborhood-family published summaries can therefore be rebuilt from exact archived split-level outputs, but a full rerun of their policy selection *from original scores* requires those missing frozen score files. They must not be replaced silently with newly computed scores.
 
-This repository contains reproducibility materials only; the author-approved manuscript, LaTeX and supplement are distributed directly with the journal submission. Results, tables and figures are reproducible from the frozen code and inputs in this release.
+An upstream predictor's raw training records are **not** needed for GoCo calibration. See README.md for the explicit prediction-score, GO-reference, evidence, and fold schemas.
+
+The scientific manuscript, supplementary PDF and publisher LaTeX are distributed separately with the journal submission. GitHub is the primary code archive. No Zenodo record is assumed to update automatically.
