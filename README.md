@@ -9,7 +9,17 @@ GoCo calibrates annotation release from an existing, frozen predictor; it does n
 
 **GoCo-M** inserts partial-admission policies within score-grid steps, using shared module evidence. **GoCo-N** orders individual calls using gene-specific neighbourhood evidence. The ordering is learned on the ranking fold, then frozen before fixed-sequence certification.
 
-At the primary operating point (`alpha=0.10`, `delta=0.50`), GoCo-M released 6.3--17.6% more reference-supported calls than Multilabel across Wainberg, Sanger, DRIVE and HAP1. GoCo-N's gains over Multilabel on the same refined grid were 33.8% on FunMap and 36.4% on STRING. These are fixed-panel benchmark comparisons, not universal performance guarantees.
+At the **principal BMC setting** (`alpha=delta=0.10`), GoCo-M released **6.3--15.6%** more reference-supported annotations than Multilabel across Wainberg, Sanger, DRIVE and HAP1. GoCo-N gained **34.0%** on FunMap and **35.4%** on STRING. The original `delta=0.50` analyses are retained as supplementary benchmarks.
+
+## BMC Bioinformatics submission (15 November 2026)
+
+The BMC revision adds matched-certification-fold comparisons on six panels and a fixed-resolution ordering ablation on four module panels (100 splits each). Both are documented and verified from archived split results.
+
+- [Updated ablation and paired reproducibility bundle](bmc_analysis/GoCo_BMC_Reproducibility_Extension_2026-11-15.tar.gz)
+- [Current official publisher-template LaTeX sources and figures](paper/bmc_2026-11-15/GoCo_BMC_Official_Sources_2026-11-15.tar.gz)
+- [Verification and reproduction instructions](BMC_RELEASE_2026-11-15.md)
+
+The repository's existing code, frozen predictor inputs, 100-split fold assignments and original benchmark outputs are preserved. The final BMC source archive contains the current principal `delta=0.10` manuscript and supplement. The new data archive contains all 400 ablation splits, 800 paired differences, scripts and verification checks.
 
 ## Current file layout
 
@@ -42,7 +52,7 @@ python code/verify_release.py
 
 The table builder recalculates the numeric cells from the stored analysis outputs. The authors' current captions, notes, and expected displayed numbers in `paper/table_specs.json` are used for formatting and verification, not as calculation inputs. Figures are drawn by Python/Matplotlib; no generative-image model or pre-existing illustration is used by their builders. Figure 4 uses **Multilabel** as its percentage-gain denominator. The sensitivity-figure formatting and colours match the submitted version; the workflow remains the original Python-generated figure.
 
-The 28 September 2026 submission has two main tables and thirteen supplementary tables. Constants, the method inventory and the delta=0.50 sweep are Tables S11, S12 and S13, respectively. Internal intermediate table filenames in the calculation scripts retain their historical names; paper/table_specs.json maps them to the current publication filenames. Numerical calculations and stored analysis results are unchanged. The paper/submission/ directory contains the checked manuscript PDFs and a clean source archive, not internal review or redline material. Its source archive includes the five figures actually referenced by the TeX files and the class, cross-reference sidecars and build helper needed to compile them. This synchronization does not update Zenodo.
+The archived September submission has two main tables and thirteen supplementary tables; the final November BMC tables are in the new source archive. Constants, the method inventory and the delta=0.50 sweep are Tables S11, S12 and S13, respectively. Internal intermediate table filenames in the calculation scripts retain their historical names; paper/table_specs.json maps them to the current publication filenames. Numerical calculations and stored analysis results are unchanged. The paper/submission/ directory contains the checked manuscript PDFs and a clean source archive, not internal review or redline material. Its source archive includes the five figures actually referenced by the TeX files and the class, cross-reference sidecars and build helper needed to compile them. The manuscript uses a pinned GitHub commit/release for this submission.
 
 ## Recompute analyses
 
@@ -72,10 +82,10 @@ A summary/table rebuild is not a full raw-input rerun. The verification tools re
 
 ## Large inputs and archive
 
-`funmap/funmap_gene_go_scores.csv.gz` and the large files in `string/funmap_view/` are intentionally not committed to Git. They are needed only for a complete raw-input rerun of the neighbourhood-family analyses; the repository retains the corresponding stored split-level outputs, reconstruction code, checksums, and verification tools used for the manuscript. The Zenodo record under the stable concept DOI **10.5281/zenodo.22677009** archives the tracked GitHub software release and therefore does not add files that are intentionally absent from Git. The small STRING-view checksum and instruction files remain here so the omitted inputs are explicit.
+`funmap/funmap_gene_go_scores.csv.gz` and the large files in `string/funmap_view/` are intentionally not committed to Git. They are needed only for a complete raw-input rerun of the neighbourhood-family analyses; the repository retains the corresponding stored split-level outputs, reconstruction code, checksums, and verification tools used for the manuscript. The small STRING-view checksum and instruction files remain here so the omitted inputs are explicit.
 
 `CODE_FREEZE.md` records checksums for the tracked release files. Original data-source, GO snapshot, and target-exclusion details are documented in the manuscript and source code.
 
 ## License and citation
 
-Code is released under the MIT License. Cite the manuscript and archived software using `CITATION.cff`, which retains the stable concept DOI.
+Code is released under the MIT License. Cite the manuscript and the pinned GitHub BMC release using `CITATION.cff`.
