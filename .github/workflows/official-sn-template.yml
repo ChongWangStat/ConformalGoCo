@@ -1,0 +1,28 @@
+name: Obtain official Springer Nature submission template
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths: ['.github/workflows/official-sn-template.yml']
+permissions:
+  contents: read
+jobs:
+  template:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download and verify publisher LaTeX template
+        shell: bash
+        run: |
+          mkdir -p publisher_template
+          curl --fail --location --retry 3 --max-time 60 'https://cms-resources.apps.public.k8s.springernature.io/springer-cms/rest/v1/content/18782940/data/v12' --output publisher_template/springer-nature-latex-official.zip
+          unzip -t publisher_template/springer-nature-latex-official.zip
+          mkdir publisher_template/unpacked
+          unzip -oq publisher_template/springer-nature-latex-official.zip -d publisher_template/unpacked
+          find publisher_template/unpacked -name 'sn-jnl.cls' -print | grep 'sn-jnl.cls'
+          sha256sum publisher_template/springer-nature-latex-official.zip > publisher_template/publisher-sha256.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: springer-nature-official-latex-template
+          path: publisher_template/
+          retention-days: 3
